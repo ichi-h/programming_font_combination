@@ -1,0 +1,18 @@
+.editor {
+
+}
+
+  .editor .font-list {
+    font-size: 1.5rem
+  }
+
+  .editor .settings {
+    height: 5vh;
+    font-size: 1.5rem;
+  }
+
+  .editor .CodeMirror {
+    font-family: Monaco, 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+    font-size: 14pt;
+    height: 95vh;
+  }

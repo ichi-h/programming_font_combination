@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
+import { ChakraProvider } from "@chakra-ui/react";
 
 import Header from './components/Header';
 import Editor from './components/Editor';
@@ -10,9 +11,11 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
-    <Editor />
-    <Footer />
+    <ChakraProvider>
+      <Header />
+      <Editor />
+      <Footer />
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
