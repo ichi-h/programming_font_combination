@@ -6,7 +6,7 @@ import './Editor.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 
-import FontSelector from './Editor/FontList';
+import FontSelector from './Editor/FontSelector';
 import Settings from './Editor/Settings';
 
 function Editor() {
