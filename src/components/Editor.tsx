@@ -16,7 +16,7 @@ function Editor() {
   const [value, setValue] = useState('console.log("Hello!");');
   const [currentFont, setCurrentFont] = useState([0, 0]);
   const [theme, setTheme] = useState("base16-dark");
-  const [fontSize, setFontSize] = useState(16);
+  const [fontSize, setFontSize] = useState(18);
 
   return (
     <div className="editor">
@@ -37,17 +37,19 @@ function Editor() {
             setTheme={setTheme}
             setFontSize={setFontSize}
           />
-          <CodeMirror
-            value={value}
-            options={{
-              mode: 'javascript',
-              theme: theme,
-              lineNumbers: true
-            }}
-            onBeforeChange={(editor, data, value) => {
-              setValue(value);
-            }}
-          />
+          <div style={{ fontSize: fontSize }}>
+            <CodeMirror
+              value={value}
+              options={{
+                mode: 'javascript',
+                theme: theme,
+                lineNumbers: true
+              }}
+              onBeforeChange={(editor, data, value) => {
+                setValue(value);
+              }}
+            />
+          </div>
         </GridItem>
       </Grid>
     </div>

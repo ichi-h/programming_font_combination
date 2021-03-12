@@ -27,7 +27,11 @@ function Settings(props: SettingsProps) {
           <p>Font Size</p>
         </GridItem>
         <GridItem colSpan={2}>
-          <NumberInput defaultValue={16} min={1}>
+          <NumberInput
+            value={props.fontSize}
+            min={1}
+            onChange={(e) => props.setFontSize(Number(e))}
+          >
             <NumberInputField />
             <NumberInputStepper>
               <NumberIncrementStepper />
