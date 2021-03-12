@@ -1,6 +1,6 @@
 import SimpleBar from 'simplebar-react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react"
+import { Radio, RadioGroup } from "@chakra-ui/react"
 
 import 'simplebar/dist/simplebar.min.css';
 import fontListJson from '../../assets/json/fontlist.json';
@@ -11,9 +11,40 @@ interface FontSelectorProps {
 }
 
 function FontSelector(props: FontSelectorProps) {
-  let currentFontCopy = props.currentFont;
+  function renderFontList(lang: string): JSX.Element[] {
+    let fontJson;
+
+    if (lang === 'eng') {
+      fontJson = fontListJson.eng;
+    }
+    else if (lang === 'jpn') {
+      fontJson = fontListJson.jpn;
+    }
+
+    let items = [];
+
+    for (let i in fontJson) {
+      let fontName = fontJson[Number(i)];
+
+      items.push(
+        <div className="font-item">
+          <Radio
+            value={i}
+            name={lang + '-radio'}
+            onClick={() => updateCurrentFont(lang, Number(i))}
+          >
+            {fontName}
+          </Radio>
+        </div>
+      );
+    }
+
+    return items;
+  }
 
   function updateCurrentFont(lang: string, num: number) {
+    let currentFontCopy = props.currentFont;
+
     if (lang === 'eng') {
       currentFontCopy[0] = num;
     }
@@ -22,37 +53,23 @@ function FontSelector(props: FontSelectorProps) {
     }
 
     props.setCurrentFont(currentFontCopy);
+
+    console.log(currentFontCopy);
   }
 
-  function FontList(props: { lang: string }) {
-    let fontJson;
+  function FontList(args: { lang: string }) {
+    let items = renderFontList(args.lang);
 
-    if (props.lang === 'eng') {
-      fontJson = fontListJson.eng;
-    }
-    else if (props.lang === 'jpn') {
-      fontJson = fontListJson.jpn;
-    }
-
-    let items = [];
-
-    for (let i in fontJson) {
-      let item = fontJson[Number(i)];
-
-      items.push(
-        <div className="font-item">
-          <Button
-            variant="link"
-            onClick={() => { updateCurrentFont(props.lang, Number(i)) }}
-          >
-            {item}
-          </Button>
-        </div>
-      );
-    }
+    let value;
+    if (args.lang === 'eng') value = props.currentFont[0];
+    else if (args.lang === 'jpn') value = props.currentFont[1];
 
     return (
-      <div className={props.lang + '-font'}>{items}</div>
+      <div className={args.lang + '-font'}>
+        <RadioGroup defaultValue={value}>
+          {items}
+        </RadioGroup>
+      </div>
     );
   }
 
