@@ -53,8 +53,6 @@ function FontSelector(props: FontSelectorProps) {
     }
 
     props.setCurrentFont(currentFontCopy);
-
-    console.log(currentFontCopy);
   }
 
   function FontList(args: { lang: string }) {
@@ -66,7 +64,7 @@ function FontSelector(props: FontSelectorProps) {
 
     return (
       <div className={args.lang + '-font'}>
-        <RadioGroup defaultValue={value}>
+        <RadioGroup defaultValue={String(value)}>
           {items}
         </RadioGroup>
       </div>
