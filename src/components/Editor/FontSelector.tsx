@@ -11,7 +11,17 @@ interface FontSelectorProps {
 }
 
 function FontSelector(props: FontSelectorProps) {
-  function updateCurrentFont(item: number[]) {
+  let currentFontCopy = props.currentFont;
+
+  function updateCurrentFont(lang: string, num: number) {
+    if (lang === 'eng') {
+      currentFontCopy[0] = num;
+    }
+    else if (lang === 'jpn') {
+      currentFontCopy[1] = num;
+    }
+
+    props.setCurrentFont(currentFontCopy);
   }
 
   function FontList(props: { lang: string }) {
@@ -33,7 +43,7 @@ function FontSelector(props: FontSelectorProps) {
         <div className="font-item">
           <Button
             variant="link"
-            onClick={() => { updateCurrentFont([0, 0]) }}
+            onClick={() => { updateCurrentFont(props.lang, Number(i)) }}
           >
             {item}
           </Button>
