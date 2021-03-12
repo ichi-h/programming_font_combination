@@ -4,17 +4,20 @@ import { Grid, GridItem } from "@chakra-ui/react";
 
 import './Editor.css';
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/monokai.css';
+import 'codemirror/theme/base16-dark.css';
+import 'codemirror/theme/base16-light.css';
 
 import FontSelector from './Editor/FontSelector';
 import Settings from './Editor/Settings';
+
+require('codemirror/mode/javascript/javascript.js');
 
 function Editor() {
   const [value, setValue] = useState('console.log("Hello!");');
   const [currentFont, setCurrentFont] = useState([0, 0]);
   const [options, setOptions] = useState({
     mode: 'javascript',
-    theme: 'monokai',
+    theme: 'base16-dark',
     lineNumbers: true
   });
 
@@ -37,8 +40,6 @@ function Editor() {
             options={options}
             onBeforeChange={(editor, data, value) => {
               setValue(value);
-            }}
-            onChange={(editor, data, value) => {
             }}
           />
         </GridItem>
