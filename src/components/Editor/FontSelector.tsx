@@ -1,6 +1,7 @@
 import SimpleBar from 'simplebar-react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { Radio, RadioGroup } from "@chakra-ui/react"
+import { Button } from "@chakra-ui/react"
 
 import 'simplebar/dist/simplebar.min.css';
 import fontListJson from '../../assets/json/fontlist.json';
@@ -35,6 +36,11 @@ function FontSelector(props: FontSelectorProps) {
           >
             {fontName}
           </Radio>
+          <br />
+          <div className="buttons">
+            <Button><i className="icon-link"></i></Button>
+            <Button><i className="icon-heart"></i></Button>
+          </div>
         </div>
       );
     }
