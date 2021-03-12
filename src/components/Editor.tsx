@@ -31,7 +31,7 @@ function Editor() {
         </GridItem>
 
         <GridItem className="right" colSpan={5}>
-          <Settings />
+          <Settings options={options} setOptions={setOptions} />
           <CodeMirror
             value={value}
             options={options}
