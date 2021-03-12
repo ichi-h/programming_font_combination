@@ -11,7 +11,7 @@ import Settings from './Editor/Settings';
 
 function Editor() {
   const [value, setValue] = useState('console.log("Hello!");');
-  const [addedFont, setAddedfont] = useState([""]);
+  const [currentFont, setCurrentFont] = useState([0, 0]);
   const [options, setOptions] = useState({
     mode: 'javascript',
     theme: 'monokai',
@@ -27,7 +27,7 @@ function Editor() {
         gap={0}
       >
         <GridItem className="left" colSpan={1}>
-          <FontSelector addedFont={addedFont} setAddedfont={setAddedfont} />
+          <FontSelector currentFont={currentFont} setCurrentFont={setCurrentFont} />
         </GridItem>
 
         <GridItem className="right" colSpan={5}>
