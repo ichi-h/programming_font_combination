@@ -6,11 +6,12 @@ import './Editor.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 
-import FontList from './Editor/FontList';
+import FontSelector from './Editor/FontList';
 import Settings from './Editor/Settings';
 
 function Editor() {
   const [value, setValue] = useState('console.log("Hello!");');
+  const [addedFont, setAddedfont] = useState([""]);
   const [options, setOptions] = useState({
     mode: 'javascript',
     theme: 'monokai',
@@ -26,7 +27,7 @@ function Editor() {
         gap={0}
       >
         <GridItem className="left" colSpan={1}>
-          <FontList />
+          <FontSelector addedFont={addedFont} setAddedfont={setAddedfont} />
         </GridItem>
 
         <GridItem className="right" colSpan={5}>
