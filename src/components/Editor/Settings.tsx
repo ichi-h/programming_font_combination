@@ -9,12 +9,10 @@ import {
 } from "@chakra-ui/react"
 
 interface SettingsProps {
-  options: object,
-  setOptions: React.Dispatch<React.SetStateAction<{
-    mode: string;
-    theme: string;
-    lineNumbers: boolean;
-  }>>
+  theme: string,
+  fontSize: number,
+  setTheme: React.Dispatch<React.SetStateAction<string>>,
+  setFontSize: React.Dispatch<React.SetStateAction<number>>
 }
 
 function Settings(props: SettingsProps) {
@@ -42,8 +40,13 @@ function Settings(props: SettingsProps) {
           <p>Theme</p>
         </GridItem>
         <GridItem colSpan={2}>
-          <Select className="selector theme" placeholder="base16-dark">
-            <option value="option1">base16-light</option>
+          <Select
+            className="selector theme"
+            defaultValue="base16-dark"
+            onChange={(e) => props.setTheme(e.target.value)}
+          >
+            <option value="base16-dark">base16-dark</option>
+            <option value="base16-light">base16-light</option>
           </Select>
         </GridItem>
       </Grid>

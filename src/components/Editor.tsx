@@ -15,11 +15,8 @@ require('codemirror/mode/javascript/javascript.js');
 function Editor() {
   const [value, setValue] = useState('console.log("Hello!");');
   const [currentFont, setCurrentFont] = useState([0, 0]);
-  const [options, setOptions] = useState({
-    mode: 'javascript',
-    theme: 'base16-dark',
-    lineNumbers: true
-  });
+  const [theme, setTheme] = useState("base16-dark");
+  const [fontSize, setFontSize] = useState(16);
 
   return (
     <div className="editor">
@@ -34,10 +31,19 @@ function Editor() {
         </GridItem>
 
         <GridItem className="right" colSpan={5}>
-          <Settings options={options} setOptions={setOptions} />
+          <Settings
+            theme={theme}
+            fontSize={fontSize}
+            setTheme={setTheme}
+            setFontSize={setFontSize}
+          />
           <CodeMirror
             value={value}
-            options={options}
+            options={{
+              mode: 'javascript',
+              theme: theme,
+              lineNumbers: true
+            }}
             onBeforeChange={(editor, data, value) => {
               setValue(value);
             }}
