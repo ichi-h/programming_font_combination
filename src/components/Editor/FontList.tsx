@@ -1,29 +1,45 @@
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
+import { useState } from 'react';
+import SimpleBar from 'simplebar-react';
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react"
 
+import 'simplebar/dist/simplebar.min.css';
 import fontListJson from '../../assets/json/fontlist.json';
 
 function FontList() {
+  let [addedFont, setAddedfont] = useState({list: []});
+
   function ENGFonts() {
-    let list = [];
+    let EngList = [];
   
     for (let i in fontListJson.eng) {
-      list.push(<p>{fontListJson.eng[i]}</p>);
+      EngList.push(
+        <div className="font-item">
+          <p>{fontListJson.eng[i]}</p>
+          <Button>Add!</Button>
+        </div>
+      );
     }
   
     return (
-      <div className="eng-font">{list}</div>
+      <div className="eng-fonts">{EngList}</div>
     );
   }
   
   function JPNFonts() {
-    let list = [];
+    let JpnList = [];
   
     for (let i in fontListJson.jpn) {
-      list.push(<p>{fontListJson.jpn[i]}</p>);
+      JpnList.push(
+        <div className="font-item">
+          <p>{fontListJson.jpn[i]}</p>
+          <Button>Add!</Button>
+        </div>
+      );
     }
   
     return (
-      <div className="jpn-font">{list}</div>
+      <div className="jpn-fonts">{JpnList}</div>
     );
   }
   
@@ -42,11 +58,13 @@ function FontList() {
           <Tab>Added</Tab>
         </TabList>
 
-        <TabPanels>
-          <TabPanel><ENGFonts /></TabPanel>
-          <TabPanel><JPNFonts /></TabPanel>
-          <TabPanel><Added /></TabPanel>
-        </TabPanels>
+        <SimpleBar style={{ maxHeight: "95vh" }}>
+          <TabPanels>
+            <TabPanel><ENGFonts /></TabPanel>
+            <TabPanel><JPNFonts /></TabPanel>
+            <TabPanel><Added /></TabPanel>
+          </TabPanels>
+        </SimpleBar>
       </Tabs>
     </div>
   );
