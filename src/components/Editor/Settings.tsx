@@ -21,7 +21,6 @@ function Settings(props: SettingsProps) {
   return (
     <div className="settings">
       <Grid
-        h="100"
         templateRows="repeat(1, 1fr)"
         templateColumns="repeat(15, 1fr)"
         gap={5}
