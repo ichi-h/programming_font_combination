@@ -6,6 +6,10 @@
     font-size: 1.5rem
   }
 
+  .chakra-tabs__tablist.css-dimqmj {
+    height: 5vh;
+  }
+
   .editor .settings {
     height: 5vh;
     font-size: 1.5rem;
