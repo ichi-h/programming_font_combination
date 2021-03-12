@@ -1,24 +1,38 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
 
-function ENGFonts() {
-  return (
-    <div className="eng-font">Eng</div>
-  );
-}
-
-function JPNFonts() {
-  return (
-    <div className="jpn-font">Jpn</div>
-  );
-}
-
-function Added() {
-  return (
-    <div className="Added">Added</div>
-  );
-}
+import fontListJson from '../../assets/json/fontlist.json';
 
 function FontList() {
+  function ENGFonts() {
+    let list = [];
+  
+    for (let i in fontListJson.eng) {
+      list.push(<p>{fontListJson.eng[i]}</p>);
+    }
+  
+    return (
+      <div className="eng-font">{list}</div>
+    );
+  }
+  
+  function JPNFonts() {
+    let list = [];
+  
+    for (let i in fontListJson.jpn) {
+      list.push(<p>{fontListJson.jpn[i]}</p>);
+    }
+  
+    return (
+      <div className="jpn-font">{list}</div>
+    );
+  }
+  
+  function Added() {
+    return (
+      <div className="Added">Added</div>
+    );
+  }
+
   return (
     <div className="font-list">
       <Tabs>
