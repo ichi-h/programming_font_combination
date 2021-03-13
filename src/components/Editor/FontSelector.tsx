@@ -18,11 +18,11 @@ function FontSelector(props: FontSelectorProps) {
   const favoArray = [Array(engLength).fill(false), Array(jpnLength).fill(false)]
   const [favoValue, setFavoValue] = useState(favoArray);
 
-  function renderFontList(lang: string): JSX.Element[] {
-    let fontJson;
+  function FontList(args: { lang: string}) {
+    let fontJson: string[];
     let index: number;
 
-    if (lang === 'eng') {
+    if (args.lang === 'eng') {
       fontJson = fontListJson.eng;
       index = 0;
     }
@@ -31,37 +31,41 @@ function FontSelector(props: FontSelectorProps) {
       index = 1;
     }
 
-    let items = [];
     let iter = makeIter(fontJson, index);
 
-    for (let i of iter) {
-      let fontName = fontJson[i];
-
-      items.push(
-        <div className="font-item">
-          <Radio
-            value={fontName}
-            name={lang + '-radio'}
-          >
-            {fontName}
-          </Radio>
-          <br />
-          <div className="buttons">
-            <Button variant="link"><i className="icon-link"></i></Button>
-            <input
-              id={'favo-' + i}
-              type="checkbox"
-              name="favorite"
-              defaultChecked={favoValue[index][i]}
-              onChange={() => { updateFavoValue(index, i) }}
-            />
-            <label htmlFor={'favo-' + i}><i id={'favo-icon-' + i} className="icon-heart" /></label>
-          </div>
-        </div>
-      );
-    }
-
-    return items;
+    return (
+      <div className={args.lang + '-font'}>
+        <RadioGroup
+          defaultValue={props.currentFont[index]}
+          onChange={(e) => updateCurrentFont(String(e))}
+        >
+          { iter.map(i => {
+            return (<div className="font-item">
+              <Radio
+                value={fontJson[i]}
+                name={args.lang + '-radio'}
+              >
+                {fontJson[i]}
+              </Radio>
+              <br />
+              <div className="buttons">
+                <Button variant="link"><i className="icon-link"></i></Button>
+                <input
+                  id={args.lang + '-favo-' + i}
+                  type="checkbox"
+                  name="favorite"
+                  defaultChecked={favoValue[index][i]}
+                  onChange={() => { updateFavoValue(index, i); }}
+                />
+                <label htmlFor={'favo-' + i}>
+                  <i id={'favo-icon-' + i} className="icon-heart" />
+                </label>
+              </div>
+            </div>);
+          }) }
+        </RadioGroup>
+      </div>
+    );
   }
 
   function makeIter(list: string[], index: number): number[] {
@@ -102,25 +106,6 @@ function FontSelector(props: FontSelectorProps) {
     favoValueCopy[index][num] = !favoValueCopy[index][num];
     
     setFavoValue(favoValueCopy);
-  }
-
-  function FontList(args: { lang: string }) {
-    let items = renderFontList(args.lang);
-
-    let index;
-    if (args.lang === 'eng') index = 0;
-    else index = 1;
-
-    return (
-      <div className={args.lang + '-font'}>
-        <RadioGroup
-          defaultValue={props.currentFont[index]}
-          onChange={(e) => updateCurrentFont(String(e))}
-        >
-          {items}
-        </RadioGroup>
-      </div>
-    );
   }
 
   return (
