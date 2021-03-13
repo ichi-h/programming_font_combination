@@ -41,7 +41,7 @@ function FontSelector(props: FontSelectorProps) {
           <Radio
             value={i}
             name={lang + '-radio'}
-            onClick={() => updateCurrentFont(lang, Number(i))}
+            onClick={() => updateCurrentFont(index, Number(i))}
           >
             {fontName}
           </Radio>
@@ -64,15 +64,10 @@ function FontSelector(props: FontSelectorProps) {
     return items;
   }
 
-  function updateCurrentFont(lang: string, num: number) {
+  function updateCurrentFont(index: number, num: number) {
     let currentFontCopy = props.currentFont;
-
-    if (lang === 'eng') {
-      currentFontCopy[0] = num;
-    }
-    else if (lang === 'jpn') {
-      currentFontCopy[1] = num;
-    }
+    
+    currentFontCopy[index] = num;
 
     props.setCurrentFont(currentFontCopy);
   }
@@ -83,7 +78,6 @@ function FontSelector(props: FontSelectorProps) {
     favoValueCopy[index][num] = !favoValueCopy[index][num];
     
     setFavoValue(favoValueCopy);
-    console.log(favoValueCopy[0], favoValueCopy[1]);
   }
 
   function FontList(args: { lang: string }) {
