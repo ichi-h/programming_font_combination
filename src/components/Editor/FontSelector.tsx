@@ -32,16 +32,16 @@ function FontSelector(props: FontSelectorProps) {
     }
 
     let items = [];
+    let iter = makeIter(fontJson, index);
 
-    for (let i in fontJson) {
-      let fontName = fontJson[Number(i)];
+    for (let i of iter) {
+      let fontName = fontJson[i];
 
       items.push(
         <div className="font-item">
           <Radio
-            value={i}
+            value={fontName}
             name={lang + '-radio'}
-            onClick={() => updateCurrentFont(index, Number(i))}
           >
             {fontName}
           </Radio>
@@ -52,8 +52,8 @@ function FontSelector(props: FontSelectorProps) {
               id={'favo-' + i}
               type="checkbox"
               name="favorite"
-              defaultChecked={favoValue[index][Number(i)]}
-              onChange={() => updateFavoValue(index, Number(i))}
+              defaultChecked={favoValue[index][i]}
+              onChange={() => { updateFavoValue(index, i) }}
             />
             <label htmlFor={'favo-' + i}><i id={'favo-icon-' + i} className="icon-heart" /></label>
           </div>
@@ -62,6 +62,24 @@ function FontSelector(props: FontSelectorProps) {
     }
 
     return items;
+  }
+
+  function makeIter(list: string[], index: number): number[] {
+    let likedNum = [];
+    let unlikedNum = [];
+
+    for (let i = 0; i < list.length; i++) {
+      if (favoValue[index][i]) {
+        likedNum.push(i);
+      }
+      else {
+        unlikedNum.push(i);
+      }
+    }
+
+    let iter = likedNum.concat(unlikedNum);
+
+    return iter;
   }
 
   function updateCurrentFont(index: number, num: number) {
