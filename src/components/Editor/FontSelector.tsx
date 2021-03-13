@@ -12,7 +12,11 @@ interface FontSelectorProps {
   setCurrentFont: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-function FontSelector(props: FontSelectorProps) {
+interface FontListProps extends FontSelectorProps {
+  lang: string,
+}
+
+function FontList(props: FontListProps) {
   const engLength = fontListJson.eng.length;
   const jpnLength = fontListJson.jpn.length;
   const favArray = [Array(engLength).fill(false), Array(jpnLength).fill(false)]
@@ -22,62 +26,6 @@ function FontSelector(props: FontSelectorProps) {
     useRef() as React.MutableRefObject<HTMLInputElement>,
     useRef() as React.MutableRefObject<HTMLInputElement>
   ];
-
-  function FontList(args: { lang: string}) {
-    let fontJson: string[];
-    let index: number;
-
-    if (args.lang === 'eng') {
-      fontJson = fontListJson.eng;
-      index = 0;
-    }
-    else {
-      fontJson = fontListJson.jpn;
-      index = 1;
-    }
-
-    let iter = makeIter(fontJson, index);
-
-    return (
-      <div className={args.lang + '-font'}>
-        <RadioGroup
-          defaultValue={props.currentFont[index]}
-          onChange={(e) => updateCurrentFont(String(e))}
-          ref={fontItemsRef[index]}
-        >
-        {
-          iter.map(i => { return (
-            <div className={args.lang + '-font-item-' + i}>
-              <Radio
-                value={fontJson[i]}
-                name={args.lang + '-radio'}
-              >
-                {fontJson[i]}
-              </Radio>
-              <br />
-              <div className="buttons">
-                <Button variant="link"><i className="icon-link"></i></Button>
-                <input
-                  id={args.lang + '-fav-' + i}
-                  type="checkbox"
-                  name="favrite"
-                  defaultChecked={favValue[index][i]}
-                  onChange={() => {
-                    updatefavValue(index, i);
-                    sortItems(index);
-                  }}
-                />
-                <label htmlFor={args.lang + '-fav-' + i}>
-                  <i id={args.lang + 'fav-icon-' + i} className="icon-heart" />
-                </label>
-              </div>
-            </div>
-          );})
-        }
-        </RadioGroup>
-      </div>
-    );
-  }
 
   function makeIter(list: string[], index: number): number[] {
     let likedNum = [];
@@ -145,6 +93,62 @@ function FontSelector(props: FontSelectorProps) {
     }
   }
 
+  let fontJson: string[];
+  let index: number;
+
+  if (props.lang === 'eng') {
+    fontJson = fontListJson.eng;
+    index = 0;
+  }
+  else {
+    fontJson = fontListJson.jpn;
+    index = 1;
+  }
+
+  let iter = makeIter(fontJson, index);
+
+  return (
+    <div className={props.lang + '-font'}>
+      <RadioGroup
+        defaultValue={props.currentFont[index]}
+        onChange={(e) => updateCurrentFont(String(e))}
+        ref={fontItemsRef[index]}
+      >
+      {
+        iter.map(i => { return (
+          <div className={props.lang + '-font-item-' + i}>
+            <Radio
+              value={fontJson[i]}
+              name={props.lang + '-radio'}
+            >
+              {fontJson[i]}
+            </Radio>
+            <br />
+            <div className="buttons">
+              <Button variant="link"><i className="icon-link"></i></Button>
+              <input
+                id={props.lang + '-fav-' + i}
+                type="checkbox"
+                name="favrite"
+                defaultChecked={favValue[index][i]}
+                onChange={() => {
+                  updatefavValue(index, i);
+                  sortItems(index);
+                }}
+              />
+              <label htmlFor={props.lang + '-fav-' + i}>
+                <i id={props.lang + 'fav-icon-' + i} className="icon-heart" />
+              </label>
+            </div>
+          </div>
+        );})
+      }
+      </RadioGroup>
+    </div>
+  );
+}
+
+function FontSelector(props: FontSelectorProps) {
   return (
     <div className="font-selector">
       <Tabs>
@@ -155,8 +159,20 @@ function FontSelector(props: FontSelectorProps) {
 
         <SimpleBar style={{ height: "95vh" }}>
           <TabPanels>
-            <TabPanel><FontList lang="eng" /></TabPanel>
-            <TabPanel><FontList lang="jpn" /></TabPanel>
+            <TabPanel>
+              <FontList
+                lang="eng"
+                currentFont={props.currentFont}
+                setCurrentFont={props.setCurrentFont}
+              />
+            </TabPanel>
+            <TabPanel>
+              <FontList
+                lang="jpn"
+                currentFont={props.currentFont}
+                setCurrentFont={props.setCurrentFont}
+              />
+            </TabPanel>
           </TabPanels>
         </SimpleBar>
       </Tabs>
