@@ -39,8 +39,9 @@ function FontSelector(props: FontSelectorProps) {
           defaultValue={props.currentFont[index]}
           onChange={(e) => updateCurrentFont(String(e))}
         >
-          { iter.map(i => {
-            return (<div className="font-item">
+        {
+          iter.map(i => { return (
+            <div className="font-item">
               <Radio
                 value={fontJson[i]}
                 name={args.lang + '-radio'}
@@ -61,8 +62,9 @@ function FontSelector(props: FontSelectorProps) {
                   <i id={args.lang + 'fav-icon-' + i} className="icon-heart" />
                 </label>
               </div>
-            </div>);
-          }) }
+            </div>
+          );})
+        }
         </RadioGroup>
       </div>
     );
