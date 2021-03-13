@@ -15,8 +15,8 @@ interface FontSelectorProps {
 function FontSelector(props: FontSelectorProps) {
   const engLength = fontListJson.eng.length;
   const jpnLength = fontListJson.jpn.length;
-  const favoArray = [Array(engLength).fill(false), Array(jpnLength).fill(false)]
-  const [favoValue, setFavoValue] = useState(favoArray);
+  const favArray = [Array(engLength).fill(false), Array(jpnLength).fill(false)]
+  const [favValue, setfavValue] = useState(favArray);
 
   function FontList(args: { lang: string}) {
     let fontJson: string[];
@@ -51,14 +51,14 @@ function FontSelector(props: FontSelectorProps) {
               <div className="buttons">
                 <Button variant="link"><i className="icon-link"></i></Button>
                 <input
-                  id={args.lang + '-favo-' + i}
+                  id={args.lang + '-fav-' + i}
                   type="checkbox"
-                  name="favorite"
-                  defaultChecked={favoValue[index][i]}
-                  onChange={() => { updateFavoValue(index, i); }}
+                  name="favrite"
+                  defaultChecked={favValue[index][i]}
+                  onChange={() => { updatefavValue(index, i); }}
                 />
-                <label htmlFor={'favo-' + i}>
-                  <i id={'favo-icon-' + i} className="icon-heart" />
+                <label htmlFor={args.lang + '-fav-' + i}>
+                  <i id={args.lang + 'fav-icon-' + i} className="icon-heart" />
                 </label>
               </div>
             </div>);
@@ -73,7 +73,7 @@ function FontSelector(props: FontSelectorProps) {
     let unlikedNum = [];
 
     for (let i = 0; i < list.length; i++) {
-      if (favoValue[index][i]) {
+      if (favValue[index][i]) {
         likedNum.push(i);
       }
       else {
@@ -100,12 +100,12 @@ function FontSelector(props: FontSelectorProps) {
     props.setCurrentFont(currentFontCopy);
   }
 
-  function updateFavoValue(index: number, num: number) {
-    let favoValueCopy = favoValue;
+  function updatefavValue(index: number, num: number) {
+    let favValueCopy = favValue;
 
-    favoValueCopy[index][num] = !favoValueCopy[index][num];
+    favValueCopy[index][num] = !favValueCopy[index][num];
     
-    setFavoValue(favoValueCopy);
+    setfavValue(favValueCopy);
   }
 
   return (
