@@ -5,6 +5,7 @@ import { Radio, RadioGroup } from "@chakra-ui/react"
 import { Button } from "@chakra-ui/react"
 
 import 'simplebar/dist/simplebar.min.css';
+import './FontSelector.css';
 import fontListJson from '../../assets/json/fontlist.json';
 
 interface FontSelectorProps {
@@ -123,20 +124,20 @@ function FontList(props: FontListProps) {
             >
               {fontJson[i]}
             </Radio>
-            <br />
             <div className="buttons">
               <Button variant="link"><i className="icon-link"></i></Button>
-              <input
-                id={props.lang + '-fav-' + i}
-                type="checkbox"
-                name="favrite"
-                defaultChecked={favValue[index][i]}
-                onChange={() => {
-                  updatefavValue(index, i);
-                  sortItems(index);
-                }}
-              />
               <label htmlFor={props.lang + '-fav-' + i}>
+                <input
+                  className="fav-button"
+                  id={props.lang + '-fav-' + i}
+                  type="checkbox"
+                  name="favrite"
+                  defaultChecked={favValue[index][i]}
+                  onChange={() => {
+                    updatefavValue(index, i);
+                    sortItems(index);
+                  }}
+                />
                 <i id={props.lang + 'fav-icon-' + i} className="icon-heart" />
               </label>
             </div>
