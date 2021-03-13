@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import SimpleBar from 'simplebar-react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { Radio, RadioGroup } from "@chakra-ui/react"
@@ -12,14 +13,22 @@ interface FontSelectorProps {
 }
 
 function FontSelector(props: FontSelectorProps) {
+  const engLength = fontListJson.eng.length;
+  const jpnLength = fontListJson.jpn.length;
+  const favoArray = [Array(engLength).fill(false), Array(jpnLength).fill(false)]
+  const [favoValue, setFavoValue] = useState(favoArray);
+
   function renderFontList(lang: string): JSX.Element[] {
     let fontJson;
+    let index: number;
 
     if (lang === 'eng') {
       fontJson = fontListJson.eng;
+      index = 0;
     }
-    else if (lang === 'jpn') {
+    else {
       fontJson = fontListJson.jpn;
+      index = 1;
     }
 
     let items = [];
@@ -38,8 +47,15 @@ function FontSelector(props: FontSelectorProps) {
           </Radio>
           <br />
           <div className="buttons">
-            <Button><i className="icon-link"></i></Button>
-            <Button><i className="icon-heart"></i></Button>
+            <Button variant="link"><i className="icon-link"></i></Button>
+            <input
+              id={'favo-' + i}
+              type="checkbox"
+              name="favorite"
+              defaultChecked={favoValue[index][Number(i)]}
+              onChange={() => updateFavoValue(index, Number(i))}
+            />
+            <label htmlFor={'favo-' + i}><i id={'favo-icon-' + i} className="icon-heart" /></label>
           </div>
         </div>
       );
@@ -59,6 +75,15 @@ function FontSelector(props: FontSelectorProps) {
     }
 
     props.setCurrentFont(currentFontCopy);
+  }
+
+  function updateFavoValue(index: number, num: number) {
+    let favoValueCopy = favoValue;
+
+    favoValueCopy[index][num] = !favoValueCopy[index][num];
+    
+    setFavoValue(favoValueCopy);
+    console.log(favoValueCopy[0], favoValueCopy[1]);
   }
 
   function FontList(args: { lang: string }) {
