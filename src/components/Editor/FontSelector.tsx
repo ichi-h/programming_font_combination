@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import SimpleBar from 'simplebar-react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { Radio, RadioGroup } from "@chakra-ui/react"
@@ -17,6 +17,11 @@ function FontSelector(props: FontSelectorProps) {
   const jpnLength = fontListJson.jpn.length;
   const favArray = [Array(engLength).fill(false), Array(jpnLength).fill(false)]
   const [favValue, setfavValue] = useState(favArray);
+
+  let fontItemsRef = [
+    useRef() as React.MutableRefObject<HTMLInputElement>,
+    useRef() as React.MutableRefObject<HTMLInputElement>
+  ];
 
   function FontList(args: { lang: string}) {
     let fontJson: string[];
@@ -38,10 +43,11 @@ function FontSelector(props: FontSelectorProps) {
         <RadioGroup
           defaultValue={props.currentFont[index]}
           onChange={(e) => updateCurrentFont(String(e))}
+          ref={fontItemsRef[index]}
         >
         {
           iter.map(i => { return (
-            <div className="font-item">
+            <div className={args.lang + '-font-item-' + i}>
               <Radio
                 value={fontJson[i]}
                 name={args.lang + '-radio'}
@@ -56,7 +62,10 @@ function FontSelector(props: FontSelectorProps) {
                   type="checkbox"
                   name="favrite"
                   defaultChecked={favValue[index][i]}
-                  onChange={() => { updatefavValue(index, i); }}
+                  onChange={() => {
+                    updatefavValue(index, i);
+                    sortItems(index);
+                  }}
                 />
                 <label htmlFor={args.lang + '-fav-' + i}>
                   <i id={args.lang + 'fav-icon-' + i} className="icon-heart" />
@@ -102,12 +111,38 @@ function FontSelector(props: FontSelectorProps) {
     props.setCurrentFont(currentFontCopy);
   }
 
-  function updatefavValue(index: number, num: number) {
+  function updatefavValue(index: number, checkboxNum: number) {
     let favValueCopy = favValue;
 
-    favValueCopy[index][num] = !favValueCopy[index][num];
-    
+    favValueCopy[index][checkboxNum] = !favValueCopy[index][checkboxNum];
     setfavValue(favValueCopy);
+  }
+
+  function sortItems(index: number) {
+    let lang = ['eng', 'jpn'];
+    let liked = [];
+    let unliked = [];
+
+    for (let i=0; i < favValue[index].length; i++) {
+      let elem = 
+        fontItemsRef[index].current.getElementsByClassName(
+          lang[index] + '-font-item-' + i
+        )[0];
+      
+      if (favValue[index][i]) {
+        liked.push(elem);
+      }
+      else {
+        unliked.push(elem);
+      }
+    }
+
+    let sortedItems = liked.concat(unliked);
+    fontItemsRef[index].current.innerHTML = '';
+
+    for (let item of sortedItems) {
+      fontItemsRef[index].current.appendChild(item);
+    }
   }
 
   return (
