@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Controlled as CodeMirror } from 'react-codemirror2';
+import { UnControlled as CodeMirror } from 'react-codemirror2';
 import { Grid, GridItem } from "@chakra-ui/react";
 
 import './Editor.css';
@@ -14,7 +14,7 @@ import Settings from './Editor/Settings';
 require('codemirror/mode/javascript/javascript.js');
 
 function Editor() {
-  const [value, setValue] = useState('console.log("Hello!");');
+  const value = 'console.log("Hello!");';
   const [theme, setTheme] = useState("base16-dark");
   const [fontSize, setFontSize] = useState(18);
   const [currentFont, setCurrentFont] = useState([
@@ -48,9 +48,6 @@ function Editor() {
                 mode: 'javascript',
                 theme: theme,
                 lineNumbers: true
-              }}
-              onBeforeChange={(editor, data, value) => {
-                setValue(value);
               }}
             />
           </div>
