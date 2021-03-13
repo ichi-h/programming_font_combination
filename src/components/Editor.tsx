@@ -6,6 +6,7 @@ import './Editor.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/base16-dark.css';
 import 'codemirror/theme/base16-light.css';
+import fontListJson from '../assets/json/fontlist.json';
 
 import FontSelector from './Editor/FontSelector';
 import Settings from './Editor/Settings';
@@ -14,9 +15,12 @@ require('codemirror/mode/javascript/javascript.js');
 
 function Editor() {
   const [value, setValue] = useState('console.log("Hello!");');
-  const [currentFont, setCurrentFont] = useState([0, 0]);
   const [theme, setTheme] = useState("base16-dark");
   const [fontSize, setFontSize] = useState(18);
+  const [currentFont, setCurrentFont] = useState([
+    fontListJson.eng[0],
+    fontListJson.jpn[0]
+  ]);
 
   return (
     <div className="editor">

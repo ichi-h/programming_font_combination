@@ -8,8 +8,8 @@ import 'simplebar/dist/simplebar.min.css';
 import fontListJson from '../../assets/json/fontlist.json';
 
 interface FontSelectorProps {
-  currentFont: number[],
-  setCurrentFont: React.Dispatch<React.SetStateAction<number[]>>
+  currentFont: string[],
+  setCurrentFont: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 function FontSelector(props: FontSelectorProps) {
@@ -82,10 +82,16 @@ function FontSelector(props: FontSelectorProps) {
     return iter;
   }
 
-  function updateCurrentFont(index: number, num: number) {
+  function updateCurrentFont(fontName: string) {
     let currentFontCopy = props.currentFont;
-    
-    currentFontCopy[index] = num;
+    let index = fontListJson.eng.indexOf(fontName) ;
+
+    if (index !== -1) {
+      currentFontCopy[0] = fontName;
+    }
+    else {
+      currentFontCopy[1] = fontName;
+    }
 
     props.setCurrentFont(currentFontCopy);
   }
@@ -101,13 +107,16 @@ function FontSelector(props: FontSelectorProps) {
   function FontList(args: { lang: string }) {
     let items = renderFontList(args.lang);
 
-    let value;
-    if (args.lang === 'eng') value = props.currentFont[0];
-    else if (args.lang === 'jpn') value = props.currentFont[1];
+    let index;
+    if (args.lang === 'eng') index = 0;
+    else index = 1;
 
     return (
       <div className={args.lang + '-font'}>
-        <RadioGroup defaultValue={String(value)}>
+        <RadioGroup
+          defaultValue={props.currentFont[index]}
+          onChange={(e) => updateCurrentFont(String(e))}
+        >
           {items}
         </RadioGroup>
       </div>
