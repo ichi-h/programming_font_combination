@@ -8,6 +8,8 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react';
 
+import './Settings.css';
+
 interface SettingsProps {
   theme: string,
   fontSize: number,
@@ -24,7 +26,7 @@ function Settings(props: SettingsProps) {
         gap={5}
       >
         <GridItem colSpan={1}>
-          <p>Font Size</p>
+          <p className="setting-item">Font Size</p>
         </GridItem>
         <GridItem colSpan={2}>
           <NumberInput
@@ -41,7 +43,7 @@ function Settings(props: SettingsProps) {
         </GridItem>
 
         <GridItem colSpan={1}>
-          <p>Theme</p>
+          <p className="setting-item">Theme</p>
         </GridItem>
         <GridItem colSpan={2}>
           <Select
