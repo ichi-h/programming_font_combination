@@ -6,7 +6,7 @@ import { Button } from "@chakra-ui/react"
 
 import 'simplebar/dist/simplebar.min.css';
 import './FontSelector.css';
-import fontListJson from '../../assets/json/fontlist.json';
+import fontListJson, { FontInfo } from '../../assets/json/fontlist.json';
 
 interface FontSelectorProps {
   currentFont: string[],
@@ -28,11 +28,11 @@ function FontList(props: FontListProps) {
     useRef() as React.MutableRefObject<HTMLInputElement>
   ];
 
-  function makeIter(list: string[], index: number): number[] {
+  function makeIter(listLen: number, index: number): number[] {
     let likedNum = [];
     let unlikedNum = [];
 
-    for (let i = 0; i < list.length; i++) {
+    for (let i = 0; i < listLen; i++) {
       if (favValue[index][i]) {
         likedNum.push(i);
       }
@@ -48,7 +48,13 @@ function FontList(props: FontListProps) {
 
   function updateCurrentFont(fontName: string) {
     let currentFontCopy = props.currentFont;
-    let index = fontListJson.eng.indexOf(fontName) ;
+
+    let fontTitles = [];
+    for (let font of fontListJson.eng) {
+      fontTitles.push(font.name);
+    }
+
+    let index = fontTitles.indexOf(fontName);
 
     if (index !== -1) {
       currentFontCopy[0] = fontName;
@@ -94,7 +100,7 @@ function FontList(props: FontListProps) {
     }
   }
 
-  let fontJson: string[];
+  let fontJson: FontInfo[] = [];
   let index: number;
 
   if (props.lang === 'eng') {
@@ -106,7 +112,7 @@ function FontList(props: FontListProps) {
     index = 1;
   }
 
-  let iter = makeIter(fontJson, index);
+  let iter = makeIter(fontJson.length, index);
 
   return (
     <div className={props.lang + '-font'}>
@@ -119,10 +125,10 @@ function FontList(props: FontListProps) {
         iter.map(i => { return (
           <div className={props.lang + '-font-item-' + i}>
             <Radio
-              value={fontJson[i]}
+              value={fontJson[i].name}
               name={props.lang + '-radio'}
             >
-              {fontJson[i]}
+              {fontJson[i].name}
             </Radio>
             <div className="buttons">
               <Button variant="link"><i className="icon-link"></i></Button>

@@ -18,8 +18,8 @@ function Editor() {
   const [theme, setTheme] = useState("base16-dark");
   const [fontSize, setFontSize] = useState(18);
   const [currentFont, setCurrentFont] = useState([
-    fontListJson.eng[0],
-    fontListJson.jpn[0]
+    fontListJson.eng[0].name,
+    fontListJson.jpn[0].name
   ]);
 
   return (
