@@ -136,8 +136,8 @@ const fontListJson: FontListJson =
     {
       name: 'Hack',
       author: 'Source Foundry Authors',
-      license: '\'Bitstream Vera License',
-      website: ' MIT\'',
+      license: 'Bitstream Vera License',
+      website: 'https://sourcefoundry.org/hack/',
       license_link: 'https://sourcefoundry.org/hack/'
     },
     {
@@ -227,8 +227,8 @@ const fontListJson: FontListJson =
     {
       name: 'Monoid',
       author: 'Andreas Larsen and contributors',
-      license: '\'MIT',
-      website: ' OFL\'',
+      license: 'MIT',
+      website: 'https://larsenwork.com/monoid/',
       license_link: 'https://larsenwork.com/monoid/'
     },
     {
@@ -353,109 +353,109 @@ const fontListJson: FontListJson =
   ],
   jpn: [
     {
-      name: "Cica",
-      author: "miiton",
-      license: "OFL-1.1",
-      website: "https://github.com/miiton/Cica",
-      license_link: "https://github.com/miiton/Cica/blob/master/LICENSE.txt"
+      name: 'Cica',
+      author: 'miiton',
+      license: 'OFL-1.1',
+      website: 'https://github.com/miiton/Cica',
+      license_link: 'https://github.com/miiton/Cica/blob/master/LICENSE.txt'
     },
     {
-      name: "Circle M+",
-      author: "itouhiro",
-      license: "M+ FONTS License",
-      website: "https://mix-mplus-ipa.osdn.jp/mplus/",
-      license_link: "https://mix-mplus-ipa.osdn.jp/mplus/LICENSE_E.txt"
+      name: 'Circle M+',
+      author: 'itouhiro',
+      license: 'M+ FONTS License',
+      website: 'https://mix-mplus-ipa.osdn.jp/mplus/',
+      license_link: 'https://mix-mplus-ipa.osdn.jp/mplus/LICENSE_E.txt'
     },
     {
-      name: "M+",
-      author: "森下浩司",
-      license: "M+ FONTS License",
-      website: "http://mplus-fonts.osdn.jp/",
-      license_link: "http://mplus-fonts.osdn.jp/about.html#license"
+      name: 'M+',
+      author: '森下浩司',
+      license: 'M+ FONTS License',
+      website: 'http://mplus-fonts.osdn.jp/',
+      license_link: 'http://mplus-fonts.osdn.jp/about.html#license'
     },
     {
-      name: "Mgen+",
-      author: "自家製フォント工房",
-      license: "OFL-1.1",
-      website: "http://jikasei.me/font/mgenplus/",
-      license_link: "https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
+      name: 'Mgen+',
+      author: '自家製フォント工房',
+      license: 'OFL-1.1',
+      website: 'http://jikasei.me/font/mgenplus/',
+      license_link: 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL'
     },
     {
-      name: "Myrica",
-      author: "プログラミングフォント Myrica / Estable",
-      license: "OFL-1.1",
-      website: "https://myrica.estable.jp/",
-      license_link: "https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
+      name: 'Myrica',
+      author: 'プログラミングフォント Myrica / Estable',
+      license: 'OFL-1.1',
+      website: 'https://myrica.estable.jp/',
+      license_link: 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL'
     },
     {
-      name: "MyricaM",
-      author: "プログラミングフォント Myrica / Estable",
-      license: "OFL-1.1",
-      website: "https://myrica.estable.jp/",
-      license_link: "https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
+      name: 'MyricaM',
+      author: 'プログラミングフォント Myrica / Estable',
+      license: 'OFL-1.1',
+      website: 'https://myrica.estable.jp/',
+      license_link: 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL'
     },
     {
-      name: "Nasu",
-      author: "itouhiro",
-      license: "Apache-2.0",
-      website: "http://itouhiro.hatenablog.com/entry/20140917/font",
-      license_link: "https://www.apache.org/licenses/LICENSE-2.0"
+      name: 'Nasu',
+      author: 'itouhiro',
+      license: 'Apache-2.0',
+      website: 'http://itouhiro.hatenablog.com/entry/20140917/font',
+      license_link: 'https://www.apache.org/licenses/LICENSE-2.0'
     },
     {
-      name: "Ricty Diminished",
-      author: "遊佐泰紀",
-      license: "OFL-1.1",
-      website: "https://github.com/edihbrandon/RictyDiminished",
-      license_link: "https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
+      name: 'Ricty Diminished',
+      author: '遊佐泰紀',
+      license: 'OFL-1.1',
+      website: 'https://github.com/edihbrandon/RictyDiminished',
+      license_link: 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL'
     },
     {
-      name: "Rounded M+",
-      author: "itouhiro",
-      license: "M+ FONTS License",
-      website: "https://mix-mplus-ipa.osdn.jp/mplus/",
-      license_link: "https://mix-mplus-ipa.osdn.jp/mplus/LICENSE_E.txt"
+      name: 'Rounded M+',
+      author: 'itouhiro',
+      license: 'M+ FONTS License',
+      website: 'https://mix-mplus-ipa.osdn.jp/mplus/',
+      license_link: 'https://mix-mplus-ipa.osdn.jp/mplus/LICENSE_E.txt'
     },
     {
-      name: "Rounded Mgen+",
-      author: "自家製フォント工房",
-      license: "OFL-1.1",
-      website: "http://jikasei.me/font/rounded-mgenplus/#_6",
-      license_link: "https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
+      name: 'Rounded Mgen+',
+      author: '自家製フォント工房',
+      license: 'OFL-1.1',
+      website: 'http://jikasei.me/font/rounded-mgenplus/#_6',
+      license_link: 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL'
     },
     {
-      name: "Source Han Code JP",
-      author: "Adobe Fonts",
-      license: "OFL-1.1",
-      website: "https://github.com/adobe-fonts/source-han-code-jp",
-      license_link: "https://github.com/adobe-fonts/source-han-code-jp/blob/master/LICENSE.txt"
+      name: 'Source Han Code JP',
+      author: 'Adobe Fonts',
+      license: 'OFL-1.1',
+      website: 'https://github.com/adobe-fonts/source-han-code-jp',
+      license_link: 'https://github.com/adobe-fonts/source-han-code-jp/blob/master/LICENSE.txt'
     },
     {
-      name: "VLゴシック",
-      author: "鈴木大輔",
-      license: "VL ゴシックフォントファミリライセンス",
-      website: "http://vlgothic.dicey.org/",
-      license_link: "http://vlgothic.dicey.org/license.html"
+      name: 'VLゴシック',
+      author: '鈴木大輔',
+      license: 'VL ゴシックフォントファミリライセンス',
+      website: 'http://vlgothic.dicey.org/',
+      license_link: 'http://vlgothic.dicey.org/license.html'
     },
     {
-      name: "源柔ゴシック",
-      author: "自家製フォント工房",
-      license: "OFL-1.1",
-      website: "http://jikasei.me/font/genjyuu/",
-      license_link: "https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
+      name: '源柔ゴシック',
+      author: '自家製フォント工房',
+      license: 'OFL-1.1',
+      website: 'http://jikasei.me/font/genjyuu/',
+      license_link: 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL'
     },
     {
-      name: "源真ゴシック",
-      author: "自家製フォント工房",
-      license: "OFL-1.1",
-      website: "http://jikasei.me/font/genshin/",
-      license_link: "https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
+      name: '源真ゴシック',
+      author: '自家製フォント工房',
+      license: 'OFL-1.1',
+      website: 'http://jikasei.me/font/genshin/',
+      license_link: 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL'
     },
     {
-      name: "白源",
-      author: "たわら",
-      license: "OFL-1.1",
-      website: "https://github.com/yuru7/HackGen",
-      license_link: "https://github.com/yuru7/HackGen/blob/master/LICENSE.txt"
+      name: '白源',
+      author: 'たわら',
+      license: 'OFL-1.1',
+      website: 'https://github.com/yuru7/HackGen',
+      license_link: 'https://github.com/yuru7/HackGen/blob/master/LICENSE.txt'
     }
   ]
 };
