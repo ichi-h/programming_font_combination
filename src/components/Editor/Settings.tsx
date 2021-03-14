@@ -1,5 +1,6 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { Select } from '@chakra-ui/react';
+import { Center } from '@chakra-ui/react';
 import {
   NumberInput,
   NumberInputField,
@@ -22,38 +23,48 @@ function Settings(props: SettingsProps) {
     <div className="settings">
       <Grid
         templateRows="repeat(1, 1fr)"
-        templateColumns="repeat(15, 1fr)"
+        templateColumns="repeat(12, 1fr)"
         gap={5}
       >
         <GridItem colSpan={1}>
-          <p className="setting-item">Font Size</p>
+          <Center h="6vh">
+            <p className="setting-item">Font Size</p>
+          </Center>
         </GridItem>
         <GridItem colSpan={2}>
-          <NumberInput
-            value={props.fontSize}
-            min={1}
-            onChange={(e) => props.setFontSize(Number(e))}
-          >
-            <NumberInputField />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
+          <Center h="6vh">
+            <NumberInput
+              className="setting-item"
+              size="sm"
+              value={props.fontSize}
+              min={1}
+              onChange={(e) => props.setFontSize(Number(e))}
+            >
+              <NumberInputField />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
+          </Center>
         </GridItem>
 
         <GridItem colSpan={1}>
-          <p className="setting-item">Theme</p>
+          <Center h="6vh">
+            <p className="setting-item">Theme</p>
+          </Center>
         </GridItem>
         <GridItem colSpan={2}>
-          <Select
-            className="selector theme"
-            defaultValue="base16-dark"
-            onChange={(e) => props.setTheme(e.target.value)}
-          >
-            <option value="base16-dark">base16-dark</option>
-            <option value="base16-light">base16-light</option>
-          </Select>
+          <Center h="6vh">
+            <Select
+              size="sm"
+              defaultValue="base16-dark"
+              onChange={(e) => props.setTheme(e.target.value)}
+            >
+              <option value="base16-dark">base16-dark</option>
+              <option value="base16-light">base16-light</option>
+            </Select>
+          </Center>
         </GridItem>
       </Grid>
     </div>

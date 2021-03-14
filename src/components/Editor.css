@@ -6,14 +6,14 @@
   }
 
   .chakra-tabs__tablist.css-dimqmj {
-    height: 5vh;
+    height: 6vh;
   }
 
   .editor .settings {
-    height: 5vh;
+    height: 6vh;
   }
 
   .editor .CodeMirror {
     font-family: Monaco, 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
-    height: 95vh;
+    height: 94vh;
   }
