@@ -3,7 +3,6 @@
 }
 
   .editor .font-selector {
-    font-size: 1.5rem
   }
 
   .chakra-tabs__tablist.css-dimqmj {
@@ -12,7 +11,6 @@
 
   .editor .settings {
     height: 5vh;
-    font-size: 1.5rem;
   }
 
   .editor .CodeMirror {

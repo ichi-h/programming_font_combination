@@ -122,22 +122,25 @@ function FontList(props: FontListProps) {
       {
         iter.map(i => { return (
           <div className={props.lang + '-font-item-' + i}>
-            <Radio
-              className="font-name"
-              value={fontJson[i].name}
-              name={props.lang + '-radio'}
-            >
-              {fontJson[i].name}
-            </Radio>
-            <p className="author">by {fontJson[i].author}</p>
-            <Button
+            <div className="font-info">
+              <div className="font-name">
+                <Radio
+                  value={fontJson[i].name}
+                  name={props.lang + '-radio'}
+                >
+                  {fontJson[i].name}
+                </Radio>
+              </div>
+              <p className="author">by {fontJson[i].author}</p>
+            </div>
+            <div className="buttons">
+              <Button
                 className="font-license"
                 variant="link"
                 onClick={() => { window.open(fontJson[i].license_link) }}
               >
-                {fontJson[i].license}
+                <i className="icon-id-card-o" />
               </Button>
-            <div className="buttons">
               <Button
                 className="font-link"
                 variant="link"

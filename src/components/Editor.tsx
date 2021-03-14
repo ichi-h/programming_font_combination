@@ -27,14 +27,14 @@ function Editor() {
       <Grid
         h="100"
         templateRows="repeat(1, 1fr)"
-        templateColumns="repeat(6, 1fr)"
+        templateColumns="repeat(5, 1fr)"
         gap={0}
       >
         <GridItem className="left" colSpan={1}>
           <FontSelector currentFont={currentFont} setCurrentFont={setCurrentFont} />
         </GridItem>
 
-        <GridItem className="right" colSpan={5}>
+        <GridItem className="right" colSpan={4}>
           <Settings
             theme={theme}
             fontSize={fontSize}
