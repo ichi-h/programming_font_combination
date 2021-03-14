@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from '@chakra-ui/react';
+
+import FontSelector from './Editor/FontSelector';
+import Settings from './Editor/Settings';
 
 import './Editor.css';
 import 'codemirror/lib/codemirror.css';
@@ -8,14 +11,11 @@ import 'codemirror/theme/base16-dark.css';
 import 'codemirror/theme/base16-light.css';
 import fontListJson from '../assets/json/fontlist.json';
 
-import FontSelector from './Editor/FontSelector';
-import Settings from './Editor/Settings';
-
 require('codemirror/mode/javascript/javascript.js');
 
 function Editor() {
   const value = 'console.log("Hello!");';
-  const [theme, setTheme] = useState("base16-dark");
+  const [theme, setTheme] = useState('base16-dark');
   const [fontSize, setFontSize] = useState(18);
   const [currentFont, setCurrentFont] = useState([
     fontListJson.eng[0].name,

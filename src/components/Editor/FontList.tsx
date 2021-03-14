@@ -1,10 +1,10 @@
 import { useState, useRef } from 'react';
-import { Radio, RadioGroup } from "@chakra-ui/react"
-import { Button } from "@chakra-ui/react"
-
-import './FontList.css';
+import { Radio, RadioGroup } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
 import fontListJson, { FontInfo } from '../../assets/json/fontlist.json';
+
+import './FontList.css';
 
 export interface FontSelectorProps {
   currentFont: string[],

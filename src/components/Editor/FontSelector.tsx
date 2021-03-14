@@ -1,9 +1,9 @@
 import SimpleBar from 'simplebar-react';
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-
-import 'simplebar/dist/simplebar.min.css';
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
 import FontList, { FontSelectorProps } from './FontList';
+
+import 'simplebar/dist/simplebar.min.css';
 
 function FontSelector(props: FontSelectorProps) {
   return (
@@ -14,7 +14,7 @@ function FontSelector(props: FontSelectorProps) {
           <Tab>Japanese</Tab>
         </TabList>
 
-        <SimpleBar style={{ height: "95vh" }}>
+        <SimpleBar style={{ height: '95vh' }}>
           <TabPanels>
             <TabPanel>
               <FontList
