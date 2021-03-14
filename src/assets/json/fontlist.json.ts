@@ -65,7 +65,7 @@ const fontListJson: FontListJson =
     },
     {
       name: 'Courier Prime Code',
-      author: 'Alan Dague-Greene (Quote-Unquote Company)',
+      author: 'Quote-Unquote Company',
       license: 'OFL-1.1',
       website: 'https://quoteunquoteapps.com/courierprime/',
       license_link: 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL'
@@ -260,7 +260,7 @@ const fontListJson: FontListJson =
       license_link: 'https://opensource.org/licenses/mit-license.php'
     },
     {
-      name: 'Proggy Fonts',
+      name: 'Proggy Vector',
       author: 'Tristan Grimmer',
       license: 'MIT',
       website: 'https://github.com/bluescan/proggyfonts/',
