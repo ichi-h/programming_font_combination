@@ -1,242 +1,242 @@
 /* ENG */
 @font-face {
   font-family: "agave";
-  src: url(".assets/fonts/eng/Agave-Regular-slashed.woff2");
+  src: url("./assets/fonts/eng/Agave-Regular-slashed.woff2");
 }
 
 @font-face {
   font-family: "Anonymous Pro";
-  src: url(".assets/fonts/eng/Anonymous Pro.woff2");
+  src: url("./assets/fonts/eng/Anonymous Pro.woff2");
 }
 
 @font-face {
   font-family: "Bitstream Vera Sans Mono";
-  src: url(".assets/fonts/eng/VeraMono.woff2");
+  src: url("./assets/fonts/eng/VeraMono.woff2");
 }
 
 @font-face {
   font-family: "Borg Sans Mono";
-  src: url(".assets/fonts/eng/BorgSansMono.woff2");
+  src: url("./assets/fonts/eng/BorgSansMono.woff2");
 }
 
 @font-face {
   font-family: "BPmono";
-  src: url(".assets/fonts/eng/BPmono.woff2");
+  src: url("./assets/fonts/eng/BPmono.woff2");
 }
 
 @font-face {
   font-family: "Bront DejaVu Sans Mono";
-  src: url(".assets/fonts/eng/DejaVuSansMono-Bront.woff2");
+  src: url("./assets/fonts/eng/DejaVuSansMono-Bront.woff2");
 }
 
 @font-face {
   font-family: "Bront Ubuntu Mono";
-  src: url(".assets/fonts/eng/UbuntuMono-Bront.woff2");
+  src: url("./assets/fonts/eng/UbuntuMono-Bront.woff2");
 }
 
 @font-face {
   font-family: "Courier Prime Code";
-  src: url(".assets/fonts/eng/Courier Prime Code.woff2");
+  src: url("./assets/fonts/eng/Courier Prime Code.woff2");
 }
 
 @font-face {
   font-family: "D2Coding";
-  src: url(".assets/fonts/eng/D2Coding-Ver1.3.2-20180524-ligature.woff2");
+  src: url("./assets/fonts/eng/D2Coding-Ver1.3.2-20180524-ligature.woff2");
 }
 
 @font-face {
   font-family: "DejaVu fonts";
-  src: url(".assets/fonts/eng/DejaVuSansMono.woff2");
+  src: url("./assets/fonts/eng/DejaVuSansMono.woff2");
 }
 
 @font-face {
   font-family: "DM Mono";
-  src: url(".assets/fonts/eng/DMMono-Regular.woff2");
+  src: url("./assets/fonts/eng/DMMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Edlo";
-  src: url(".assets/fonts/eng/edlo.woff2");
+  src: url("./assets/fonts/eng/edlo.woff2");
 }
 
 @font-face {
   font-family: "Fantasque Sans Mono";
-  src: url(".assets/fonts/eng/FantasqueSansMono-Regular.woff2");
+  src: url("./assets/fonts/eng/FantasqueSansMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Fifteen";
-  src: url(".assets/fonts/eng/FifteenNarrow.woff2");
+  src: url("./assets/fonts/eng/FifteenNarrow.woff2");
 }
 
 @font-face {
   font-family: "Fira Code";
-  src: url(".assets/fonts/eng/FiraCode-Regular.woff2");
+  src: url("./assets/fonts/eng/FiraCode-Regular.woff2");
 }
 
 @font-face {
   font-family: "Fira Mono";
-  src: url(".assets/fonts/eng/FiraMono-Regular.woff2");
+  src: url("./assets/fonts/eng/FiraMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Go (the fonts)";
-  src: url(".assets/fonts/eng/Go-Regular.woff2");
+  src: url("./assets/fonts/eng/Go-Regular.woff2");
 }
 
 @font-face {
   font-family: "Hack";
-  src: url(".assets/fonts/eng/Hack-Regular.woff2");
+  src: url("./assets/fonts/eng/Hack-Regular.woff2");
 }
 
 @font-face {
   font-family: "Hasklig";
-  src: url(".assets/fonts/eng/Hasklig-Regular.woff2");
+  src: url("./assets/fonts/eng/Hasklig-Regular.woff2");
 }
 
 @font-face {
   font-family: "Hermit";
-  src: url(".assets/fonts/eng/Hermit-Regular.woff2");
+  src: url("./assets/fonts/eng/Hermit-Regular.woff2");
 }
 
 @font-face {
   font-family: "iA Writer Mono";
-  src: url(".assets/fonts/eng/iAWriterMonoS-Regular.woff2");
+  src: url("./assets/fonts/eng/iAWriterMonoS-Regular.woff2");
 }
 
 @font-face {
   font-family: "IBM Plex Mono";
-  src: url(".assets/fonts/eng/IBMPlexMono-Regular.woff2");
+  src: url("./assets/fonts/eng/IBMPlexMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Inconsolata";
-  src: url(".assets/fonts/eng/Inconsolata.woff2");
+  src: url("./assets/fonts/eng/Inconsolata.woff2");
 }
 
 @font-face {
   font-family: "Inconsolata-g";
-  src: url(".assets/fonts/eng/Inconsolata-g.woff2");
+  src: url("./assets/fonts/eng/Inconsolata-g.woff2");
 }
 
 @font-face {
   font-family: "Iosevka";
-  src: url(".assets/fonts/eng/iosevka-regular.woff2");
+  src: url("./assets/fonts/eng/iosevka-regular.woff2");
 }
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url(".assets/fonts/eng/JetBrainsMono-Regular.woff2");
+  src: url("./assets/fonts/eng/JetBrainsMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "JuliaMono";
-  src: url(".assets/fonts/eng/JuliaMono-Regular.woff2");
+  src: url("./assets/fonts/eng/JuliaMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "League Mono";
-  src: url(".assets/fonts/eng/LeagueMono-Regular.woff2");
+  src: url("./assets/fonts/eng/LeagueMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Luculent";
-  src: url(".assets/fonts/eng/luculent.woff2");
+  src: url("./assets/fonts/eng/luculent.woff2");
 }
 
 @font-face {
   font-family: "Meslo LG";
-  src: url(".assets/fonts/eng/MesloLGM-Regular.woff2");
+  src: url("./assets/fonts/eng/MesloLGM-Regular.woff2");
 }
 
 @font-face {
   font-family: "Monoid";
-  src: url(".assets/fonts/eng/Monoid-Regular.woff2");
+  src: url("./assets/fonts/eng/Monoid-Regular.woff2");
 }
 
 @font-face {
   font-family: "mononoki";
-  src: url(".assets/fonts/eng/mononoki-Regular.woff2");
+  src: url("./assets/fonts/eng/mononoki-Regular.woff2");
 }
 
 @font-face {
   font-family: "Office Code Pro";
-  src: url(".assets/fonts/eng/OfficeCodePro-Regular.woff2");
+  src: url("./assets/fonts/eng/OfficeCodePro-Regular.woff2");
 }
 
 @font-face {
   font-family: "Oxygen Mono";
-  src: url(".assets/fonts/eng/OxygenMono-Regular.woff2");
+  src: url("./assets/fonts/eng/OxygenMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "ProFont";
-  src: url(".assets/fonts/eng/ProFontWindows.woff2");
+  src: url("./assets/fonts/eng/ProFontWindows.woff2");
 }
 
 @font-face {
   font-family: "Proggy Fonts";
-  src: url(".assets/fonts/eng/ProggyVector Regular.woff2");
+  src: url("./assets/fonts/eng/ProggyVector Regular.woff2");
 }
 
 @font-face {
   font-family: "PT Mono";
-  src: url(".assets/fonts/eng/PTM55F.woff2");
+  src: url("./assets/fonts/eng/PTM55F.woff2");
 }
 
 @font-face {
   font-family: "PT Sans";
-  src: url(".assets/fonts/eng/PTS55F.woff2");
+  src: url("./assets/fonts/eng/PTS55F.woff2");
 }
 
 @font-face {
   font-family: "Recursive Mono";
-  src: url(".assets/fonts/eng/RecMonoDuotone-Regular-1.075.woff2");
+  src: url("./assets/fonts/eng/RecMonoDuotone-Regular-1.075.woff2");
 }
 
 @font-face {
   font-family: "Roboto Mono";
-  src: url(".assets/fonts/eng/RobotoMono-Regular.woff2");
+  src: url("./assets/fonts/eng/RobotoMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Share Tech Mono";
-  src: url(".assets/fonts/eng/ShareTechMono-Regular.woff2");
+  src: url("./assets/fonts/eng/ShareTechMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Sometype Mono";
-  src: url(".assets/fonts/eng/SometypeMono-Regular.woff2");
+  src: url("./assets/fonts/eng/SometypeMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Source Code Pro";
-  src: url(".assets/fonts/eng/SourceCodePro-Regular.woff2");
+  src: url("./assets/fonts/eng/SourceCodePro-Regular.woff2");
 }
 
 @font-face {
   font-family: "Space Mono";
-  src: url(".assets/fonts/eng/SpaceMono-Regular.woff2");
+  src: url("./assets/fonts/eng/SpaceMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Terminus TTF 4.47.0";
-  src: url(".assets/fonts/eng/TerminusTTFWindows-4.47.0.woff2");
+  src: url("./assets/fonts/eng/TerminusTTFWindows-4.47.0.woff2");
 }
 
 @font-face {
   font-family: "Ubuntu Mono";
-  src: url(".assets/fonts/eng/UbuntuMono-Regular.woff2");
+  src: url("./assets/fonts/eng/UbuntuMono-Regular.woff2");
 }
 
 @font-face {
   font-family: "Verily Serif Mono";
-  src: url(".assets/fonts/eng/VerilySerifMono.woff2");
+  src: url("./assets/fonts/eng/VerilySerifMono.woff2");
 }
 
 @font-face {
   font-family: "Victor Mono";
-  src: url(".assets/fonts/eng/VictorMono-Regular.woff2");
+  src: url("./assets/fonts/eng/VictorMono-Regular.woff2");
 }
 
 
@@ -244,75 +244,75 @@
 /* JPN */
 @font-face {
   font-family: "Cica";
-  src: url(".assets/fonts/jpn/Cica-Regular.woff2");
+  src: url("./assets/fonts/jpn/Cica-Regular.woff2");
 }
 
 @font-face {
   font-family: "Circle M+";
-  src: url(".assets/fonts/jpn/circle-mplus-1m-regular.woff2");
+  src: url("./assets/fonts/jpn/circle-mplus-1m-regular.woff2");
 }
 
 @font-face {
   font-family: "M+";
-  src: url(".assets/fonts/jpn/mplus-1m-regular.woff2");
+  src: url("./assets/fonts/jpn/mplus-1m-regular.woff2");
 }
 
 @font-face {
   font-family: "Mgen+";
-  src: url(".assets/fonts/jpn/mgenplus-1m-regular.woff2");
+  src: url("./assets/fonts/jpn/mgenplus-1m-regular.woff2");
 }
 
 @font-face {
   font-family: "Myrica";
-  src: url(".assets/fonts/jpn/Myrica.woff2");
+  src: url("./assets/fonts/jpn/Myrica.woff2");
 }
 
 @font-face {
   font-family: "MyricaM";
-  src: url(".assets/fonts/jpn/MyricaM.woff2");
+  src: url("./assets/fonts/jpn/MyricaM.woff2");
 }
 
 @font-face {
   font-family: "Nasu";
-  src: url(".assets/fonts/jpn/NasuM-Regular-20200227.woff2");
+  src: url("./assets/fonts/jpn/NasuM-Regular-20200227.woff2");
 }
 
 @font-face {
   font-family: "Ricty Diminished";
-  src: url(".assets/fonts/jpn/RictyDiminished-Regular.woff2");
+  src: url("./assets/fonts/jpn/RictyDiminished-Regular.woff2");
 }
 
 @font-face {
   font-family: "Rounded M+";
-  src: url(".assets/fonts/jpn/rounded-mplus-1m-regular.woff2");
+  src: url("./assets/fonts/jpn/rounded-mplus-1m-regular.woff2");
 }
 
 @font-face {
   font-family: "Rounded Mgen+";
-  src: url(".assets/fonts/jpn/rounded-mgenplus-1m-regular.woff2");
+  src: url("./assets/fonts/jpn/rounded-mgenplus-1m-regular.woff2");
 }
 
 @font-face {
   font-family: "Source Han Code JP";
-  src: url(".assets/fonts/jpn/SourceHanCodeJP007.woff2");
+  src: url("./assets/fonts/jpn/SourceHanCodeJP007.woff2");
 }
 
 @font-face {
   font-family: "VLゴシック";
-  src: url(".assets/fonts/jpn/VL-Gothic-Regular.woff2");
+  src: url("./assets/fonts/jpn/VL-Gothic-Regular.woff2");
 }
 
 @font-face {
   font-family: "源柔ゴシック";
-  src: url(".assets/fonts/jpn/GenJyuuGothic-Monospace-Regular.woff2");
+  src: url("./assets/fonts/jpn/GenJyuuGothic-Monospace-Regular.woff2");
 }
 
 @font-face {
   font-family: "源真ゴシック";
-  src: url(".assets/fonts/jpn/GenShinGothic-Monospace-Regular.woff2");
+  src: url("./assets/fonts/jpn/GenShinGothic-Monospace-Regular.woff2");
 }
 
 @font-face {
   font-family: "白源";
-  src: url(".assets/fonts/jpn/HackGen-Regular.woff2");
+  src: url("./assets/fonts/jpn/HackGen-Regular.woff2");
 }
