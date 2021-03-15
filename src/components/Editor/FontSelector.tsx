@@ -1,11 +1,11 @@
 import SimpleBar from 'simplebar-react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
-import FontList, { FontSelectorProps } from './FontList';
+import FontList, { CurrentFontState } from './FontList';
 
 import 'simplebar/dist/simplebar.min.css';
 
-function FontSelector(props: FontSelectorProps) {
+function FontSelector(props: CurrentFontState) {
   return (
     <div className="font-selector">
       <Tabs>
