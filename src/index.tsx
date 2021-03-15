@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
+import './fonts.css';
 import './assets/css/fontello.css';
 import { ChakraProvider } from "@chakra-ui/react";
 

@@ -125,7 +125,9 @@ function FontList(props: FontListProps) {
                   value={fontJson[i].name}
                   name={props.lang + '-radio'}
                 >
-                  {fontJson[i].name}
+                  <span style={{ fontFamily: `'${fontJson[i].name}'`}}>
+                    {fontJson[i].name}
+                  </span>
                 </Radio>
               </div>
               <p className="author">by {fontJson[i].author}</p>
