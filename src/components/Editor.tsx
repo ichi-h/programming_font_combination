@@ -31,7 +31,10 @@ function Editor() {
         gap={0}
       >
         <GridItem className="left" colSpan={1}>
-          <FontSelector currentFont={currentFont} setCurrentFont={setCurrentFont} />
+          <FontSelector
+            currentFont={currentFont}
+            setCurrentFont={setCurrentFont}
+          />
         </GridItem>
 
         <GridItem className="right" colSpan={4}>
@@ -41,7 +44,9 @@ function Editor() {
             setTheme={setTheme}
             setFontSize={setFontSize}
           />
-          <div style={{ fontSize: fontSize }}>
+          <div style={{
+            fontSize: fontSize,
+          }}>
             <CodeMirror
               value={value}
               options={{

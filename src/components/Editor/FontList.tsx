@@ -52,6 +52,9 @@ function updateCurrentFont(fontName: string, props: CurrentFontState) {
   }
 
   props.setCurrentFont(currentFontCopy);
+
+  let elem = document.getElementsByClassName("CodeMirror") as HTMLCollectionOf<HTMLElement>;
+  elem[0].style.fontFamily = `"${currentFontCopy[0]}", "${currentFontCopy[1]}"`;
 }
 
 function sortItems

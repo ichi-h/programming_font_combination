@@ -14,6 +14,6 @@
   }
 
   .editor .CodeMirror {
-    font-family: Monaco, 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+    font-family: "agave", "Cica";
     height: 94vh;
   }
