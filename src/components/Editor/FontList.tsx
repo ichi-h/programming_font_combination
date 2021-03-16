@@ -69,7 +69,7 @@ function sortItems
       ref.current.getElementsByClassName(
         lang + '-font-item-' + i
       )[0];
-    
+
     if (favValue[i]) {
       liked.push(elem);
     }
@@ -87,12 +87,6 @@ function sortItems
 }
 
 function FontList(props: FontListProps) {
-  const engLength = fontListJson.eng.length;
-  const jpnLength = fontListJson.jpn.length;
-  const favArray = [Array(engLength).fill(false), Array(jpnLength).fill(false)]
-
-  const [favValue, setfavValue] = useState(favArray);
-
   let fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   let fontJson: FontInfo[] = [];
@@ -107,7 +101,10 @@ function FontList(props: FontListProps) {
     index = 1;
   }
 
-  let iter = makeIter(favValue[index], fontJson.length);
+  const favArray = Array(fontJson.length).fill(false)
+  const [favValue, setfavValue] = useState(favArray);
+
+  let iter = makeIter(favValue, fontJson.length);
 
   return (
     <div className={props.lang + '-font'}>
@@ -158,14 +155,14 @@ function FontList(props: FontListProps) {
                     id={props.lang + '-fav-' + i}
                     type="checkbox"
                     name="favrite"
-                    defaultChecked={favValue[index][i]}
+                    defaultChecked={favValue[i]}
                     onChange={() => {
                       let favValueCopy = favValue;
-                      favValueCopy[index][i] = !favValueCopy[index][i];
+                      favValueCopy[i] = !favValueCopy[i];
                       setfavValue(favValueCopy);
 
                       sortItems(
-                        favValue[index],
+                        favValue,
                         fontItemsRef,
                         props.lang
                       );
