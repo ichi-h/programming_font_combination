@@ -37,16 +37,16 @@ function updateCurrentFont(fontName: string, currentFont: CurrentFontState) {
   let index = fontTitles.indexOf(fontName);
 
   if (index !== -1) {
-    currentFontCopy[0] = fontName;
+    currentFontCopy['eng'] = fontName;
   }
   else {
-    currentFontCopy[1] = fontName;
+    currentFontCopy['jpn'] = fontName;
   }
 
   currentFont.setValue(currentFontCopy);
 
   let elem = document.getElementsByClassName("CodeMirror") as HTMLCollectionOf<HTMLElement>;
-  elem[0].style.fontFamily = `"${currentFontCopy[0]}", "${currentFontCopy[1]}"`;
+  elem[0].style.fontFamily = `"${currentFontCopy['eng']}", "${currentFontCopy['jpn']}"`;
 }
 
 function sortItems
@@ -87,15 +87,15 @@ function FontList(props: { lang: string }) {
   let fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   let fontJson: FontInfo[] = [];
-  let index: number;
 
   if (props.lang === 'eng') {
     fontJson = fontListJson.eng;
-    index = 0;
+  }
+  else if (props.lang === 'jpn') {
+    fontJson = fontListJson.jpn;
   }
   else {
-    fontJson = fontListJson.jpn;
-    index = 1;
+    throw new Error(`Incorrect value for variable 'lang': ${props.lang}`);
   }
 
   const favArray = Array(fontJson.length).fill(false)
@@ -106,7 +106,7 @@ function FontList(props: { lang: string }) {
   return (
     <div className={props.lang + '-font'}>
       <RadioGroup
-        defaultValue={currentFont.value[index]}
+        defaultValue={currentFont.value[props.lang]}
         onChange={(e) => updateCurrentFont(String(e), currentFont)}
         ref={fontItemsRef}
       >

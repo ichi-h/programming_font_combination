@@ -24,8 +24,8 @@ interface FontSizeState {
 }
 
 export interface CurrentFontState {
-  value: string[],
-  setValue: React.Dispatch<React.SetStateAction<string[]>>
+  value: { eng: string, jpn: string },
+  setValue: React.Dispatch<React.SetStateAction<{ eng: string, jpn: string }>>
 }
 
 export const ThemeContext = React.createContext<ThemeState | undefined>(undefined);
@@ -36,10 +36,10 @@ function Editor() {
   const value = TextValue();
   const [theme, setTheme] = useState('base16-dark');
   const [fontSize, setFontSize] = useState(20);
-  const [currentFont, setCurrentFont] = useState([
-    fontListJson.eng[0].name,
-    fontListJson.jpn[0].name
-  ]);
+  const [currentFont, setCurrentFont] = useState({
+    eng: fontListJson.eng[0].name,
+    jpn: fontListJson.jpn[0].name
+  });
 
   return (
     <div className="editor">
