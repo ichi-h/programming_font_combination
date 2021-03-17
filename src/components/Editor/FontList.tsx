@@ -3,43 +3,24 @@ import { Button } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react';
 
 import useStore from './updateFn';
+import { Lang } from './FontSelector';
 
 import './FontList.css';
 
-function makeIter(favValue: boolean[], listLen: number): number[] {
-  let likedNum = [];
-  let unlikedNum = [];
-
-  for (let i = 0; i < listLen; i++) {
-    if (favValue[i]) {
-      likedNum.push(i);
-    }
-    else {
-      unlikedNum.push(i);
-    }
-  }
-
-  let iter = likedNum.concat(unlikedNum);
-
-  return iter;
-}
-
-function FontList(props: { lang: string }) {
+function FontList(props: { lang: Lang }) {
   const lang = props.lang;
-
-  if (!(lang === 'eng' || lang === 'jpn')) {
-    throw new Error(`Incorrect value for variable 'lang': ${lang}`);
-  }
 
   const [currentFont, fontItemsRef, fontJson, favValue, update] = useStore(lang);
 
-  let iter = makeIter(favValue, fontJson.length);
+  const iter = [...Array(fontJson.length)].map((_, i) => i);
 
   return (
     <div className={lang + '-font'}>
       <RadioGroup
         defaultValue={currentFont.value[lang]}
-        onChange={(e) => update('updateCurrentFont', { fontName: String(e) })}
+        onChange={(e) => {
+          update('updateCurrentFont', { fontName: String(e) });
+        }}
         ref={fontItemsRef}
       >
       {
@@ -91,8 +72,8 @@ function FontList(props: { lang: string }) {
                     name="favrite"
                     defaultChecked={favValue[i]}
                     onChange={() => {
-                      update('updateFavValue', { index: i });
-                      update('sortItems', {});
+                      update('updateFavValue', { itemIndex: i });
+                      update('sortItems');
                     }}
                   />
                   <i id={lang + 'fav-icon-' + i} className="icon-heart" />

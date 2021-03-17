@@ -1,25 +1,25 @@
 import { useState, useContext, useRef } from 'react';
 
+import { Lang } from './FontSelector';
 import { CurrentFontContext, CurrentFontState } from '../Editor';
-import { fontListJson, FontInfo, getFontJson } from '../../assets/json/fontlist.json';
+import { FontInfo, getFontJson } from '../../assets/json/fontlist.json';
 
 export type Action = 'updateCurrentFont' | 'updateFavValue' | 'sortItems';
 
 interface UpdateProps {
   fontName?: string,
-  index?: number
+  itemIndex?: number
 }
 
-function useStore(lang: string):
+function useStore(lang: Lang):
 [
   CurrentFontState,
   React.MutableRefObject<HTMLInputElement>,
   FontInfo[],
   boolean[],
-  (action: Action, props: UpdateProps) => void
+  (action: Action, props?: UpdateProps) => void
 ]
 {
-  const currentFont = useContext(CurrentFontContext);
   const fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   const fontJson = getFontJson(lang);
@@ -27,27 +27,17 @@ function useStore(lang: string):
   const favArray: boolean[] = Array(fontJson.length).fill(false)
   const [favValue, setfavValue] = useState(favArray);
 
-  const update = (action: Action, props: UpdateProps) => {
+  const currentFont = useContext(CurrentFontContext);
+
+  const update = (action: Action, props?: UpdateProps) => {
+    // Will run the function depending on the client's action.
+
     switch(action) {
       case 'updateCurrentFont':
         const fontName = props.fontName;
 
         let currentFontCopy = currentFont.value;
-
-        let fontTitles = [];
-        for (let font of fontListJson.eng) {
-          fontTitles.push(font.name);
-        }
-
-        let fontIndex = fontTitles.indexOf(fontName);
-
-        if (fontIndex !== -1) {
-          currentFontCopy['eng'] = fontName;
-        }
-        else {
-          currentFontCopy['jpn'] = fontName;
-        }
-
+        currentFontCopy[lang] = fontName;
         currentFont.setValue(currentFontCopy);
 
         let elem = document.getElementsByClassName("CodeMirror") as HTMLCollectionOf<HTMLElement>;
@@ -56,7 +46,7 @@ function useStore(lang: string):
         break;
 
       case 'updateFavValue':
-        const i = props.index;
+        const i = props.itemIndex;
 
         let favValueCopy = favValue;
         favValueCopy[i] = !favValueCopy[i];
@@ -65,6 +55,10 @@ function useStore(lang: string):
         break;
 
       case 'sortItems':
+        // Will sort fonts list based on 'favValue'.
+        // 'favValue' is a state to manage client's favorite
+        // fonts, which are sorted at the top of the fonts list.
+
         let liked = [];
         let unliked = [];
 
@@ -82,7 +76,7 @@ function useStore(lang: string):
           }
         }
 
-        let sortedItems = liked.concat(unliked);
+        const sortedItems = liked.concat(unliked);
         fontItemsRef.current.innerHTML = '';
 
         for (let item of sortedItems) {
@@ -93,7 +87,7 @@ function useStore(lang: string):
     }
   }
 
-  return [currentFont, fontItemsRef, fontJson, favValue, update]
+  return [currentFont, fontItemsRef, fontJson, favValue, update];
 }
 
 export default useStore;

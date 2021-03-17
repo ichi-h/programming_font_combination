@@ -34,6 +34,7 @@ export const CurrentFontContext = React.createContext<CurrentFontState | undefin
 
 function Editor() {
   const value = TextValue();
+
   const [theme, setTheme] = useState('base16-dark');
   const [fontSize, setFontSize] = useState(20);
   const [currentFont, setCurrentFont] = useState({

@@ -5,7 +5,12 @@ import FontList from './FontList';
 
 import 'simplebar/dist/simplebar.min.css';
 
+export type Lang = 'eng' | 'jpn';
+
 function FontSelector() {
+  const eng: Lang = 'eng';
+  const jpn: Lang = 'jpn';
+
   return (
     <div className="font-selector">
       <Tabs>
@@ -17,10 +22,10 @@ function FontSelector() {
         <SimpleBar style={{ height: '95vh' }}>
           <TabPanels>
             <TabPanel>
-              <FontList lang="eng" />
+              <FontList lang={eng} />
             </TabPanel>
             <TabPanel>
-              <FontList lang="jpn" />
+              <FontList lang={jpn} />
             </TabPanel>
           </TabPanels>
         </SimpleBar>
