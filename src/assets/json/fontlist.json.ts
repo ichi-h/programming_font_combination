@@ -11,7 +11,19 @@ interface FontListJson {
   jpn: FontInfo[]
 }
 
-const fontListJson: FontListJson =
+export const getFontJson = (lang: string): FontInfo[] => {
+  if (lang === 'eng') {
+    return fontListJson.eng;
+  }
+  else if (lang === 'jpn') {
+    return fontListJson.jpn;
+  }
+  else {
+    throw new Error(`Incorrect value for variable 'lang': ${lang}`);
+  }
+}
+
+export const fontListJson: FontListJson =
 {
   eng: [
     {
@@ -459,5 +471,3 @@ const fontListJson: FontListJson =
     }
   ]
 };
-
-export default fontListJson;

@@ -1,10 +1,8 @@
-import { useState, useContext, useRef } from 'react';
 import { Radio, RadioGroup } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react';
 
-import { CurrentFontContext, CurrentFontState } from '../Editor';
-import fontListJson, { FontInfo } from '../../assets/json/fontlist.json';
+import useStore from './updateFn';
 
 import './FontList.css';
 
@@ -26,99 +24,33 @@ function makeIter(favValue: boolean[], listLen: number): number[] {
   return iter;
 }
 
-function updateCurrentFont(fontName: string, currentFont: CurrentFontState) {
-  let currentFontCopy = currentFont.value;
-
-  let fontTitles = [];
-  for (let font of fontListJson.eng) {
-    fontTitles.push(font.name);
-  }
-
-  let index = fontTitles.indexOf(fontName);
-
-  if (index !== -1) {
-    currentFontCopy['eng'] = fontName;
-  }
-  else {
-    currentFontCopy['jpn'] = fontName;
-  }
-
-  currentFont.setValue(currentFontCopy);
-
-  let elem = document.getElementsByClassName("CodeMirror") as HTMLCollectionOf<HTMLElement>;
-  elem[0].style.fontFamily = `"${currentFontCopy['eng']}", "${currentFontCopy['jpn']}"`;
-}
-
-function sortItems
-(
-  favValue: boolean[],
-  ref: React.MutableRefObject<HTMLInputElement>,
-  lang: string
-)
-{
-  let liked = [];
-  let unliked = [];
-
-  for (let i=0; i < favValue.length; i++) {
-    let elem = 
-      ref.current.getElementsByClassName(
-        lang + '-font-item-' + i
-      )[0];
-
-    if (favValue[i]) {
-      liked.push(elem);
-    }
-    else {
-      unliked.push(elem);
-    }
-  }
-
-  let sortedItems = liked.concat(unliked);
-  ref.current.innerHTML = '';
-
-  for (let item of sortedItems) {
-    ref.current.appendChild(item);
-  }
-}
-
 function FontList(props: { lang: string }) {
-  const currentFont = useContext(CurrentFontContext);
+  const lang = props.lang;
 
-  let fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
-
-  let fontJson: FontInfo[] = [];
-
-  if (props.lang === 'eng') {
-    fontJson = fontListJson.eng;
-  }
-  else if (props.lang === 'jpn') {
-    fontJson = fontListJson.jpn;
-  }
-  else {
-    throw new Error(`Incorrect value for variable 'lang': ${props.lang}`);
+  if (!(lang === 'eng' || lang === 'jpn')) {
+    throw new Error(`Incorrect value for variable 'lang': ${lang}`);
   }
 
-  const favArray = Array(fontJson.length).fill(false)
-  const [favValue, setfavValue] = useState(favArray);
+  const [currentFont, fontItemsRef, fontJson, favValue, update] = useStore(lang);
 
   let iter = makeIter(favValue, fontJson.length);
 
   return (
-    <div className={props.lang + '-font'}>
+    <div className={lang + '-font'}>
       <RadioGroup
-        defaultValue={currentFont.value[props.lang]}
-        onChange={(e) => updateCurrentFont(String(e), currentFont)}
+        defaultValue={currentFont.value[lang]}
+        onChange={(e) => update('updateCurrentFont', { fontName: String(e) })}
         ref={fontItemsRef}
       >
       {
         iter.map(i => { return (
-          <div className={props.lang + '-font-item-' + i} key={i}>
+          <div className={lang + '-font-item-' + i} key={i}>
 
             <div className="font-info">
               <div className="font-name">
                 <Radio
                   value={fontJson[i].name}
-                  name={props.lang + '-radio'}
+                  name={lang + '-radio'}
                 >
                   <span style={{ fontFamily: `'${fontJson[i].name}'`}}>
                     {fontJson[i].name}
@@ -151,26 +83,19 @@ function FontList(props: { lang: string }) {
               </Tooltip>
 
               <Tooltip label="Favorite!" placement="top">
-                <label htmlFor={props.lang + '-fav-' + i}>
+                <label htmlFor={lang + '-fav-' + i}>
                   <input
                     className="fav-button"
-                    id={props.lang + '-fav-' + i}
+                    id={lang + '-fav-' + i}
                     type="checkbox"
                     name="favrite"
                     defaultChecked={favValue[i]}
                     onChange={() => {
-                      let favValueCopy = favValue;
-                      favValueCopy[i] = !favValueCopy[i];
-                      setfavValue(favValueCopy);
-
-                      sortItems(
-                        favValue,
-                        fontItemsRef,
-                        props.lang
-                      );
+                      update('updateFavValue', { index: i });
+                      update('sortItems', {});
                     }}
                   />
-                  <i id={props.lang + 'fav-icon-' + i} className="icon-heart" />
+                  <i id={lang + 'fav-icon-' + i} className="icon-heart" />
                 </label>
               </Tooltip>
             </div>
