@@ -112,7 +112,7 @@ function FontList(props: { lang: string }) {
       >
       {
         iter.map(i => { return (
-          <div className={props.lang + '-font-item-' + i}>
+          <div className={props.lang + '-font-item-' + i} key={i}>
 
             <div className="font-info">
               <div className="font-name">
