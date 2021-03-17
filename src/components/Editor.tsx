@@ -9,7 +9,7 @@ import './Editor.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/base16-dark.css';
 import 'codemirror/theme/base16-light.css';
-import { fontListJson } from './Editor/fontlist.json';
+import { getFontJson } from './Editor/fontlist.json';
 
 require('codemirror/mode/htmlmixed/htmlmixed.js');
 
@@ -35,11 +35,14 @@ export const CurrentFontContext = React.createContext<CurrentFontState | undefin
 function Editor() {
   const value = TextValue();
 
+  const initialEngFont = getFontJson('eng')[0].name;
+  const initialJpnFont = getFontJson('jpn')[0].name;
+
   const [theme, setTheme] = useState('base16-dark');
   const [fontSize, setFontSize] = useState(20);
   const [currentFont, setCurrentFont] = useState({
-    eng: fontListJson.eng[0].name,
-    jpn: fontListJson.jpn[0].name
+    eng: initialEngFont,
+    jpn: initialJpnFont
   });
 
   return (

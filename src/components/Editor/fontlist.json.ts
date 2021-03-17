@@ -1,3 +1,5 @@
+import { Lang } from './FontSelector';
+
 export interface FontInfo {
   name: string,
   author: string,
@@ -11,19 +13,16 @@ interface FontListJson {
   jpn: FontInfo[]
 }
 
-export const getFontJson = (lang: string): FontInfo[] => {
+export const getFontJson = (lang: Lang): FontInfo[] => {
   if (lang === 'eng') {
     return fontListJson.eng;
   }
-  else if (lang === 'jpn') {
-    return fontListJson.jpn;
-  }
   else {
-    throw new Error(`Incorrect value for variable 'lang': ${lang}`);
+    return fontListJson.jpn;
   }
 }
 
-export const fontListJson: FontListJson =
+const fontListJson: FontListJson =
 {
   eng: [
     {
