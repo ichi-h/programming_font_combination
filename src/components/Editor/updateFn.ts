@@ -2,7 +2,7 @@ import { useState, useContext, useRef } from 'react';
 
 import { Lang } from './FontSelector';
 import { CurrentFontContext, CurrentFontState } from '../Editor';
-import { FontInfo, getFontJson } from '../../assets/json/fontlist.json';
+import { FontInfo, getFontJson } from './fontlist.json';
 
 export type Action = 'updateCurrentFont' | 'updateFavValue' | 'sortItems';
 

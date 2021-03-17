@@ -9,7 +9,7 @@ import './Editor.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/base16-dark.css';
 import 'codemirror/theme/base16-light.css';
-import { fontListJson } from '../assets/json/fontlist.json';
+import { fontListJson } from './Editor/fontlist.json';
 
 require('codemirror/mode/htmlmixed/htmlmixed.js');
 
@@ -120,8 +120,6 @@ function TextValue(): string {
         this.elm.innerText = this.value;
       }
     };
-
-    console.log("Ligature: -> => == != === !== <= >= && ||");
   </script>
 </body>
 </html>`
