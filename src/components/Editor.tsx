@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import { Grid, GridItem } from '@chakra-ui/react';
 
@@ -12,6 +12,25 @@ import 'codemirror/theme/base16-light.css';
 import fontListJson from '../assets/json/fontlist.json';
 
 require('codemirror/mode/htmlmixed/htmlmixed.js');
+
+interface ThemeState {
+  value: string,
+  setValue: React.Dispatch<React.SetStateAction<string>>
+}
+
+interface FontSizeState {
+  value: number,
+  setValue: React.Dispatch<React.SetStateAction<number>>
+}
+
+export interface CurrentFontState {
+  value: string[],
+  setValue: React.Dispatch<React.SetStateAction<string[]>>
+}
+
+export const ThemeContext = React.createContext<ThemeState | undefined>(undefined);
+export const FontSizeContext = React.createContext<FontSizeState | undefined>(undefined);
+export const CurrentFontContext = React.createContext<CurrentFontState | undefined>(undefined);
 
 function Editor() {
   const value = TextValue();
@@ -30,33 +49,35 @@ function Editor() {
         templateColumns="repeat(5, 1fr)"
         gap={0}
       >
-        <GridItem className="left" colSpan={1}>
-          <FontSelector
-            currentFont={currentFont}
-            setCurrentFont={setCurrentFont}
-          />
-        </GridItem>
 
-        <GridItem className="right" colSpan={4}>
-          <Settings
-            theme={theme}
-            fontSize={fontSize}
-            setTheme={setTheme}
-            setFontSize={setFontSize}
-          />
-          <div style={{
-            fontSize: fontSize,
-          }}>
-            <CodeMirror
-              value={value}
-              options={{
-                mode: 'htmlmixed',
-                theme: theme,
-                lineNumbers: true
-              }}
-            />
-          </div>
-        </GridItem>
+        <ThemeContext.Provider value={{ value: theme, setValue: setTheme }}>
+        <FontSizeContext.Provider value={{ value: fontSize, setValue: setFontSize }}>
+        <CurrentFontContext.Provider value={{ value: currentFont, setValue: setCurrentFont }}>
+
+          <GridItem className="left" colSpan={1}>
+            <FontSelector />
+          </GridItem>
+
+          <GridItem className="right" colSpan={4}>
+            <Settings />
+            <div style={{
+              fontSize: fontSize,
+            }}>
+              <CodeMirror
+                value={value}
+                options={{
+                  mode: 'htmlmixed',
+                  theme: theme,
+                  lineNumbers: true
+                }}
+              />
+            </div>
+          </GridItem>
+
+        </CurrentFontContext.Provider>
+        </FontSizeContext.Provider>
+        </ThemeContext.Provider>
+
       </Grid>
     </div>
   );

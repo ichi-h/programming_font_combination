@@ -1,11 +1,11 @@
 import SimpleBar from 'simplebar-react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
-import FontList, { CurrentFontState } from './FontList';
+import FontList from './FontList';
 
 import 'simplebar/dist/simplebar.min.css';
 
-function FontSelector(props: CurrentFontState) {
+function FontSelector() {
   return (
     <div className="font-selector">
       <Tabs>
@@ -17,18 +17,10 @@ function FontSelector(props: CurrentFontState) {
         <SimpleBar style={{ height: '95vh' }}>
           <TabPanels>
             <TabPanel>
-              <FontList
-                lang="eng"
-                currentFont={props.currentFont}
-                setCurrentFont={props.setCurrentFont}
-              />
+              <FontList lang="eng" />
             </TabPanel>
             <TabPanel>
-              <FontList
-                lang="jpn"
-                currentFont={props.currentFont}
-                setCurrentFont={props.setCurrentFont}
-              />
+              <FontList lang="jpn" />
             </TabPanel>
           </TabPanels>
         </SimpleBar>

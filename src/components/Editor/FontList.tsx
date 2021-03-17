@@ -1,20 +1,12 @@
-import { useState, useRef } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { Radio, RadioGroup } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react';
 
+import { CurrentFontContext, CurrentFontState } from '../Editor';
 import fontListJson, { FontInfo } from '../../assets/json/fontlist.json';
 
 import './FontList.css';
-
-export interface CurrentFontState {
-  currentFont: string[],
-  setCurrentFont: React.Dispatch<React.SetStateAction<string[]>>
-}
-
-interface FontListProps extends CurrentFontState {
-  lang: string,
-}
 
 function makeIter(favValue: boolean[], listLen: number): number[] {
   let likedNum = [];
@@ -34,8 +26,8 @@ function makeIter(favValue: boolean[], listLen: number): number[] {
   return iter;
 }
 
-function updateCurrentFont(fontName: string, props: CurrentFontState) {
-  let currentFontCopy = props.currentFont;
+function updateCurrentFont(fontName: string, currentFont: CurrentFontState) {
+  let currentFontCopy = currentFont.value;
 
   let fontTitles = [];
   for (let font of fontListJson.eng) {
@@ -51,7 +43,7 @@ function updateCurrentFont(fontName: string, props: CurrentFontState) {
     currentFontCopy[1] = fontName;
   }
 
-  props.setCurrentFont(currentFontCopy);
+  currentFont.setValue(currentFontCopy);
 
   let elem = document.getElementsByClassName("CodeMirror") as HTMLCollectionOf<HTMLElement>;
   elem[0].style.fontFamily = `"${currentFontCopy[0]}", "${currentFontCopy[1]}"`;
@@ -89,7 +81,9 @@ function sortItems
   }
 }
 
-function FontList(props: FontListProps) {
+function FontList(props: { lang: string }) {
+  const currentFont = useContext(CurrentFontContext);
+
   let fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   let fontJson: FontInfo[] = [];
@@ -112,13 +106,14 @@ function FontList(props: FontListProps) {
   return (
     <div className={props.lang + '-font'}>
       <RadioGroup
-        defaultValue={props.currentFont[index]}
-        onChange={(e) => updateCurrentFont(String(e), props)}
+        defaultValue={currentFont.value[index]}
+        onChange={(e) => updateCurrentFont(String(e), currentFont)}
         ref={fontItemsRef}
       >
       {
         iter.map(i => { return (
           <div className={props.lang + '-font-item-' + i}>
+
             <div className="font-info">
               <div className="font-name">
                 <Radio
@@ -130,8 +125,10 @@ function FontList(props: FontListProps) {
                   </span>
                 </Radio>
               </div>
+
               <p className="author">by {fontJson[i].author}</p>
             </div>
+
             <div className="buttons">
               <Tooltip label={fontJson[i].license} placement="top">
                 <Button
@@ -142,6 +139,7 @@ function FontList(props: FontListProps) {
                   <i className="icon-id-card-o" />
                 </Button>
               </Tooltip>
+
               <Tooltip label={fontJson[i].website} placement="top">
                 <Button
                   className="font-link"
@@ -151,6 +149,7 @@ function FontList(props: FontListProps) {
                   <i className="icon-link" />
                 </Button>
               </Tooltip>
+
               <Tooltip label="Favorite!" placement="top">
                 <label htmlFor={props.lang + '-fav-' + i}>
                   <input
@@ -175,6 +174,7 @@ function FontList(props: FontListProps) {
                 </label>
               </Tooltip>
             </div>
+
           </div>
         );})
       }
