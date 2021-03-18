@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import { Grid, GridItem } from '@chakra-ui/react';
 
+import { Theme } from './Editor/TypeAliases';
 import FontSelector from './Editor/FontSelector/FontSelector';
 import Settings from './Editor/Settings/Settings';
 
@@ -14,8 +15,8 @@ import { getFontJson } from './Editor/FontSelector/font.json';
 require('codemirror/mode/htmlmixed/htmlmixed.js');
 
 interface ThemeState {
-  value: string,
-  setValue: React.Dispatch<React.SetStateAction<string>>
+  value: Theme,
+  setValue: React.Dispatch<React.SetStateAction<Theme>>
 }
 
 interface FontSizeState {
@@ -40,7 +41,7 @@ function Editor() {
   const initialEngFont = getFontJson('eng')[0].name;
   const initialJpnFont = getFontJson('jpn')[0].name;
 
-  const [theme, setTheme] = useState('base16-dark');
+  const [theme, setTheme] = useState('base16-dark' as Theme);
   const [fontSize, setFontSize] = useState(20);
   const [currentFont, setCurrentFont] = useState({
     eng: initialEngFont,
