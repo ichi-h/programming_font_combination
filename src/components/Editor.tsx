@@ -53,7 +53,6 @@ function Editor() {
   return (
     <div className="editor">
       <Grid
-        h="100"
         templateRows="repeat(1, 1fr)"
         templateColumns="repeat(5, 1fr)"
         gap={0}

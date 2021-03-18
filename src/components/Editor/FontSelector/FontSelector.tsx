@@ -19,7 +19,7 @@ function FontSelector() {
           <Tab>Japanese</Tab>
         </TabList>
 
-        <SimpleBar style={{ height: '95vh' }}>
+        <SimpleBar style={{ height: '94vh' }}>
           <TabPanels>
             <TabPanel>
               <FontItems lang={eng} />
