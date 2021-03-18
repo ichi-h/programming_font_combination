@@ -9,17 +9,17 @@ import {
 } from '../../Editor';
 
 interface UpdateCurrentFont {
-  action: 'UpdateCurrentFont',
+  message: 'UpdateCurrentFont',
   fontName: string
 }
 
 interface UpdateFavValue {
-  action: 'UpdateFavValue',
+  message: 'UpdateFavValue',
   itemIndex: number
 }
 
 interface SortItems {
-  action: 'SortItems'
+  message: 'SortItems'
 }
 
 type Msg
@@ -27,7 +27,7 @@ type Msg
   | UpdateFavValue
   | SortItems;
 
-function useStore(lang: Lang):
+function useFontItemsStore(lang: Lang):
 [
   CurrentFontState,
   React.MutableRefObject<HTMLInputElement>,
@@ -46,10 +46,10 @@ function useStore(lang: Lang):
 
   const fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
-  const update = (msg: Msg) => {
-    // Will run the function depending on the client's action.
+  const updateFontItems = (msg: Msg) => {
+    // Will update the FontItems component depending on the client's action.
 
-    switch(msg.action) {
+    switch(msg.message) {
       case 'UpdateCurrentFont':
         const fontName = msg.fontName;
 
@@ -105,7 +105,7 @@ function useStore(lang: Lang):
     }
   };
 
-  return [currentFont, fontItemsRef, fontJson, favValue, update];
+  return [currentFont, fontItemsRef, fontJson, favValue, updateFontItems];
 }
 
-export default useStore;
+export default useFontItemsStore;

@@ -2,7 +2,7 @@ import { Radio, RadioGroup } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react';
 
-import useStore from './useFontItemsStore';
+import useFontItemsStore from './useFontItemsStore';
 import { Lang } from '../Lang';
 
 import './FontItems.css';
@@ -10,7 +10,7 @@ import './FontItems.css';
 function FontItems(props: { lang: Lang }) {
   const lang = props.lang;
 
-  const [currentFont, fontItemsRef, fontJson, favValue, update] = useStore(lang);
+  const [currentFont, fontItemsRef, fontJson, favValue, updateFontItems] = useFontItemsStore(lang);
 
   const iter = [...Array(fontJson.length)].map((_, i) => i);
 
@@ -19,7 +19,7 @@ function FontItems(props: { lang: Lang }) {
       <RadioGroup
         defaultValue={currentFont.value[lang]}
         onChange={(e) => {
-          update({ action: 'UpdateCurrentFont', fontName: String(e) });
+          updateFontItems({ message: 'UpdateCurrentFont', fontName: String(e) });
         }}
         ref={fontItemsRef}
       >
@@ -72,8 +72,8 @@ function FontItems(props: { lang: Lang }) {
                     name="favrite"
                     defaultChecked={favValue[i]}
                     onChange={() => {
-                      update({ action: 'UpdateFavValue', itemIndex: i });
-                      update({ action: 'SortItems' });
+                      updateFontItems({ message: 'UpdateFavValue', itemIndex: i });
+                      updateFontItems({ message: 'SortItems' });
                     }}
                   />
                   <i id={lang + 'fav-icon-' + i} className="icon-heart" />
