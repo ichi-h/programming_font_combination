@@ -8,12 +8,24 @@ import {
   CurrentFontState
 } from '../Editor';
 
-export type Action = 'updateCurrentFont' | 'updateFavValue' | 'sortItems';
-
-interface UpdateProps {
-  fontName?: string,
-  itemIndex?: number
+interface UpdateCurrentFont {
+  action: 'UpdateCurrentFont',
+  fontName: string
 }
+
+interface UpdateFavValue {
+  action: 'UpdateFavValue',
+  itemIndex: number
+}
+
+interface SortItems {
+  action: 'SortItems'
+}
+
+type Msg
+  = UpdateCurrentFont
+  | UpdateFavValue
+  | SortItems;
 
 function useStore(lang: Lang):
 [
@@ -21,7 +33,7 @@ function useStore(lang: Lang):
   React.MutableRefObject<HTMLInputElement>,
   FontInfo[],
   boolean[],
-  (action: Action, props?: UpdateProps) => void
+  (msg: Msg) => void
 ]
 {
   const fontJson = getFontJson(lang);
@@ -34,12 +46,12 @@ function useStore(lang: Lang):
 
   const fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
-  const update = (action: Action, props?: UpdateProps) => {
+  const update = (msg: Msg) => {
     // Will run the function depending on the client's action.
 
-    switch(action) {
-      case 'updateCurrentFont':
-        const fontName = props.fontName;
+    switch(msg.action) {
+      case 'UpdateCurrentFont':
+        const fontName = msg.fontName;
 
         let currentFontCopy = currentFont.value;
         currentFontCopy[lang] = fontName;
@@ -51,8 +63,8 @@ function useStore(lang: Lang):
 
         break;
 
-      case 'updateFavValue':
-        const i = props.itemIndex;
+      case 'UpdateFavValue':
+        const i = msg.itemIndex;
 
         let favValueCopy = favValue;
         favValueCopy[i] = !favValueCopy[i];
@@ -60,7 +72,7 @@ function useStore(lang: Lang):
 
         break;
 
-      case 'sortItems':
+      case 'SortItems':
         // Will sort the font items based on 'favValue'.
         // 'favValue' is a state to manage client's favorite
         // fonts, which are sorted at the top of the font items.

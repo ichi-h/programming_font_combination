@@ -19,7 +19,7 @@ function FontItems(props: { lang: Lang }) {
       <RadioGroup
         defaultValue={currentFont.value[lang]}
         onChange={(e) => {
-          update('updateCurrentFont', { fontName: String(e) });
+          update({ action: 'UpdateCurrentFont', fontName: String(e) });
         }}
         ref={fontItemsRef}
       >
@@ -72,8 +72,8 @@ function FontItems(props: { lang: Lang }) {
                     name="favrite"
                     defaultChecked={favValue[i]}
                     onChange={() => {
-                      update('updateFavValue', { itemIndex: i });
-                      update('sortItems');
+                      update({ action: 'UpdateFavValue', itemIndex: i });
+                      update({ action: 'SortItems' });
                     }}
                   />
                   <i id={lang + 'fav-icon-' + i} className="icon-heart" />
