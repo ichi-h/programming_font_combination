@@ -4,7 +4,7 @@ import { Grid, GridItem } from '@chakra-ui/react';
 
 import { Theme } from './Editor/TypeAliases';
 import FontSelector from './Editor/FontSelector/FontSelector';
-import Settings from './Editor/Navbar/Settings';
+import Navbar from './Editor/Navbar/Navbar';
 
 import './Editor.css';
 import 'codemirror/lib/codemirror.css';
@@ -69,7 +69,7 @@ function Editor() {
           </GridItem>
 
           <GridItem className="right" colSpan={4}>
-            <Settings />
+            <Navbar />
             <div
               style={{ fontSize: fontSize }}
               ref={codeMirrorRef}

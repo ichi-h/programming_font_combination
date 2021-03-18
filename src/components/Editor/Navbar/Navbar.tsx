@@ -11,9 +11,9 @@ import {
 import useSettingsStore from './useSettingsStore';
 import { Theme } from '../TypeAliases';
 
-import './Settings.css';
+import './Navbar.css';
 
-function Settings() {
+function Navbar() {
   const [fontSizeValue, themeValue, updateSettings] = useSettingsStore();
 
   return (
@@ -66,8 +66,9 @@ function Settings() {
           <i className="icon-github-circled" />
         </Button>
       </div>
+
     </div>
   );
 }
 
-export default Settings;
+export default Navbar;
