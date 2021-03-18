@@ -2,7 +2,7 @@ import { Radio, RadioGroup } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react';
 
-import useStore from './updateFn';
+import useStore from './useFontItemsStore';
 import { Lang } from './FontSelector';
 
 import './FontItems.css';
