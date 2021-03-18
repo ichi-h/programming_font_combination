@@ -5,9 +5,9 @@ import { Tooltip } from '@chakra-ui/react';
 import useStore from './updateFn';
 import { Lang } from './FontSelector';
 
-import './FontList.css';
+import './FontItems.css';
 
-function FontList(props: { lang: Lang }) {
+function FontItems(props: { lang: Lang }) {
   const lang = props.lang;
 
   const [currentFont, fontItemsRef, fontJson, favValue, update] = useStore(lang);
@@ -15,7 +15,7 @@ function FontList(props: { lang: Lang }) {
   const iter = [...Array(fontJson.length)].map((_, i) => i);
 
   return (
-    <div className={lang + '-font'}>
+    <div className={lang + '-font-items'}>
       <RadioGroup
         defaultValue={currentFont.value[lang]}
         onChange={(e) => {
@@ -89,4 +89,4 @@ function FontList(props: { lang: Lang }) {
   );
 }
 
-export default FontList;
+export default FontItems;
