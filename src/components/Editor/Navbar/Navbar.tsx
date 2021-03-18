@@ -22,7 +22,7 @@ import { Theme } from '../TypeAliases';
 import './Navbar.css';
 
 function Navbar() {
-  const [fontSizeValue, themeValue, updateSettings] = useNavbarStore();
+  const [fontSizeValue, themeValue, updateNavbar] = useNavbarStore();
 
   return (
     <div className="navbar">
@@ -35,7 +35,7 @@ function Navbar() {
             size="sm"
             value={fontSizeValue}
             min={1}
-            onChange={(e) => { updateSettings({
+            onChange={(e) => { updateNavbar({
               message: 'ChangeFontSize',
               newFontSize: Number(e)
             })}}
@@ -54,7 +54,7 @@ function Navbar() {
             size="sm"
             isFullWidth={false}
             defaultValue={themeValue}
-            onChange={(e) => { updateSettings({
+            onChange={(e) => { updateNavbar({
               message: 'ChangeTheme',
               newTheme: e.target.value as Theme
             })}}
@@ -77,13 +77,31 @@ function Navbar() {
               <PopoverArrow />
               <PopoverBody>
                 <div className="share-popver-body">
-                  <Button variant="link">
+                  <Button
+                    variant="link"
+                    onClick={() => { updateNavbar({
+                      message: 'ClickedShareButton',
+                      media: 'Twitter'
+                    })}}
+                  >
                     <i className="icon-twitter" />
                   </Button>
-                  <Button variant="link">
+                  <Button
+                    variant="link"
+                    onClick={() => { updateNavbar({
+                      message: 'ClickedShareButton',
+                      media: 'Facebook'
+                    })}}
+                  >
                     <i className="icon-facebook-official" />
                   </Button>
-                  <Button variant="link">
+                  <Button
+                    variant="link"
+                    onClick={() => { updateNavbar({
+                      message: 'ClickedShareButton',
+                      media: 'Pocket'
+                    })}}
+                  >
                     <i className="icon-get-pocket" />
                   </Button>
                 </div>
