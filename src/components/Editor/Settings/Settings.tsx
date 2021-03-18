@@ -21,36 +21,40 @@ function Settings() {
       <div className="settings">
 
         <p className="setting-label">Font Size</p>
-        <NumberInput
-          className="setting-item"
-          size="sm"
-          value={fontSizeValue}
-          min={1}
-          onChange={(e) => { updateSettings({
-            message: 'ChangeFontSize',
-            newFontSize: Number(e)
-          })}}
-        >
-          <NumberInputField />
-          <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
-          </NumberInputStepper>
-        </NumberInput>
+        <div className="setting-item">
+          <NumberInput
+            className="setting-item input"
+            size="sm"
+            value={fontSizeValue}
+            min={1}
+            onChange={(e) => { updateSettings({
+              message: 'ChangeFontSize',
+              newFontSize: Number(e)
+            })}}
+          >
+            <NumberInputField />
+            <NumberInputStepper>
+              <NumberIncrementStepper />
+              <NumberDecrementStepper />
+            </NumberInputStepper>
+          </NumberInput>
+        </div>
 
         <p className="setting-label">Theme</p>
-        <Select
-          className="setting-item"
-          size="sm"
-          defaultValue={themeValue}
-          onChange={(e) => { updateSettings({
-            message: 'ChangeTheme',
-            newTheme: e.target.value as Theme
-          })}}
-        >
-          <option value="base16-dark">base16-dark</option>
-          <option value="base16-light">base16-light</option>
-        </Select>
+        <div className="setting-item select">
+          <Select
+            size="sm"
+            isFullWidth={false}
+            defaultValue={themeValue}
+            onChange={(e) => { updateSettings({
+              message: 'ChangeTheme',
+              newTheme: e.target.value as Theme
+            })}}
+          >
+            <option value="base16-dark">base16-dark</option>
+            <option value="base16-light">base16-light</option>
+          </Select>
+        </div>
       </div>
 
       <div className="social-buttons">
