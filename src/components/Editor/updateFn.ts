@@ -1,8 +1,12 @@
 import { useState, useContext, useRef } from 'react';
 
-import { Lang } from './FontSelector';
-import { CurrentFontContext, CurrentFontState } from '../Editor';
 import { FontInfo, getFontJson } from './fontlist.json';
+import { Lang } from './FontSelector';
+import {
+  CurrentFontContext,
+  CodeMirrorRefContext,
+  CurrentFontState
+} from '../Editor';
 
 export type Action = 'updateCurrentFont' | 'updateFavValue' | 'sortItems';
 
@@ -24,10 +28,11 @@ function useStore(lang: Lang):
 
   const fontJson = getFontJson(lang);
 
-  const favArray: boolean[] = Array(fontJson.length).fill(false)
+  const favArray: boolean[] = Array(fontJson.length).fill(false);
   const [favValue, setfavValue] = useState(favArray);
 
   const currentFont = useContext(CurrentFontContext);
+  const codeMirrorRef = useContext(CodeMirrorRefContext);
 
   const update = (action: Action, props?: UpdateProps) => {
     // Will run the function depending on the client's action.
@@ -40,7 +45,8 @@ function useStore(lang: Lang):
         currentFontCopy[lang] = fontName;
         currentFont.setValue(currentFontCopy);
 
-        let elem = document.getElementsByClassName("CodeMirror") as HTMLCollectionOf<HTMLElement>;
+        let elem = codeMirrorRef.current.children[0].children as HTMLCollectionOf<HTMLElement>;
+          // Will reference the CodeMirror Element from the Virtual DOM.
         elem[0].style.fontFamily = `"${currentFontCopy['eng']}", "${currentFontCopy['jpn']}"`;
 
         break;
@@ -55,9 +61,9 @@ function useStore(lang: Lang):
         break;
 
       case 'sortItems':
-        // Will sort fonts list based on 'favValue'.
+        // Will sort the font items based on 'favValue'.
         // 'favValue' is a state to manage client's favorite
-        // fonts, which are sorted at the top of the fonts list.
+        // fonts, which are sorted at the top of the font items.
 
         let liked = [];
         let unliked = [];
@@ -85,7 +91,7 @@ function useStore(lang: Lang):
 
         break;
     }
-  }
+  };
 
   return [currentFont, fontItemsRef, fontJson, favValue, update];
 }

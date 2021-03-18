@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import { Grid, GridItem } from '@chakra-ui/react';
 
@@ -31,6 +31,8 @@ export interface CurrentFontState {
 export const ThemeContext = React.createContext<ThemeState | undefined>(undefined);
 export const FontSizeContext = React.createContext<FontSizeState | undefined>(undefined);
 export const CurrentFontContext = React.createContext<CurrentFontState | undefined>(undefined);
+export const CodeMirrorRefContext = 
+  React.createContext<React.MutableRefObject<HTMLInputElement> | undefined>(undefined);
 
 function Editor() {
   const value = TextValue();
@@ -45,6 +47,8 @@ function Editor() {
     jpn: initialJpnFont
   });
 
+  const codeMirrorRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+
   return (
     <div className="editor">
       <Grid
@@ -57,6 +61,7 @@ function Editor() {
         <ThemeContext.Provider value={{ value: theme, setValue: setTheme }}>
         <FontSizeContext.Provider value={{ value: fontSize, setValue: setFontSize }}>
         <CurrentFontContext.Provider value={{ value: currentFont, setValue: setCurrentFont }}>
+        <CodeMirrorRefContext.Provider value={codeMirrorRef}>
 
           <GridItem className="left" colSpan={1}>
             <FontSelector />
@@ -64,9 +69,10 @@ function Editor() {
 
           <GridItem className="right" colSpan={4}>
             <Settings />
-            <div style={{
-              fontSize: fontSize,
-            }}>
+            <div
+              style={{ fontSize: fontSize }}
+              ref={codeMirrorRef}
+            >
               <CodeMirror
                 value={value}
                 options={{
@@ -78,6 +84,7 @@ function Editor() {
             </div>
           </GridItem>
 
+        </CodeMirrorRefContext.Provider>
         </CurrentFontContext.Provider>
         </FontSizeContext.Provider>
         </ThemeContext.Provider>
