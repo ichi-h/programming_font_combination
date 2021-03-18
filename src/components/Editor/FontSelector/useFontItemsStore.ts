@@ -1,7 +1,7 @@
 import { useState, useContext, useRef } from 'react';
 
 import { FontInfo, getFontJson } from './font.json';
-import { Lang } from './FontSelector';
+import { Lang } from '../Lang';
 import {
   CurrentFontContext,
   CodeMirrorRefContext,
