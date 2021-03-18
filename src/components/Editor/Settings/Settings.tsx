@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { Grid, GridItem } from '@chakra-ui/react';
 import { Select } from '@chakra-ui/react';
 import { Center } from '@chakra-ui/react';
@@ -10,13 +9,13 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react';
 
-import { ThemeContext, FontSizeContext } from '../../Editor';
+import useSettingsStore from './useSettingsStore';
+import { Theme } from '../TypeAliases';
 
 import './Settings.css';
 
 function Settings() {
-  const theme = useContext(ThemeContext);
-  const fontSize = useContext(FontSizeContext);
+  const [fontSizeValue, themeValue, updateSettings] = useSettingsStore();
 
   return (
     <div className="settings">
@@ -35,9 +34,12 @@ function Settings() {
             <NumberInput
               className="setting-item"
               size="sm"
-              value={fontSize.value}
+              value={fontSizeValue}
               min={1}
-              onChange={(e) => fontSize.setValue(Number(e))}
+              onChange={(e) => { updateSettings({
+                message: 'ChangeFontSize',
+                newFontSize: Number(e)
+              })}}
             >
               <NumberInputField />
               <NumberInputStepper>
@@ -57,8 +59,11 @@ function Settings() {
           <Center h="6vh">
             <Select
               size="sm"
-              defaultValue="base16-dark"
-              onChange={(e) => theme.setValue(e.target.value)}
+              defaultValue={themeValue}
+              onChange={(e) => { updateSettings({
+                message: 'ChangeTheme',
+                newTheme: e.target.value as Theme
+              })}}
             >
               <option value="base16-dark">base16-dark</option>
               <option value="base16-light">base16-light</option>

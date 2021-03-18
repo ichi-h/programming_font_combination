@@ -6,24 +6,28 @@ import {
   ThemeContext
 } from '../../Editor';
 
+
+
 interface ChangeFontSize {
   message: 'ChangeFontSize',
-  fontSize: number
+  newFontSize: number
 }
 
 interface ChangeTheme {
   message: 'ChangeTheme',
-  theme: string,
+  newTheme: Theme,
 }
 
 type Msg
   = ChangeFontSize
   | ChangeTheme;
 
+
+  
 function useSettingsStore():
 [
   number,
-  string,
+  Theme,
   (msg: Msg) => void
 ]
 {
@@ -33,9 +37,13 @@ function useSettingsStore():
   const updateSettings = (msg: Msg) => {
     switch (msg.message) {
       case 'ChangeFontSize':
+        const newFontSize = msg.newFontSize;
+        fontSize.setValue(newFontSize);
         break;
       
       case 'ChangeTheme':
+        const newTheme = msg.newTheme;
+        theme.setValue(newTheme);
         break;
     }
   };
