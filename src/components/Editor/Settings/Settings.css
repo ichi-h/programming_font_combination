@@ -1,3 +1,29 @@
+.navbar {
+  position: relative;
+}
+
+  .settings, .social-buttons {
+    position: absolute;
+
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+    height: 100%;
+  }
+
+    .settings {
+      top: 0;
+      left: 1rem;
+      transform: rotateY(-50%);
+    }
+
+    .social-buttons {
+      top: 0;
+      right: 1rem;
+      transform: rotateY(-50%);
+    }
+
 .setting-item {
   font-size: 1rem;
 }
