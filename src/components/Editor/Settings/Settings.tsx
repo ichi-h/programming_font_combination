@@ -10,7 +10,7 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react';
 
-import { ThemeContext, FontSizeContext } from '../Editor';
+import { ThemeContext, FontSizeContext } from '../../Editor';
 
 import './Settings.css';
 

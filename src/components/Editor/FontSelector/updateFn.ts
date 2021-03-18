@@ -6,7 +6,7 @@ import {
   CurrentFontContext,
   CodeMirrorRefContext,
   CurrentFontState
-} from '../Editor';
+} from '../../Editor';
 
 interface UpdateCurrentFont {
   action: 'UpdateCurrentFont',

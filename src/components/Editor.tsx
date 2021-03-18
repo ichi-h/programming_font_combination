@@ -2,14 +2,14 @@ import React, { useState, useRef } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import { Grid, GridItem } from '@chakra-ui/react';
 
-import FontSelector from './Editor/FontSelector';
-import Settings from './Editor/Settings';
+import FontSelector from './Editor/FontSelector/FontSelector';
+import Settings from './Editor/Settings/Settings';
 
 import './Editor.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/base16-dark.css';
 import 'codemirror/theme/base16-light.css';
-import { getFontJson } from './Editor/font.json';
+import { getFontJson } from './Editor/FontSelector/font.json';
 
 require('codemirror/mode/htmlmixed/htmlmixed.js');
 
