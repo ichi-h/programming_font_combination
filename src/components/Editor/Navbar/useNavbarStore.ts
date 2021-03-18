@@ -24,7 +24,7 @@ type Msg
 
 
   
-function useSettingsStore():
+function useNavbarStore():
 [
   number,
   Theme,
@@ -51,4 +51,4 @@ function useSettingsStore():
   return [fontSize.value, theme.value, updateSettings];
 }
 
-export default useSettingsStore;
+export default useNavbarStore;
