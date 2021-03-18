@@ -10,14 +10,14 @@ import './FontItems.css';
 function FontItems(props: { lang: Lang }) {
   const lang = props.lang;
 
-  const [currentFont, fontItemsRef, fontJson, favValue, updateFontItems] = useFontItemsStore(lang);
+  const [currentFontValue, fontItemsRef, fontJson, favValue, updateFontItems] = useFontItemsStore(lang);
 
   const iter = [...Array(fontJson.length)].map((_, i) => i);
 
   return (
     <div className={lang + '-font-items'}>
       <RadioGroup
-        defaultValue={currentFont.value[lang]}
+        defaultValue={currentFontValue}
         onChange={(e) => {
           updateFontItems({ message: 'UpdateCurrentFont', fontName: String(e) });
         }}

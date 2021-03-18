@@ -4,8 +4,7 @@ import { FontInfo, getFontJson } from './font.json';
 import { Lang } from '../TypeAliases';
 import {
   CurrentFontContext,
-  CodeMirrorRefContext,
-  CurrentFontState
+  CodeMirrorRefContext
 } from '../../Editor';
 
 interface UpdateCurrentFont {
@@ -29,7 +28,7 @@ type Msg
 
 function useFontItemsStore(lang: Lang):
 [
-  CurrentFontState,
+  string,
   React.MutableRefObject<HTMLInputElement>,
   FontInfo[],
   boolean[],
@@ -105,7 +104,7 @@ function useFontItemsStore(lang: Lang):
     }
   };
 
-  return [currentFont, fontItemsRef, fontJson, favValue, updateFontItems];
+  return [currentFont.value[lang], fontItemsRef, fontJson, favValue, updateFontItems];
 }
 
 export default useFontItemsStore;

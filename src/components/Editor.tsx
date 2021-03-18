@@ -24,7 +24,7 @@ interface FontSizeState {
   setValue: React.Dispatch<React.SetStateAction<number>>
 }
 
-export interface CurrentFontState {
+interface CurrentFontState {
   value: { eng: string, jpn: string },
   setValue: React.Dispatch<React.SetStateAction<{ eng: string, jpn: string }>>
 }
