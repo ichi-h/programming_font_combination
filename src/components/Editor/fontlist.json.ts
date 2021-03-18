@@ -8,21 +8,21 @@ export interface FontInfo {
   license_link: string
 }
 
-interface FontListJson {
+interface FontJson {
   eng: FontInfo[],
   jpn: FontInfo[]
 }
 
 export const getFontJson = (lang: Lang): FontInfo[] => {
   if (lang === 'eng') {
-    return fontListJson.eng;
+    return fontJson.eng;
   }
   else {
-    return fontListJson.jpn;
+    return fontJson.jpn;
   }
 }
 
-const fontListJson: FontListJson =
+const fontJson: FontJson =
 {
   eng: [
     {
