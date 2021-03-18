@@ -1,5 +1,13 @@
 import { Select } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
+import { Portal } from '@chakra-ui/react';
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
+  PopoverArrow,
+} from '@chakra-ui/react';
 import {
   NumberInput,
   NumberInputField,
@@ -58,10 +66,37 @@ function Navbar() {
       </div>
 
       <div className="social-buttons">
+        <Popover placement="bottom-start">
+          <PopoverTrigger>
+            <Button className="share-button" variant="link">
+              <i className="icon-share" />
+            </Button>
+          </PopoverTrigger>
+          <Portal>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverBody>
+                <div className="share-popver-body">
+                  <Button variant="link">
+                    <i className="icon-twitter" />
+                  </Button>
+                  <Button variant="link">
+                    <i className="icon-facebook-official" />
+                  </Button>
+                  <Button variant="link">
+                    <i className="icon-get-pocket" />
+                  </Button>
+                </div>
+              </PopoverBody>
+            </PopoverContent>
+          </Portal>
+        </Popover>
         <Button
-          className="font-license"
+          className="github-button"
           variant="link"
-          onClick={() => { window.open('https://github.com/ippee/programming_fonts_combination') }}
+          onClick={() => {
+            window.open('https://github.com/ippee/programming_fonts_combination')
+          }}
         >
           <i className="icon-github-circled" />
         </Button>

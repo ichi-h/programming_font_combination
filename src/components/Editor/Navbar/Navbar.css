@@ -42,3 +42,29 @@
       right: 1rem;
       transform: rotateY(-50%);
     }
+
+      .share-button, .github-button {
+        margin: 0 0.5rem 0 0.5rem;
+      }
+
+      .css-v4spno {
+        width: 10vw !important;
+      }
+
+      .share-popver-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+      }
+
+      .icon-twitter::before,
+      .icon-facebook-official::before,
+      .icon-get-pocket::before,
+      .icon-github-circled::before,
+      .icon-share::before {
+        font-size: 150%;
+      }
+
+      .icon-twitter { color: #00acee; }
+      .icon-facebook-official { color: #3B5998; }
+      .icon-get-pocket { color: #ee4056; }
