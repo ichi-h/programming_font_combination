@@ -1,4 +1,4 @@
-import { Lang } from '../Lang';
+import { Lang } from '../TypeAliases';
 
 export interface FontInfo {
   name: string,

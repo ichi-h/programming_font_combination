@@ -3,7 +3,7 @@ import { Button } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react';
 
 import useFontItemsStore from './useFontItemsStore';
-import { Lang } from '../Lang';
+import { Lang } from '../TypeAliases';
 
 import './FontItems.css';
 

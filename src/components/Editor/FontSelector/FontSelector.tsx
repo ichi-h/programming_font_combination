@@ -1,7 +1,7 @@
 import SimpleBar from 'simplebar-react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
-import { Lang } from '../Lang';
+import { Lang } from '../TypeAliases';
 
 import FontItems from './FontItems';
 
