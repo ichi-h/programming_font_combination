@@ -9,7 +9,7 @@ import './Editor.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/base16-dark.css';
 import 'codemirror/theme/base16-light.css';
-import { getFontJson } from './Editor/fontlist.json';
+import { getFontJson } from './Editor/font.json';
 
 require('codemirror/mode/htmlmixed/htmlmixed.js');
 

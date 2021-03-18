@@ -1,6 +1,6 @@
 import { useState, useContext, useRef } from 'react';
 
-import { FontInfo, getFontJson } from './fontlist.json';
+import { FontInfo, getFontJson } from './font.json';
 import { Lang } from './FontSelector';
 import {
   CurrentFontContext,
