@@ -24,8 +24,6 @@ function useStore(lang: Lang):
   (action: Action, props?: UpdateProps) => void
 ]
 {
-  const fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
-
   const fontJson = getFontJson(lang);
 
   const favArray: boolean[] = Array(fontJson.length).fill(false);
@@ -33,6 +31,8 @@ function useStore(lang: Lang):
 
   const currentFont = useContext(CurrentFontContext);
   const codeMirrorRef = useContext(CodeMirrorRefContext);
+
+  const fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   const update = (action: Action, props?: UpdateProps) => {
     // Will run the function depending on the client's action.
