@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+# Programming fonts Combination
+自分に合ったプログラミングフォントを見つけるWebアプリ。  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![App](./images/app.jpg)
 
-## Available Scripts
+## はじめに
+プログラミングは英語で行われることがほとんどです。  
+そのため、プログラミングフォントを選ぶ上で、アルファベットの可読性・識別性・判読性や、個人的な読みやすさというのも重視される項目です。  
 
-In the project directory, you can run:
+しかし、プログラミング向けに制作された和文フォントはあまり多く存在しません。  
+欧文向けのプログラミングフォントは数多く存在するのにも関わらず、それらの選択肢を思うように取れないというのが現状です。  
 
-### `yarn start`
+この問題の解決案として、欧文+和文フォントといったように複数のフォントを組み合わせて使用するというものがあります。  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ただ、これにも問題が１つ存在し、膨大なフォントの中から自分に合った組み合わせを見つけなければなりません。  
+フォントを探し、インストールしては組み合わせ、ダメだったらアンインストール……といった作業を何度も繰り返さなければ、自分に合ったフォントに巡り合うことができません。  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+こうした手間を省くために、**Programming Fonts Combination** では、ブラウザ上でプログラミング向け欧文+和文フォントを組み合わせ、自分に合ったフォントを簡単に探すことができます。  
 
-### `yarn test`
+## 個人的にオススメの組み合わせ
+### Courier Prime Code + Ricty Diminished
+私の現在の組み合わせです。  
+そのまま組み合わせると「全角：半角＝３：５」という白源Likeな比率になります。  
+やや特殊な比率ではありますが、半角文字がぎゅうぎゅう詰めにならず余裕があるためとても読みやすいです。  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### JetBrains Mono + Nasu
+こちらも「全角：半角＝３：５」の比率になります。  
+JetBrains Mono は書体がハッキリとしておりとても読みやすいのですが、そんなことよりリガチャを使えるのがとても楽しいです。  
 
-### `yarn build`
+### その他
+オススメの組み合わせを募集しております。  
+いずれ特集を組んでどこかで発表できればなぁと計画中です。  
+組み合わせ以外にも、単体のプログラミングフォントのオススメも募集しています。  
+推したいものがあれば、お気軽にIssueで教えていただけると幸いです。  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 今後の課題
+例えばVSCodeのように、複数のフォントを選択できるエディターであれば問題ないのですが、それ以外のエディターやiTerm等のターミナルでは、フォントを１つしか選べないことが往々にしてあります。  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+この問題を解決する１つの手段として、複数のフォントを簡易的に合成するWebアプリ、およびデスクトップアプリを開発するということが挙げられます。  
+そうしたアプリケーションを現在思案中です。  
