@@ -16,13 +16,13 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react';
 
-import useNavbarStore from './useNavbarStore';
+import useNavbarModel from './useNavbarModel';
 import { Theme } from '../TypeAliases';
 
 import './Navbar.css';
 
 function Navbar() {
-  const [revBtnChecked, fontSizeValue, themeValue, updateNavbar] = useNavbarStore();
+  const [revBtnChecked, fontSizeValue, themeValue, updateNavbar] = useNavbarModel();
 
   return (
     <div className="navbar">

@@ -26,7 +26,7 @@ type Msg
   | UpdateFavValue
   | SortItems;
 
-function useFontItemsStore(lang: Lang):
+function useFontItemsModel(lang: Lang):
 [
   string,
   React.MutableRefObject<HTMLInputElement>,
@@ -110,4 +110,4 @@ function useFontItemsStore(lang: Lang):
   return [currentFont.value[lang], fontItemsRef, fontJson, favValue, updateFontItems];
 }
 
-export default useFontItemsStore;
+export default useFontItemsModel;

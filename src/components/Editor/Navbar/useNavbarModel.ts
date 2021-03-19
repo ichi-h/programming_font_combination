@@ -40,7 +40,7 @@ type Msg
 
 
   
-function useNavbarStore():
+function useNavbarModel():
 [
   boolean,
   number,
@@ -110,4 +110,4 @@ function useNavbarStore():
   return [currentFont.value.reverse, fontSize.value, theme.value, updateNavbar];
 }
 
-export default useNavbarStore;
+export default useNavbarModel;

@@ -2,7 +2,7 @@ import { Radio, RadioGroup } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react';
 
-import useFontItemsStore from './useFontItemsStore';
+import useFontItemsModel from './useFontItemsModel';
 import { Lang } from '../TypeAliases';
 
 import './FontItems.css';
@@ -10,7 +10,7 @@ import './FontItems.css';
 function FontItems(props: { lang: Lang }) {
   const lang = props.lang;
 
-  const [currentFontValue, fontItemsRef, fontJson, favValue, updateFontItems] = useFontItemsStore(lang);
+  const [currentFontValue, fontItemsRef, fontJson, favValue, updateFontItems] = useFontItemsModel(lang);
 
   const iter = [...Array(fontJson.length)].map((_, i) => i);
 
