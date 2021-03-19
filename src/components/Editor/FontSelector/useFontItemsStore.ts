@@ -56,9 +56,12 @@ function useFontItemsStore(lang: Lang):
         currentFontCopy[lang] = fontName;
         currentFont.setValue(currentFontCopy);
 
+        let p = ['eng', 'jpn'] as Lang[];
+        if (currentFontCopy.reverse) p.reverse();
+
         let elem = codeMirrorRef.current.children[0].children as HTMLCollectionOf<HTMLElement>;
           // Will reference the CodeMirror Element from the Virtual DOM.
-        elem[0].style.fontFamily = `"${currentFontCopy['eng']}", "${currentFontCopy['jpn']}"`;
+        elem[0].style.fontFamily = `"${currentFontCopy[p[0]]}", "${currentFontCopy[p[1]]}"`;
 
         break;
 

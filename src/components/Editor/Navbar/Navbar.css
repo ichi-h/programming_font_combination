@@ -24,13 +24,13 @@
         text-align: center;
       }
 
-      .setting-item.priority,
+      .setting-item.reverse,
       .setting-item.input,
       .setting-item.select {
         font-size: 1rem;
       }
 
-        .settings-item.priority {
+        .settings-item.reverse {
           width: 7rem;
           height: 2rem;
           border-radius: 10%;
@@ -45,7 +45,7 @@
           width: 10rem;
         }
 
-    .priority-button {
+    .reverse-button {
       display: none;
     }
 
@@ -92,7 +92,7 @@
         cursor: pointer;
       }
 
-        input.priority-button:checked ~ .icon-arrows-cw::before {
+        input.reverse-button:checked ~ .icon-arrows-cw::before {
           content: 'JPN \e800  ENG';
         }
 

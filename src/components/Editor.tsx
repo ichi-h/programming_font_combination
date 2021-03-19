@@ -25,8 +25,8 @@ interface FontSizeState {
 }
 
 interface CurrentFontState {
-  value: { eng: string, jpn: string },
-  setValue: React.Dispatch<React.SetStateAction<{ eng: string, jpn: string }>>
+  value: { eng: string, jpn: string, reverse: boolean },
+  setValue: React.Dispatch<React.SetStateAction<{ eng: string, jpn: string, reverse: boolean }>>
 }
 
 export const ThemeContext = React.createContext<ThemeState | undefined>(undefined);
@@ -45,7 +45,8 @@ function Editor() {
   const [fontSize, setFontSize] = useState(20);
   const [currentFont, setCurrentFont] = useState({
     eng: initialEngFont,
-    jpn: initialJpnFont
+    jpn: initialJpnFont,
+    reverse: false
   });
 
   const codeMirrorRef = useRef() as React.MutableRefObject<HTMLInputElement>;

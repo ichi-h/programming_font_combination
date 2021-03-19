@@ -1,12 +1,19 @@
 import { useContext } from 'react';
 
-import { Theme } from '../TypeAliases';
+import { Lang, Theme } from '../TypeAliases';
 import {
+  CurrentFontContext,
+  CodeMirrorRefContext,
   FontSizeContext,
   ThemeContext
 } from '../../Editor';
 
 
+
+interface ClickedReverseButton {
+  message: 'ClickedReverseButton',
+  checked: boolean
+}
 
 interface ChangeFontSize {
   message: 'ChangeFontSize',
@@ -26,7 +33,8 @@ interface ClickedShareButton {
 type Media = 'Twitter' | 'Facebook' | 'Pocket';
 
 type Msg
-  = ChangeFontSize
+  = ClickedReverseButton
+  | ChangeFontSize
   | ChangeTheme
   | ClickedShareButton;
 
@@ -34,16 +42,35 @@ type Msg
   
 function useNavbarStore():
 [
+  boolean,
   number,
   Theme,
   (msg: Msg) => void
 ]
 {
+  const currentFont = useContext(CurrentFontContext);
+  const codeMirrorRef = useContext(CodeMirrorRefContext);
   const fontSize = useContext(FontSizeContext);
   const theme = useContext(ThemeContext);
 
   const updateNavbar = (msg: Msg) => {
     switch (msg.message) {
+      case 'ClickedReverseButton':
+        const checked = msg.checked;
+
+        const currentFontCopy = currentFont.value;
+        currentFontCopy.reverse = checked;
+        currentFont.setValue(currentFontCopy);
+
+        let p = ['eng', 'jpn'] as Lang[];
+        if (currentFontCopy.reverse) p.reverse();
+
+        let elem = codeMirrorRef.current.children[0].children as HTMLCollectionOf<HTMLElement>;
+          // Will reference the CodeMirror Element from the Virtual DOM.
+        elem[0].style.fontFamily = `"${currentFontCopy[p[0]]}", "${currentFontCopy[p[1]]}"`;
+
+        break;
+
       case 'ChangeFontSize':
         const newFontSize = msg.newFontSize;
         fontSize.setValue(newFontSize);
@@ -80,7 +107,7 @@ function useNavbarStore():
     }
   };
 
-  return [fontSize.value, theme.value, updateNavbar];
+  return [currentFont.value.reverse, fontSize.value, theme.value, updateNavbar];
 }
 
 export default useNavbarStore;

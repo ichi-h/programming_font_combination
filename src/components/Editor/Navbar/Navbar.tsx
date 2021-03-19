@@ -22,21 +22,24 @@ import { Theme } from '../TypeAliases';
 import './Navbar.css';
 
 function Navbar() {
-  const [fontSizeValue, themeValue, updateNavbar] = useNavbarStore();
+  const [revBtnChecked, fontSizeValue, themeValue, updateNavbar] = useNavbarStore();
 
   return (
     <div className="navbar">
       <div className="settings">
 
-        <div className="settings-item priority">
-          <label htmlFor="priority-button">
+        <div className="settings-item reverse">
+          <label htmlFor="reverse-button">
             <input
-              className="priority-button"
-              id="priority-button"
+              className="reverse-button"
+              id="reverse-button"
               type="checkbox"
-              name="priority"
-              defaultChecked={false}
-              onClick={(e) => { console.log(e.currentTarget.checked) }}
+              name="reverse"
+              defaultChecked={revBtnChecked}
+              onClick={(e) => { updateNavbar({
+                message: 'ClickedReverseButton',
+                checked: e.currentTarget.checked
+              })}}
             />
             <i className="icon-arrows-cw" />
           </label>
