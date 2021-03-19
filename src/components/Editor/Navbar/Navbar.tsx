@@ -28,6 +28,20 @@ function Navbar() {
     <div className="navbar">
       <div className="settings">
 
+        <div className="settings-item priority">
+          <label htmlFor="priority-button">
+            <input
+              className="priority-button"
+              id="priority-button"
+              type="checkbox"
+              name="priority"
+              defaultChecked={false}
+              onClick={(e) => { console.log(e.currentTarget.checked) }}
+            />
+            <i className="icon-arrows-cw" />
+          </label>
+        </div>
+        
         <p className="setting-label">Font Size</p>
         <div className="setting-item">
           <NumberInput
