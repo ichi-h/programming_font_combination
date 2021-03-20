@@ -1,4 +1,4 @@
-# Programming fonts Combination
+# Programming Fonts Combination
 自分に合ったプログラミングフォントを見つけるWebアプリ。  
 
 ![App](./images/app.jpg)
