@@ -2,6 +2,7 @@
   "name": "font-choice",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT License",
   "homepage": "https://ippee.github.io/programming_fonts_combination",
   "dependencies": {
     "@chakra-ui/react": "^1.3.4",
