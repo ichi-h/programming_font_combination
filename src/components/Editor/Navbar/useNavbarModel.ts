@@ -62,12 +62,12 @@ function useNavbarModel():
         currentFontCopy.reverse = checked;
         currentFont.setValue(currentFontCopy);
 
-        let p = ['eng', 'jpn'] as Lang[];
-        if (currentFontCopy.reverse) p.reverse();
+        let k = ['eng', 'jpn'] as Lang[];
+        if (currentFontCopy.reverse) k.reverse();
 
         let elem = codeMirrorRef.current.children[0].children as HTMLCollectionOf<HTMLElement>;
           // Will reference the CodeMirror Element from the Virtual DOM.
-        elem[0].style.fontFamily = `"${currentFontCopy[p[0]]}", "${currentFontCopy[p[1]]}"`;
+        elem[0].style.fontFamily = `"${currentFontCopy[k[0]]}", "${currentFontCopy[k[1]]}"`;
 
         break;
 
