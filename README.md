@@ -1,4 +1,4 @@
-# Programming Fonts Combination
+# Programming Font Combination
 自分に合ったプログラミングフォントを見つけるWebアプリ。  
 [https://ippee.github.io/programming_fonts_combination/](https://ippee.github.io/programming_fonts_combination/)  
 
@@ -17,7 +17,7 @@
 ただ、これにも問題が１つ存在し、膨大なフォントの中から自分に合った組み合わせを見つけなければなりません。  
 フォントを探し、インストールしては組み合わせ、ダメだったらアンインストール……といった作業を何度も繰り返さなければ、自分に合ったフォントに巡り合うことができません。  
 
-こうした手間を省くために、**Programming Fonts Combination** では、ブラウザ上でプログラミング向け欧文+和文フォントを組み合わせ、自分に合ったフォントを簡単に探すことができます。  
+こうした手間を省くために、**Programming Font Combination** では、ブラウザ上でプログラミング向け欧文+和文フォントを組み合わせ、自分に合ったフォントを簡単に探すことができます。  
 
 
 ## 使い方
