@@ -145,6 +145,11 @@
 }
 
 @font-face {
+  font-family: "mensch";
+  src: url("./assets/fonts/eng/mensch.woff2");
+}
+
+@font-face {
   font-family: "Meslo LG";
   src: url("./assets/fonts/eng/MesloLGM-Regular.woff2");
 }

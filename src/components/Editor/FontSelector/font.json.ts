@@ -229,6 +229,13 @@ const fontJson: FontJson =
       license_link: 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL'
     },
     {
+      name: 'mensc',
+      author: 'robey',
+      license: 'Bitstream Vera License',
+      website: 'https://robey.lag.net/2010/06/21/mensch-font.html',
+      license_link: 'https://robey.lag.net/2010/06/21/mensch-font.html'
+    },
+    {
       name: 'Meslo LG',
       author: 'André Berg',
       license: 'Apache-2.0',
