@@ -1,6 +1,6 @@
 # Programming Font Combination
 自分に合ったプログラミングフォントを見つけるWebアプリ。  
-[https://ippee.github.io/programming_fonts_combination/](https://ippee.github.io/programming_fonts_combination/)  
+[https://ippee.github.io/programming_font_combination/](https://ippee.github.io/programming_font_combination/)  
 
 ![App](./images/app.jpg)
 
