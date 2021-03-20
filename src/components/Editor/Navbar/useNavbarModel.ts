@@ -91,7 +91,7 @@ function useNavbarModel():
 
         switch (media) {
           case 'Twitter':
-            shareURL = `https://twitter.com/share?ref_src=${pageURL}&text=${title}`;
+            shareURL = `https://twitter.com/share?url=${pageURL}&text=${title}`;
             break;
           case 'Facebook':
             shareURL = `http://www.facebook.com/sharer.php?u=${pageURL}&t=${title}`;
