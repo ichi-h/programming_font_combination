@@ -59,7 +59,34 @@ Victor Mono もリガチャ対応のフォントです。
 和文フォントと合わせるときはウェイトが軽めなものを選択してあげるとハマりそうです。  
 ただし、「全角：半角＝６：１１」という奇妙な比率になります。  
 
-### その他
+
+## ここにはないおすすめのフォント
+有料であったり、ライセンスの理由でアプリに搭載できなかったフォントをいくつかご紹介いたします。  
+
+### 欧文フォント
+- Cartograh
+  - [https://connary.com/cartograph.html](https://connary.com/cartograph.html)
+  - 有料フォント
+- Ellograph
+  - [https://connary.com/ellograph.html](https://connary.com/ellograph.html)
+  - 有料フォント
+- Envy Code R
+  - [https://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released](https://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released)
+  - 利用規約により、リポジトリにフォントをアップできない
+- input
+  - [https://input.djr.com/](https://input.djr.com/)
+  - 個人利用は無料
+- Overpass
+  - [http://overpassfont.org/](http://overpassfont.org/)
+  - OFLとLGPLのデュアルライセンス
+
+### 和文フォント
+- Migu
+  - [https://mix-mplus-ipa.osdn.jp/migu/](https://mix-mplus-ipa.osdn.jp/migu/)
+  - IPA系フォント
+
+
+## その他
 オススメのフォントの組み合わせを募集しております。  
 いずれ特集を組んでどこかで発表できればなぁと計画中です。  
 組み合わせ以外にも、単体のプログラミングフォントのオススメも募集しています。  
