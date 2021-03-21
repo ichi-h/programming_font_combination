@@ -24,6 +24,22 @@ import './Navbar.css';
 function Navbar() {
   const [revBtnChecked, fontSizeValue, themeValue, updateNavbar] = useNavbarModel();
 
+  const twitterCallback = () => { updateNavbar({
+    message: 'ClickedShareButton',
+    media: 'Twitter'
+  })}
+  const facebookCallback = () => { updateNavbar({
+    message: 'ClickedShareButton',
+    media: 'Facebook'
+  })}
+  const pocketCallback = () => { updateNavbar({
+    message: 'ClickedShareButton',
+    media: 'Pocket'
+  })}
+  const githubCallback = () => {
+    window.open('https://github.com/ippee/programming_fonts_combination')
+  };
+
   return (
     <div className="navbar">
       <div className="settings">
@@ -96,28 +112,19 @@ function Navbar() {
                 <div className="share-popver-body">
                   <Button
                     variant="link"
-                    onClick={() => { updateNavbar({
-                      message: 'ClickedShareButton',
-                      media: 'Twitter'
-                    })}}
+                    onClick={twitterCallback}
                   >
                     <i className="icon-twitter" />
                   </Button>
                   <Button
                     variant="link"
-                    onClick={() => { updateNavbar({
-                      message: 'ClickedShareButton',
-                      media: 'Facebook'
-                    })}}
+                    onClick={facebookCallback}
                   >
                     <i className="icon-facebook-official" />
                   </Button>
                   <Button
                     variant="link"
-                    onClick={() => { updateNavbar({
-                      message: 'ClickedShareButton',
-                      media: 'Pocket'
-                    })}}
+                    onClick={pocketCallback}
                   >
                     <i className="icon-get-pocket" />
                   </Button>
@@ -129,9 +136,7 @@ function Navbar() {
         <Button
           className="github-button"
           variant="link"
-          onClick={() => {
-            window.open('https://github.com/ippee/programming_fonts_combination')
-          }}
+          onClick={githubCallback}
         >
           <i className="icon-github-circled" />
         </Button>
