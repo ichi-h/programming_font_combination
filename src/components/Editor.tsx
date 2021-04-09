@@ -1,17 +1,12 @@
 import React, { useState, useRef } from 'react';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
 
 import { Theme } from './Editor/TypeAliases';
 import FontSelector from './Editor/FontSelector/FontSelector';
 import Navbar from './Editor/Navbar/Navbar';
+import GridCodeMirror from './Editor/GridCodeMirror';
 
 import './Editor.css';
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/base16-dark.css';
-import 'codemirror/theme/base16-light.css';
 import { getFontJson } from './Editor/FontSelector/font.json';
-
-require('codemirror/mode/htmlmixed/htmlmixed.js');
 
 interface ThemeState {
   value: Theme,
@@ -65,19 +60,12 @@ function Editor() {
 
           <div className="right">
             <Navbar />
-            <div
-              style={{ fontSize: fontSize }}
-              ref={codeMirrorRef}
-            >
-              <CodeMirror
-                value={value}
-                options={{
-                  mode: 'htmlmixed',
-                  theme: theme,
-                  lineNumbers: true
-                }}
-              />
-            </div>
+            <GridCodeMirror
+              fontSize={fontSize}
+              codeMirrorRef={codeMirrorRef}
+              textValue={value}
+              theme={theme}
+            />
           </div>
 
         </CodeMirrorRefContext.Provider>
