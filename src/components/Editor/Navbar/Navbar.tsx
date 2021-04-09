@@ -36,6 +36,7 @@ export const ReverseBtn =
         <input
           className="reverse-button"
           id="reverse-button"
+          data-testid="reverse-button"
           type="checkbox"
           name="reverse"
           defaultChecked={props.checked}
