@@ -6,17 +6,13 @@ import './fonts.css';
 import './assets/css/fontello.css';
 import { ChakraProvider } from "@chakra-ui/react";
 
-import Header from './components/Header';
 import Editor from './components/Editor';
-import Footer from './components/Footer';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
-      <Header />
       <Editor />
-      <Footer />
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
