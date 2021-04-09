@@ -58,6 +58,7 @@ export function FontSizeInput
     <div className="setting-item">
       <NumberInput
         className="setting-item input"
+        data-testid="fontsize-input"
         size="sm"
         value={props.fontSize}
         min={1}
