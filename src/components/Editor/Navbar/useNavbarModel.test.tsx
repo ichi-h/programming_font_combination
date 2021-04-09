@@ -1,9 +1,11 @@
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
+import { fireEvent } from "@testing-library/dom";
+import userEvent from '@testing-library/user-event'
+import { screen } from '@testing-library/react'
 
 import { Theme } from '../TypeAliases';
 import Editor from '../../Editor';
-import { fireEvent } from "@testing-library/dom";
 
 jest.mock('../GridCodeMirror', () => {
   return function DummyGridCodeMirror
@@ -78,4 +80,19 @@ it('change FontSize', () => {
   expect(
     fontSizeDiv.style.fontSize
   ).toEqual('19px');
+})
+
+
+it('change theme', () => {
+  render(<Editor />, container);
+
+  const codeMirrorDiv =
+    container.querySelector('[data-testid="right-codemirror"]') as HTMLDivElement;
+
+  act(() => {
+    userEvent.selectOptions(screen.getByTestId('theme-selector'), 'base16-light');
+  })
+  expect(
+    codeMirrorDiv.className
+  ).toEqual('CodeMirror cm-s-base16-light');
 })

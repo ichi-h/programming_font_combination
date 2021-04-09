@@ -83,6 +83,7 @@ export function ThemeSelector
   return (
     <div className="setting-item select">
       <Select
+        data-testid="theme-selector"
         size="sm"
         isFullWidth={false}
         defaultValue={props.theme}
