@@ -1,4 +1,4 @@
-import { useState, useContext, useRef } from 'react';
+import { useState, useContext, useRef, useCallback } from 'react';
 
 import { FontInfo, getFontJson } from './font.json';
 import { Lang } from '../TypeAliases';
@@ -45,7 +45,7 @@ function useFontItemsModel(lang: Lang):
 
   const fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
-  const updateFontItems = (msg: Msg) => {
+  const updateFontItems = useCallback((msg: Msg) => {
     // Will update the FontItems component depending on the client's action.
 
     switch(msg.message) {
@@ -105,7 +105,7 @@ function useFontItemsModel(lang: Lang):
 
         break;
     }
-  };
+  }, [lang, favValue, currentFont, codeMirrorRef, fontItemsRef]);
 
   return [currentFont.value[lang], fontItemsRef, fontJson, favValue, updateFontItems];
 }

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useCallback } from 'react';
 
 import { Lang, Theme } from '../TypeAliases';
 import {
@@ -53,7 +53,7 @@ function useNavbarModel():
   const fontSize = useContext(FontSizeContext);
   const theme = useContext(ThemeContext);
 
-  const updateNavbar = (msg: Msg) => {
+  const updateNavbar = useCallback((msg: Msg) => {
     switch (msg.message) {
       case 'ClickedReverseButton':
         const checked = msg.checked;
@@ -105,7 +105,7 @@ function useNavbarModel():
 
         break;
     }
-  };
+  }, [currentFont, codeMirrorRef, fontSize, theme]);
 
   return [currentFont.value.reverse, fontSize.value, theme.value, updateNavbar];
 }
