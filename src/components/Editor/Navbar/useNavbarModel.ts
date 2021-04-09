@@ -30,7 +30,7 @@ interface ClickedShareButton {
   media: Media
 }
 
-type Media = 'Twitter' | 'Facebook' | 'Pocket';
+export type Media = 'Twitter' | 'Facebook' | 'Pocket';
 
 type Msg
   = ClickedReverseButton

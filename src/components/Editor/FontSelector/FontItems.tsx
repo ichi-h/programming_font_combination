@@ -7,6 +7,32 @@ import { Lang } from '../TypeAliases';
 
 import './FontItems.css';
 
+export function FavoriteBtn
+(
+  props: {
+    index: number,
+    lang: Lang
+    favValue: boolean,
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }
+) {
+  return (
+    <Tooltip label="Favorite!" placement="top">
+      <label htmlFor={props.lang + '-fav-' + props.index}>
+        <input
+          className="fav-button"
+          id={props.lang + '-fav-' + props.index}
+          type="checkbox"
+          name="favrite"
+          value={props.index}
+          defaultChecked={props.favValue}
+          onChange={props.onChange}
+        />
+        <i id={props.lang + 'fav-icon-' + props.index} className="icon-heart" />
+      </label>
+    </Tooltip>
+  )
+}
+
 function FontItems(props: { lang: Lang }) {
   const lang = props.lang;
   const [currentFontValue, fontItemsRef, fontJson, favValue, updateFontItems] = useFontItemsModel(lang);
@@ -17,6 +43,7 @@ function FontItems(props: { lang: Lang }) {
       fontName: e
     });
   };
+
   const handleClickFavBtn = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateFontItems({
       message: 'UpdateFavValue',
@@ -24,6 +51,7 @@ function FontItems(props: { lang: Lang }) {
     });
     updateFontItems({ message: 'SortItems' });
   };
+
   const handleOpenLink = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     window.open(e.currentTarget.value);
   };
@@ -79,20 +107,12 @@ function FontItems(props: { lang: Lang }) {
                 </Button>
               </Tooltip>
 
-              <Tooltip label="Favorite!" placement="top">
-                <label htmlFor={lang + '-fav-' + i}>
-                  <input
-                    className="fav-button"
-                    id={lang + '-fav-' + i}
-                    type="checkbox"
-                    name="favrite"
-                    value={i}
-                    defaultChecked={favValue[i]}
-                    onChange={handleClickFavBtn}
-                  />
-                  <i id={lang + 'fav-icon-' + i} className="icon-heart" />
-                </label>
-              </Tooltip>
+              <FavoriteBtn
+                index={i}
+                lang={lang}
+                favValue={favValue[i]}
+                onChange={handleClickFavBtn}
+              />
             </div>
 
           </div>

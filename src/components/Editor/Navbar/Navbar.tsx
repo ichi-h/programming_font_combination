@@ -16,44 +16,155 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react';
 
-import useNavbarModel from './useNavbarModel';
+import useNavbarModel, { Media } from './useNavbarModel';
 import { Theme } from '../TypeAliases';
 
 import './Navbar.css';
 
+
+
+/* Navbar items */
+export const ReverseBtn = 
+(
+  props: {
+    checked: boolean,
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }
+) => {
+  return (
+    <div className="settings-item reverse">
+      <label htmlFor="reverse-button">
+        <input
+          className="reverse-button"
+          id="reverse-button"
+          type="checkbox"
+          name="reverse"
+          defaultChecked={props.checked}
+          onChange={props.onChange}
+        />
+        <i className="icon-arrows-cw" />
+      </label>
+    </div>
+  );
+}
+
+export function FontSizeInput
+(
+  props: {
+    fontSize: number,
+    onChange: (e: string) => void }
+) {
+  return (
+    <div className="setting-item">
+      <NumberInput
+        className="setting-item input"
+        size="sm"
+        value={props.fontSize}
+        min={1}
+        onChange={props.onChange}
+      >
+        <NumberInputField />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </NumberInput>
+    </div>
+  )
+}
+
+export function ThemeSelector
+(
+  props: {
+    theme: Theme,
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void }
+) {
+  return (
+    <div className="setting-item select">
+      <Select
+        size="sm"
+        isFullWidth={false}
+        defaultValue={props.theme}
+        onChange={props.onChange}
+      >
+        <option value="base16-dark">base16-dark</option>
+        <option value="base16-light">base16-light</option>
+      </Select>
+    </div>
+  )
+}
+
+export function ShareBtn
+(
+  props: {
+    media: Media,
+    onClick: () => void }
+) {
+  let Icon;
+  switch (props.media) {
+    case 'Twitter':
+      Icon = () => <i className="icon-twitter" />;
+      break
+    case 'Facebook':
+      Icon = () => <i className="icon-facebook-official" />
+      break
+    case 'Pocket':
+      Icon = () => <i className="icon-get-pocket" />
+      break
+  }
+
+  return (
+    <Button
+      variant="link"
+      onClick={props.onClick}
+      width="3rem"
+    >
+      <Icon />
+    </Button>
+  )
+}
+
+
+
+/* Navbar */
 function Navbar() {
   const [revBtnChecked, fontSizeValue, themeValue, updateNavbar] = useNavbarModel();
 
-  const handleRevBtn = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+  const handleRevBtn = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateNavbar({
       message: 'ClickedReverseButton',
       checked: e.currentTarget.checked
     });
   };
+
   const handleFontSize = (e: string) => {
     updateNavbar({
       message: 'ChangeFontSize',
       newFontSize: Number(e)
     })
   };
+
   const handleSelectTheme = (e: React.ChangeEvent<HTMLSelectElement>) => {
     updateNavbar({
       message: 'ChangeTheme',
       newTheme: e.target.value as Theme
     });
   };
+
   const handleTwitterBtn = () => { updateNavbar({
     message: 'ClickedShareButton',
     media: 'Twitter'
   })};
+
   const handleFacebookBtn = () => { updateNavbar({
     message: 'ClickedShareButton',
     media: 'Facebook'
   })};
+
   const handlePocketBtn = () => { updateNavbar({
     message: 'ClickedShareButton',
     media: 'Pocket'
   })};
+
   const handleGitHubBtn = () => {
     window.open('https://github.com/ippee/programming_fonts_combination')
   };
@@ -62,49 +173,13 @@ function Navbar() {
     <div className="navbar">
       <div className="settings">
 
-        <div className="settings-item reverse">
-          <label htmlFor="reverse-button">
-            <input
-              className="reverse-button"
-              id="reverse-button"
-              type="checkbox"
-              name="reverse"
-              defaultChecked={revBtnChecked}
-              onClick={handleRevBtn}
-            />
-            <i className="icon-arrows-cw" />
-          </label>
-        </div>
+        <ReverseBtn checked={revBtnChecked} onChange={handleRevBtn} />
         
         <p className="setting-label">Font Size</p>
-        <div className="setting-item">
-          <NumberInput
-            className="setting-item input"
-            size="sm"
-            value={fontSizeValue}
-            min={1}
-            onChange={handleFontSize}
-          >
-            <NumberInputField />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
-        </div>
+        <FontSizeInput fontSize={fontSizeValue} onChange={handleFontSize} />
 
         <p className="setting-label">Theme</p>
-        <div className="setting-item select">
-          <Select
-            size="sm"
-            isFullWidth={false}
-            defaultValue={themeValue}
-            onChange={handleSelectTheme}
-          >
-            <option value="base16-dark">base16-dark</option>
-            <option value="base16-light">base16-light</option>
-          </Select>
-        </div>
+        <ThemeSelector theme={themeValue} onChange={handleSelectTheme} />
       </div>
 
       <div className="social-buttons">
@@ -119,27 +194,9 @@ function Navbar() {
               <PopoverArrow />
               <PopoverBody>
                 <div className="share-popver-body">
-                  <Button
-                    variant="link"
-                    onClick={handleTwitterBtn}
-                    width="3rem"
-                  >
-                    <i className="icon-twitter" />
-                  </Button>
-                  <Button
-                    variant="link"
-                    onClick={handleFacebookBtn}
-                    width="3rem"
-                  >
-                    <i className="icon-facebook-official" />
-                  </Button>
-                  <Button
-                    variant="link"
-                    onClick={handlePocketBtn}
-                    width="3rem"
-                  >
-                    <i className="icon-get-pocket" />
-                  </Button>
+                  <ShareBtn media="Twitter" onClick={handleTwitterBtn} />
+                  <ShareBtn media="Facebook" onClick={handleFacebookBtn} />
+                  <ShareBtn media="Pocket" onClick={handlePocketBtn} />
                 </div>
               </PopoverBody>
             </PopoverContent>
