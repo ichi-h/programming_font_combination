@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
-import { Grid, GridItem } from '@chakra-ui/react';
 
 import { Theme } from './Editor/TypeAliases';
 import FontSelector from './Editor/FontSelector/FontSelector';
@@ -53,22 +52,18 @@ function Editor() {
 
   return (
     <div className="editor">
-      <Grid
-        templateRows="repeat(1, 1fr)"
-        templateColumns="repeat(5, 1fr)"
-        gap={0}
-      >
+      <div className="grid">
 
         <ThemeContext.Provider value={{ value: theme, setValue: setTheme }}>
         <FontSizeContext.Provider value={{ value: fontSize, setValue: setFontSize }}>
         <CurrentFontContext.Provider value={{ value: currentFont, setValue: setCurrentFont }}>
         <CodeMirrorRefContext.Provider value={codeMirrorRef}>
 
-          <GridItem className="left" colSpan={1}>
+          <div className="left">
             <FontSelector />
-          </GridItem>
+          </div>
 
-          <GridItem className="right" colSpan={4}>
+          <div className="right">
             <Navbar />
             <div
               style={{ fontSize: fontSize }}
@@ -83,14 +78,14 @@ function Editor() {
                 }}
               />
             </div>
-          </GridItem>
+          </div>
 
         </CodeMirrorRefContext.Provider>
         </CurrentFontContext.Provider>
         </FontSizeContext.Provider>
         </ThemeContext.Provider>
 
-      </Grid>
+      </div>
     </div>
   );
 }

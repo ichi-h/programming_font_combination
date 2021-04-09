@@ -1,14 +1,10 @@
-.editor {
-
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr;
 }
 
-  .editor .font-selector {
-  }
-
-  .chakra-tabs__tablist.css-dimqmj {
-    height: 6vh;
-  }
-
+  .chakra-tabs__tablist.css-dimqmj,
   .editor .navbar {
     height: 6vh;
   }
@@ -17,3 +13,22 @@
     font-family: "agave", "Cica";
     height: 94vh;
   }
+
+@media screen and (max-width: 1050px) {
+  .editor {
+    overflow: hidden;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .left, .right {
+    width: 100vw;
+  }
+
+  .editor .CodeMirror {
+    height: 44vh;
+  }
+}
