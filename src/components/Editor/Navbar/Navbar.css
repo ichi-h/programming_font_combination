@@ -60,13 +60,15 @@
       }
 
       .css-v4spno {
-        width: 10vw !important;
+        width: 12rem !important;
+        transform: translateX(12rem);
       }
 
       .share-popver-body {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr;
+        width: 12rem;
       }
 
       .icon-arrows-cw::before,

@@ -113,18 +113,21 @@ function Navbar() {
                   <Button
                     variant="link"
                     onClick={twitterCallback}
+                    width="3rem"
                   >
                     <i className="icon-twitter" />
                   </Button>
                   <Button
                     variant="link"
                     onClick={facebookCallback}
+                    width="3rem"
                   >
                     <i className="icon-facebook-official" />
                   </Button>
                   <Button
                     variant="link"
                     onClick={pocketCallback}
+                    width="3rem"
                   >
                     <i className="icon-get-pocket" />
                   </Button>
