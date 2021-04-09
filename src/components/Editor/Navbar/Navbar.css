@@ -3,20 +3,12 @@
 }
 
   .settings, .social-buttons {
-    position: absolute;
-
     display: flex;
     justify-items: center;
     align-items: center;
 
     height: 100%;
   }
-
-    .settings {
-      top: 0;
-      left: 0;
-      transform: rotateY(-50%);
-    }
 
       .setting-label {
         font-size: 1rem;
@@ -47,12 +39,6 @@
 
     .reverse-button {
       display: none;
-    }
-
-    .social-buttons {
-      top: 0;
-      right: 1rem;
-      transform: rotateY(-50%);
     }
 
       .share-button, .github-button {
@@ -101,3 +87,21 @@
       .icon-twitter { color: #00acee; }
       .icon-facebook-official { color: #3B5998; }
       .icon-get-pocket { color: #ee4056; }
+
+@media screen and (min-width: 550px) {
+  .settings, .social-buttons {
+    position: absolute;
+    top: 0;
+  }
+
+    .settings { left: 0; }
+    .social-buttons { right: 1rem; }
+}
+
+@media screen and (max-width: 1050px) {
+  .navbar {
+    display: flex;
+    overflow-x: scroll;
+    width: 100vw;
+  }
+}
