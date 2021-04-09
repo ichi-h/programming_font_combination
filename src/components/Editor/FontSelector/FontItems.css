@@ -32,6 +32,7 @@ div[class*=font-item] {
 
   .icon-heart {
     color: rgb(185, 185, 185);
+    cursor: pointer;
   }
 
     input.fav-button:checked ~ .icon-heart {
