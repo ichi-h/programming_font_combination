@@ -24,18 +24,36 @@ import './Navbar.css';
 function Navbar() {
   const [revBtnChecked, fontSizeValue, themeValue, updateNavbar] = useNavbarModel();
 
+  const handleRevBtn = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+    updateNavbar({
+      message: 'ClickedReverseButton',
+      checked: e.currentTarget.checked
+    });
+  };
+  const handleFontSize = (e: string) => {
+    updateNavbar({
+      message: 'ChangeFontSize',
+      newFontSize: Number(e)
+    })
+  };
+  const handleSelectTheme = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    updateNavbar({
+      message: 'ChangeTheme',
+      newTheme: e.target.value as Theme
+    });
+  };
   const handleTwitterBtn = () => { updateNavbar({
     message: 'ClickedShareButton',
     media: 'Twitter'
-  })}
+  })};
   const handleFacebookBtn = () => { updateNavbar({
     message: 'ClickedShareButton',
     media: 'Facebook'
-  })}
+  })};
   const handlePocketBtn = () => { updateNavbar({
     message: 'ClickedShareButton',
     media: 'Pocket'
-  })}
+  })};
   const handleGitHubBtn = () => {
     window.open('https://github.com/ippee/programming_fonts_combination')
   };
@@ -52,10 +70,7 @@ function Navbar() {
               type="checkbox"
               name="reverse"
               defaultChecked={revBtnChecked}
-              onClick={(e) => { updateNavbar({
-                message: 'ClickedReverseButton',
-                checked: e.currentTarget.checked
-              })}}
+              onClick={handleRevBtn}
             />
             <i className="icon-arrows-cw" />
           </label>
@@ -68,10 +83,7 @@ function Navbar() {
             size="sm"
             value={fontSizeValue}
             min={1}
-            onChange={(e) => { updateNavbar({
-              message: 'ChangeFontSize',
-              newFontSize: Number(e)
-            })}}
+            onChange={handleFontSize}
           >
             <NumberInputField />
             <NumberInputStepper>
@@ -87,10 +99,7 @@ function Navbar() {
             size="sm"
             isFullWidth={false}
             defaultValue={themeValue}
-            onChange={(e) => { updateNavbar({
-              message: 'ChangeTheme',
-              newTheme: e.target.value as Theme
-            })}}
+            onChange={handleSelectTheme}
           >
             <option value="base16-dark">base16-dark</option>
             <option value="base16-light">base16-light</option>

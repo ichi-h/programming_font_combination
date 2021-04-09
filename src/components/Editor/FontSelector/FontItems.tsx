@@ -9,8 +9,24 @@ import './FontItems.css';
 
 function FontItems(props: { lang: Lang }) {
   const lang = props.lang;
-
   const [currentFontValue, fontItemsRef, fontJson, favValue, updateFontItems] = useFontItemsModel(lang);
+
+  const handleCurrentFont = (e: string) => {
+    updateFontItems({
+      message: 'UpdateCurrentFont',
+      fontName: e
+    });
+  };
+  const handleClickFavBtn = (e: React.ChangeEvent<HTMLInputElement>) => {
+    updateFontItems({
+      message: 'UpdateFavValue',
+      itemIndex: Number(e.target.value)
+    });
+    updateFontItems({ message: 'SortItems' });
+  };
+  const handleOpenLink = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    window.open(e.currentTarget.value);
+  };
 
   const iter = [...Array(fontJson.length)].map((_, i) => i);
 
@@ -18,9 +34,7 @@ function FontItems(props: { lang: Lang }) {
     <div className={lang + '-font-items'}>
       <RadioGroup
         defaultValue={currentFontValue}
-        onChange={(e) => {
-          updateFontItems({ message: 'UpdateCurrentFont', fontName: String(e) });
-        }}
+        onChange={handleCurrentFont}
         ref={fontItemsRef}
       >
       {
@@ -47,7 +61,8 @@ function FontItems(props: { lang: Lang }) {
                 <Button
                   className="font-license"
                   variant="link"
-                  onClick={() => { window.open(fontJson[i].license_link) }}
+                  value={fontJson[i].license_link}
+                  onClick={handleOpenLink}
                 >
                   <i className="icon-id-card-o" />
                 </Button>
@@ -57,7 +72,8 @@ function FontItems(props: { lang: Lang }) {
                 <Button
                   className="font-link"
                   variant="link"
-                  onClick={() => { window.open(fontJson[i].website) }}
+                  value={fontJson[i].website}
+                  onClick={handleOpenLink}
                 >
                   <i className="icon-link" />
                 </Button>
@@ -70,11 +86,9 @@ function FontItems(props: { lang: Lang }) {
                     id={lang + '-fav-' + i}
                     type="checkbox"
                     name="favrite"
+                    value={i}
                     defaultChecked={favValue[i]}
-                    onChange={() => {
-                      updateFontItems({ message: 'UpdateFavValue', itemIndex: i });
-                      updateFontItems({ message: 'SortItems' });
-                    }}
+                    onChange={handleClickFavBtn}
                   />
                   <i id={lang + 'fav-icon-' + i} className="icon-heart" />
                 </label>
