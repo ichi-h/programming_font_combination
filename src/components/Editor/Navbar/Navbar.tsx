@@ -24,19 +24,19 @@ import './Navbar.css';
 function Navbar() {
   const [revBtnChecked, fontSizeValue, themeValue, updateNavbar] = useNavbarModel();
 
-  const twitterCallback = () => { updateNavbar({
+  const handleTwitterBtn = () => { updateNavbar({
     message: 'ClickedShareButton',
     media: 'Twitter'
   })}
-  const facebookCallback = () => { updateNavbar({
+  const handleFacebookBtn = () => { updateNavbar({
     message: 'ClickedShareButton',
     media: 'Facebook'
   })}
-  const pocketCallback = () => { updateNavbar({
+  const handlePocketBtn = () => { updateNavbar({
     message: 'ClickedShareButton',
     media: 'Pocket'
   })}
-  const githubCallback = () => {
+  const handleGitHubBtn = () => {
     window.open('https://github.com/ippee/programming_fonts_combination')
   };
 
@@ -112,21 +112,21 @@ function Navbar() {
                 <div className="share-popver-body">
                   <Button
                     variant="link"
-                    onClick={twitterCallback}
+                    onClick={handleTwitterBtn}
                     width="3rem"
                   >
                     <i className="icon-twitter" />
                   </Button>
                   <Button
                     variant="link"
-                    onClick={facebookCallback}
+                    onClick={handleFacebookBtn}
                     width="3rem"
                   >
                     <i className="icon-facebook-official" />
                   </Button>
                   <Button
                     variant="link"
-                    onClick={pocketCallback}
+                    onClick={handlePocketBtn}
                     width="3rem"
                   >
                     <i className="icon-get-pocket" />
@@ -139,7 +139,7 @@ function Navbar() {
         <Button
           className="github-button"
           variant="link"
-          onClick={githubCallback}
+          onClick={handleGitHubBtn}
         >
           <i className="icon-github-circled" />
         </Button>
