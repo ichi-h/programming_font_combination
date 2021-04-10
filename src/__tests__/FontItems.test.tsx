@@ -1,11 +1,11 @@
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import { Theme } from '../TypeAliases';
-import Editor from '../../Editor';
-import FavoriteBtn from './FavoriteBtn';
+import { Theme } from '../components/Editor/TypeAliases';
+import Editor from '../components/Editor';
+import FavoriteBtn from '../components/Editor/FontSelector/FavoriteBtn';
 
-jest.mock('../GridCodeMirror', () => {
+jest.mock('../components/Editor/GridCodeMirror', () => {
   return function DummyGridCodeMirror
   (
     props: {

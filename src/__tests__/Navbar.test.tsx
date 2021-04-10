@@ -4,10 +4,10 @@ import { fireEvent } from "@testing-library/dom";
 import userEvent from '@testing-library/user-event'
 import { screen } from '@testing-library/react'
 
-import { Theme } from '../TypeAliases';
-import Editor from '../../Editor';
+import { Theme } from '../components/Editor/TypeAliases';
+import Editor from '../components/Editor';
 
-jest.mock('../GridCodeMirror', () => {
+jest.mock('../components/Editor/GridCodeMirror', () => {
   return function DummyGridCodeMirror
   (
     props: {
