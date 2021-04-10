@@ -33,12 +33,6 @@ jest.mock('../GridCodeMirror', () => {
   }
 })
 
-jest.mock('../FontSelector', () => {
-  return function DummyFontSelector() {
-    return <div className="font-selector"></div>
-  }
-})
-
 let container: HTMLDivElement;
 beforeEach(() => {
   // setup a DOM element as a render target

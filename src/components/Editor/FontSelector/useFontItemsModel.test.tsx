@@ -31,12 +31,6 @@ jest.mock('../GridCodeMirror', () => {
   }
 })
 
-jest.mock('../Navbar', () => {
-  return function DummyNavbar() {
-    return <div className="navbar"></div>
-  }
-})
-
 let container: HTMLDivElement;
 beforeEach(() => {
   // setup a DOM element as a render target
