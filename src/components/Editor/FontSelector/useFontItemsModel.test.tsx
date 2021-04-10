@@ -3,6 +3,7 @@ import { act } from "react-dom/test-utils";
 
 import { Theme } from '../TypeAliases';
 import Editor from '../../Editor';
+import FavoriteBtn from './FavoriteBtn';
 
 jest.mock('../GridCodeMirror', () => {
   return function DummyGridCodeMirror
@@ -68,4 +69,28 @@ it('change current font', () => {
   expect(
     codeMirrorDiv.style.fontFamily
   ).toEqual(`"${font.name}", "Cica"`);
+})
+
+
+it('click FavoriteBtn', () => {
+  const index = 48;
+  const onChange = jest.fn();
+  render(
+    <FavoriteBtn
+      index={index}
+      lang={'eng'}
+      favValue={false}
+      onChange={onChange}
+    />,
+    container
+  );
+
+  const favBtn = container.querySelector(
+    `[data-testid="fav-button-${index}"]`
+  ) as HTMLInputElement;
+
+  act(() => {
+    favBtn.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+  });
+  expect(onChange).toHaveBeenCalledTimes(1);
 })
