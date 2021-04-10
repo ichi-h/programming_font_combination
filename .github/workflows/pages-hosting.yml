@@ -1,14 +1,20 @@
 name: Deploy to GitHub Pages on merge
-
 on:
   push:
-    branches: { master }
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
-
+    branches:
+      - master
 jobs:
-  uses: peaceiris/actions-gh-pages@v2.5.0
-    env:
-      repoToken: "${{ secrets.GITHUB_TOKEN }}"
-      PUBLISH_BRANCH: gh-pages
-      PUBLISH_DIR: ./build
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Build
+        run: yarn && yarn build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
