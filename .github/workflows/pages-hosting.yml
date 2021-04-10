@@ -11,4 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: yarn && yarn deploy
+      - run: |
+        git config user.name "ippee"
+        git config user.email "ippee.music@gmail.com"
+        yarn && yarn deploy
