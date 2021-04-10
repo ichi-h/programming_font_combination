@@ -25,21 +25,13 @@ interface ChangeTheme {
   newTheme: Theme,
 }
 
-interface ClickedShareButton {
-  message: 'ClickedShareButton',
-  media: Media
-}
-
-export type Media = 'Twitter' | 'Facebook' | 'Pocket';
-
 type Msg
   = ClickedReverseButton
   | ChangeFontSize
-  | ChangeTheme
-  | ClickedShareButton;
+  | ChangeTheme;
 
 
-  
+
 function useNavbarModel():
 [
   boolean,
@@ -79,30 +71,6 @@ function useNavbarModel():
       case 'ChangeTheme':
         const newTheme = msg.newTheme;
         theme.setValue(newTheme);
-        break;
-      
-      case 'ClickedShareButton':
-        const media = msg.media;
-
-        const title = document.title;
-        const pageURL = window.location.href;
-
-        let shareURL: string;
-
-        switch (media) {
-          case 'Twitter':
-            shareURL = `https://twitter.com/share?url=${pageURL}&text=${title}`;
-            break;
-          case 'Facebook':
-            shareURL = `http://www.facebook.com/sharer.php?u=${pageURL}&t=${title}`;
-            break;
-          case 'Pocket':
-            shareURL = `http://getpocket.com/edit?url=${pageURL}&title=${title}`;
-            break;
-        }
-
-        window.open(shareURL);
-
         break;
     }
   }, [currentFont, codeMirrorRef, fontSize, theme]);

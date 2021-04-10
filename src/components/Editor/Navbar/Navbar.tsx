@@ -16,15 +16,15 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react';
 
-import useNavbarModel, { Media } from './useNavbarModel';
+import useNavbarModel from './useNavbarModel';
 import { Theme } from '../TypeAliases';
 
 import './Navbar.css';
 
 
 
-/* Navbar items */
-export const ReverseBtn = 
+/* Navbar components*/
+const ReverseBtn = 
 (
   props: {
     checked: boolean,
@@ -48,7 +48,7 @@ export const ReverseBtn =
   );
 }
 
-export function FontSizeInput
+function FontSizeInput
 (
   props: {
     fontSize: number,
@@ -74,7 +74,7 @@ export function FontSizeInput
   )
 }
 
-export function ThemeSelector
+function ThemeSelector
 (
   props: {
     theme: Theme,
@@ -96,29 +96,35 @@ export function ThemeSelector
   )
 }
 
-export function ShareBtn
-(
-  props: {
-    media: Media,
-    onClick: () => void }
-) {
-  let Icon;
+type Media = 'Twitter' | 'Facebook' | 'Pocket';
+
+function ShareBtn(props: { media: Media }) {
+  let Icon: () => JSX.Element;
+  let shareURL: string;
+  const title = document.title;
+  const pageURL = window.location.href;
+
   switch (props.media) {
     case 'Twitter':
       Icon = () => <i className="icon-twitter" />;
+      shareURL = `https://twitter.com/share?url=${pageURL}&text=${title}`;
       break
     case 'Facebook':
       Icon = () => <i className="icon-facebook-official" />
+      shareURL = `http://www.facebook.com/sharer.php?u=${pageURL}&t=${title}`;
       break
     case 'Pocket':
       Icon = () => <i className="icon-get-pocket" />
+      shareURL = `http://getpocket.com/edit?url=${pageURL}&title=${title}`;
       break
   }
+
+  const handleClick = () => window.open(shareURL);
 
   return (
     <Button
       variant="link"
-      onClick={props.onClick}
+      onClick={handleClick}
       width="3rem"
     >
       <Icon />
@@ -153,21 +159,6 @@ function Navbar() {
     });
   };
 
-  const handleTwitterBtn = () => { updateNavbar({
-    message: 'ClickedShareButton',
-    media: 'Twitter'
-  })};
-
-  const handleFacebookBtn = () => { updateNavbar({
-    message: 'ClickedShareButton',
-    media: 'Facebook'
-  })};
-
-  const handlePocketBtn = () => { updateNavbar({
-    message: 'ClickedShareButton',
-    media: 'Pocket'
-  })};
-
   const handleGitHubBtn = () => {
     window.open('https://github.com/ippee/programming_fonts_combination')
   };
@@ -197,9 +188,9 @@ function Navbar() {
               <PopoverArrow />
               <PopoverBody>
                 <div className="share-popver-body">
-                  <ShareBtn media="Twitter" onClick={handleTwitterBtn} />
-                  <ShareBtn media="Facebook" onClick={handleFacebookBtn} />
-                  <ShareBtn media="Pocket" onClick={handlePocketBtn} />
+                  <ShareBtn media="Twitter" />
+                  <ShareBtn media="Facebook" />
+                  <ShareBtn media="Pocket" />
                 </div>
               </PopoverBody>
             </PopoverContent>
