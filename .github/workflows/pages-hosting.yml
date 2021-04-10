@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages on merge
+name: Deploy to GitHub Pages
 on:
   push:
     branches:
@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Build
-        run: yarn && yarn build
+        uses: actions/checkout@v2
+        with:
+          run: yarn && yarn build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
