@@ -70,7 +70,10 @@ function FontItems(props: { lang: Lang }) {
           <div className={lang + '-font-item-' + i} key={i}>
 
             <div className="font-info">
-              <div className="font-name">
+              <div
+                className="font-name"
+                data-testid={`radio-${i}`}
+              >
                 <Radio
                   value={fontJson[i].name}
                   name={lang + '-radio'}
