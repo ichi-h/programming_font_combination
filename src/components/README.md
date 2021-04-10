@@ -1,0 +1,25 @@
+# components
+
+- Editor.tsx
+  - Grid でコンポーネントを左右に分割
+- Editor/
+  - FontSelector.tsx
+    - 各言語の選択できるフォントの一覧を表示するコンポーネント
+  - GridCodeMirror.tsx
+    - テキストエディタに関連するコンポーネント
+  - Navbar.tsx
+    - メニューバーを表示するコンポーネント
+  - TypeAliases.ts
+    - Type Aliase を管理するファイル
+- FontSelector/
+  - FavoriteBtn.tsx
+    - Favorite! ボタンを描画するコンポーネント
+  - FontItems.tsx
+    - 各フォント情報をカードにまとめて表示するコンポーネント
+  - font.json.ts
+    - フォント情報を json（オブジェクト）形式で管理するファイル
+  - useFontItemsModel.ts
+    - FontItems の state を管理するファイル
+- Navbar/
+  - useNavbarModel.ts
+    - Navbar 関連の state を管理するファイル
