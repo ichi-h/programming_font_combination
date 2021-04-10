@@ -4,34 +4,7 @@ import { fireEvent } from "@testing-library/dom";
 import userEvent from '@testing-library/user-event'
 import { screen } from '@testing-library/react'
 
-import { Theme } from '../components/Editor/TypeAliases';
 import Editor from '../components/Editor';
-
-jest.mock('../components/Editor/GridCodeMirror', () => {
-  return function DummyGridCodeMirror
-  (
-    props: {
-      fontSize: number,
-      codeMirrorRef: React.MutableRefObject<HTMLInputElement>,
-      textValue: string,
-      theme: Theme }
-  ) {
-    return (
-      <div
-        style={{ fontSize: props.fontSize }}
-        ref={props.codeMirrorRef}
-        data-testid="right-fontsize"
-      >
-        <div className="react-codemirror2">
-          <div
-            className={`CodeMirror cm-s-${props.theme}`}
-            data-testid="right-codemirror"
-          />
-        </div>
-      </div>
-    )
-  }
-})
 
 let container: HTMLDivElement;
 beforeEach(() => {
