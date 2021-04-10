@@ -4,34 +4,9 @@ import { Tooltip } from '@chakra-ui/react';
 
 import useFontItemsModel from './useFontItemsModel';
 import { Lang } from '../TypeAliases';
+import FavoriteBtn from './FavoriteBtn';
 
 import './FontItems.css';
-
-export function FavoriteBtn
-(
-  props: {
-    index: number,
-    lang: Lang
-    favValue: boolean,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }
-) {
-  return (
-    <Tooltip label="Favorite!" placement="top">
-      <label htmlFor={props.lang + '-fav-' + props.index}>
-        <input
-          className="fav-button"
-          id={props.lang + '-fav-' + props.index}
-          type="checkbox"
-          name="favrite"
-          value={props.index}
-          defaultChecked={props.favValue}
-          onChange={props.onChange}
-        />
-        <i id={props.lang + 'fav-icon-' + props.index} className="icon-heart" />
-      </label>
-    </Tooltip>
-  )
-}
 
 function FontItems(props: { lang: Lang }) {
   const lang = props.lang;
