@@ -8,9 +8,7 @@ on:
       - master
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - name: Deploy
-        uses: actions/checkout@v2
-        with:
-          run: yarn && yarn deploy
+      - uses: actions/checkout@v2
+      - run: yarn && yarn deploy
