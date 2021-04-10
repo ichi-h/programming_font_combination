@@ -23,13 +23,16 @@ interface CurrentFontState {
   setValue: React.Dispatch<React.SetStateAction<{ eng: string, jpn: string, reverse: boolean }>>
 }
 
-export const ThemeContext = React.createContext<ThemeState | undefined>(undefined);
-export const FontSizeContext = React.createContext<FontSizeState | undefined>(undefined);
-export const CurrentFontContext = React.createContext<CurrentFontState | undefined>(undefined);
-export const CodeMirrorRefContext = 
+export const ThemeContext =
+  React.createContext<ThemeState | undefined>(undefined);
+export const FontSizeContext =
+  React.createContext<FontSizeState | undefined>(undefined);
+export const CurrentFontContext =
+  React.createContext<CurrentFontState | undefined>(undefined);
+export const CodeMirrorRefContext =
   React.createContext<React.MutableRefObject<HTMLInputElement> | undefined>(undefined);
 
-function Editor() {
+function Editor(): JSX.Element {
   const value = TextValue();
 
   const initialEngFont = getFontJson('eng')[0].name;
@@ -43,7 +46,7 @@ function Editor() {
     reverse: false
   });
 
-  const codeMirrorRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const codeMirrorRef: React.MutableRefObject<HTMLInputElement> = useRef();
 
   return (
     <div className="editor">

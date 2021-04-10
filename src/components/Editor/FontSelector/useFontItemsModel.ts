@@ -1,4 +1,4 @@
-import { useState, useContext, useRef, useCallback } from 'react';
+import React, { useState, useContext, useRef, useCallback } from 'react';
 
 import { FontInfo, getFontJson } from './font.json';
 import { Lang } from '../TypeAliases';
@@ -37,13 +37,13 @@ function useFontItemsModel(lang: Lang):
 {
   const fontJson = getFontJson(lang);
 
-  const favArray: boolean[] = Array(fontJson.length).fill(false);
+  const favArray: boolean[] = Array<boolean>(fontJson.length).fill(false);
   const [favValue, setfavValue] = useState(favArray);
 
   const currentFont = useContext(CurrentFontContext);
   const codeMirrorRef = useContext(CodeMirrorRefContext);
 
-  const fontItemsRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const fontItemsRef: React.MutableRefObject<HTMLInputElement> = useRef();
 
   const updateFontItems = useCallback((msg: Msg) => {
     // Will update the FontItems component depending on the client's action.
@@ -52,14 +52,14 @@ function useFontItemsModel(lang: Lang):
       case 'UpdateCurrentFont':
         const fontName = msg.fontName;
 
-        let currentFontCopy = currentFont.value;
+        const currentFontCopy = currentFont.value;
         currentFontCopy[lang] = fontName;
         currentFont.setValue(currentFontCopy);
 
-        let k = ['eng', 'jpn'] as Lang[];
+        const k = ['eng', 'jpn'] as Lang[];
         if (currentFontCopy.reverse) k.reverse();
 
-        let elem = codeMirrorRef.current.children[0].children as HTMLCollectionOf<HTMLElement>;
+        const elem = codeMirrorRef.current.children[0].children as HTMLCollectionOf<HTMLElement>;
           // Will reference the CodeMirror Element from the Virtual DOM.
         elem[0].style.fontFamily = `"${currentFontCopy[k[0]]}", "${currentFontCopy[k[1]]}"`;
 
@@ -68,7 +68,7 @@ function useFontItemsModel(lang: Lang):
       case 'UpdateFavValue':
         const i = msg.itemIndex;
 
-        let favValueCopy = favValue;
+        const favValueCopy = favValue;
         favValueCopy[i] = !favValueCopy[i];
         setfavValue(favValueCopy);
 
@@ -79,13 +79,13 @@ function useFontItemsModel(lang: Lang):
         // 'favValue' is a state to manage client's favorite
         // fonts, which are sorted at the top of the font items.
 
-        let liked = [];
-        let unliked = [];
+        const liked = [];
+        const unliked = [];
 
         for (let i=0; i < favValue.length; i++) {
-          let elem = 
+          const elem = 
             fontItemsRef.current.getElementsByClassName(
-              lang + '-font-item-' + i
+              `${lang}-font-item-${i}`
             )[0];
 
           if (favValue[i]) {
@@ -99,7 +99,7 @@ function useFontItemsModel(lang: Lang):
         const sortedItems = liked.concat(unliked);
         fontItemsRef.current.innerHTML = '';
 
-        for (let item of sortedItems) {
+        for (const item of sortedItems) {
           fontItemsRef.current.appendChild(item);
         }
 

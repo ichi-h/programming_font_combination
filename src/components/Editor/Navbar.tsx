@@ -1,14 +1,10 @@
-import { Select } from '@chakra-ui/react';
-import { Button } from '@chakra-ui/react';
-import { Portal } from '@chakra-ui/react';
-import {
+import React from 'react';
+import { Select , Button , Portal ,
   Popover,
   PopoverTrigger,
   PopoverContent,
   PopoverBody,
   PopoverArrow,
-} from '@chakra-ui/react';
-import {
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -99,22 +95,22 @@ function ThemeSelector
 type Media = 'Twitter' | 'Facebook' | 'Pocket';
 
 function ShareBtn(props: { media: Media }) {
-  let Icon: () => JSX.Element;
+  let Icon: JSX.Element;
   let shareURL: string;
   const title = document.title;
   const pageURL = window.location.href;
 
   switch (props.media) {
     case 'Twitter':
-      Icon = () => <i className="icon-twitter" />;
+      Icon = <i className="icon-twitter" />;
       shareURL = `https://twitter.com/share?url=${pageURL}&text=${title}`;
       break
     case 'Facebook':
-      Icon = () => <i className="icon-facebook-official" />
+      Icon = <i className="icon-facebook-official" />;
       shareURL = `http://www.facebook.com/sharer.php?u=${pageURL}&t=${title}`;
       break
     case 'Pocket':
-      Icon = () => <i className="icon-get-pocket" />
+      Icon = <i className="icon-get-pocket" />;
       shareURL = `http://getpocket.com/edit?url=${pageURL}&title=${title}`;
       break
   }
@@ -127,7 +123,7 @@ function ShareBtn(props: { media: Media }) {
       onClick={handleClick}
       width="3rem"
     >
-      <Icon />
+      {Icon}
     </Button>
   )
 }
@@ -135,7 +131,7 @@ function ShareBtn(props: { media: Media }) {
 
 
 /* Navbar */
-function Navbar() {
+function Navbar(): JSX.Element {
   const [revBtnChecked, fontSizeValue, themeValue, updateNavbar] = useNavbarModel();
 
   const handleRevBtn = (e: React.ChangeEvent<HTMLInputElement>) => {

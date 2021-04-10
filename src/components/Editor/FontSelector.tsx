@@ -1,3 +1,4 @@
+import React from 'react';
 import SimpleBar from 'simplebar-react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
@@ -7,7 +8,7 @@ import FontItems from './FontSelector/FontItems';
 
 import 'simplebar/dist/simplebar.min.css';
 
-function FontSelector() {
+function FontSelector(): JSX.Element {
   const eng: Lang = 'eng';
   const jpn: Lang = 'jpn';
 

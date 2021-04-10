@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
@@ -24,8 +25,8 @@ it('change current font', () => {
 
   const font = { number: 48, name: "Victor Mono" };
 
-  const codeMirrorDiv =
-    container.querySelector('[data-testid="right-codemirror"]') as HTMLDivElement;
+  const codeMirrorDiv: HTMLDivElement =
+    container.querySelector('[data-testid="right-codemirror"]') ;
   const radioDiv =
     container.querySelector(`[data-testid="radio-${font.number}"]`);
   const radio = radioDiv.children[0];
@@ -54,7 +55,7 @@ it('click FavoriteBtn', () => {
 
   const favBtn = container.querySelector(
     `[data-testid="fav-button-${index}"]`
-  ) as HTMLInputElement;
+  ) ;
 
   act(() => {
     favBtn.dispatchEvent(new MouseEvent('click', { bubbles: true }));

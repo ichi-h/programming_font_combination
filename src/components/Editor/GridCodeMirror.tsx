@@ -1,3 +1,4 @@
+import React from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 
 import { Theme } from './TypeAliases';
@@ -15,7 +16,7 @@ function GridCodeMirror
     codeMirrorRef: React.MutableRefObject<HTMLInputElement>,
     textValue: string,
     theme: Theme }
-) {
+): JSX.Element {
   return(
     <div
       style={{ fontSize: props.fontSize }}

@@ -1,8 +1,9 @@
+import React from 'react';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import { fireEvent } from "@testing-library/dom";
+import { fireEvent , screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
-import { screen } from '@testing-library/react'
+
 
 import Editor from '../components/Editor';
 
@@ -26,8 +27,8 @@ it('click ReverseButton', () => {
 
   const button =
     container.querySelector('[data-testid="reverse-button"]');
-  const codeMirrorDiv =
-    container.querySelector('[data-testid="right-codemirror"]') as HTMLDivElement;
+  const codeMirrorDiv: HTMLDivElement =
+    container.querySelector('[data-testid="right-codemirror"]') ;
 
   act(() => {
     button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
@@ -41,10 +42,10 @@ it('click ReverseButton', () => {
 it('change FontSize', () => {
   render(<Editor />, container);
 
-  const fontSizeDiv =
-    container.querySelector('[data-testid="right-fontsize"]') as HTMLDivElement;
+  const fontSizeDiv: HTMLDivElement =
+    container.querySelector('[data-testid="right-fontsize"]') ;
   const inputDiv =
-    container.querySelector('[data-testid="fontsize-input"]') as HTMLDivElement;
+    container.querySelector('[data-testid="fontsize-input"]') ;
   const input = inputDiv.children[0] as HTMLInputElement;
 
   act(() => {
@@ -60,7 +61,7 @@ it('change theme', () => {
   render(<Editor />, container);
 
   const codeMirrorDiv =
-    container.querySelector('[data-testid="right-codemirror"]') as HTMLDivElement;
+    container.querySelector('[data-testid="right-codemirror"]') ;
 
   act(() => {
     userEvent.selectOptions(screen.getByTestId('theme-selector'), 'base16-light');

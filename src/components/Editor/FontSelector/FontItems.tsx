@@ -1,6 +1,5 @@
-import { Radio, RadioGroup } from '@chakra-ui/react';
-import { Button } from '@chakra-ui/react';
-import { Tooltip } from '@chakra-ui/react';
+import React from 'react';
+import { Radio, RadioGroup , Button , Tooltip } from '@chakra-ui/react';
 
 import useFontItemsModel from './useFontItemsModel';
 import { Lang } from '../TypeAliases';
@@ -8,7 +7,7 @@ import FavoriteBtn from './FavoriteBtn';
 
 import './FontItems.css';
 
-function FontItems(props: { lang: Lang }) {
+function FontItems(props: { lang: Lang }): JSX.Element {
   const lang = props.lang;
   const [currentFontValue, fontItemsRef, fontJson, favValue, updateFontItems] = useFontItemsModel(lang);
 
@@ -31,7 +30,7 @@ function FontItems(props: { lang: Lang }) {
     window.open(e.currentTarget.value);
   };
 
-  const iter = [...Array(fontJson.length)].map((_, i) => i);
+  const iter = [...Array<number>(fontJson.length)].map((_, i) => i);
 
   return (
     <div className={lang + '-font-items'}>
@@ -42,7 +41,7 @@ function FontItems(props: { lang: Lang }) {
       >
       {
         iter.map(i => { return (
-          <div className={lang + '-font-item-' + i} key={i}>
+          <div className={`${lang}-font-item-${i}`} key={i}>
 
             <div className="font-info">
               <div
