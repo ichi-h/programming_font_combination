@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 
 import { Theme } from './Editor/TypeAliases';
-import FontSelector from './Editor/FontSelector/FontSelector';
-import Navbar from './Editor/Navbar/Navbar';
+import FontSelector from './Editor/FontSelector';
+import Navbar from './Editor/Navbar';
 import GridCodeMirror from './Editor/GridCodeMirror';
 
 import './Editor.css';

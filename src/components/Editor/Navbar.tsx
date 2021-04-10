@@ -16,8 +16,8 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react';
 
-import useNavbarModel from './useNavbarModel';
-import { Theme } from '../TypeAliases';
+import useNavbarModel from './Navbar/useNavbarModel';
+import { Theme } from './TypeAliases';
 
 import './Navbar.css';
 
