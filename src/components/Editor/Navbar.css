@@ -2,100 +2,113 @@
   position: relative;
 }
 
-  .settings, .social-buttons {
-    display: flex;
-    justify-items: center;
-    align-items: center;
+.settings,
+.social-buttons {
+  display: flex;
+  justify-items: center;
+  align-items: center;
 
-    height: 100%;
-  }
+  height: 100%;
+}
 
-      .setting-label {
-        font-size: 1rem;
-        width: 6rem;
-        text-align: center;
-      }
+.setting-label {
+  font-size: 1rem;
+  width: 6rem;
+  text-align: center;
+}
 
-      .setting-item.reverse,
-      .setting-item.input,
-      .setting-item.select {
-        font-size: 1rem;
-      }
+.setting-item.reverse,
+.setting-item.input,
+.setting-item.select {
+  font-size: 1rem;
+}
 
-        .settings-item.reverse {
-          width: 7rem;
-          height: 2rem;
-          border-radius: 10%;
-          background-color: #edf2f6;
-        }
+.settings-item.reverse {
+  width: 7rem;
+  height: 2rem;
+  border-radius: 10%;
+  background-color: #edf2f6;
+}
 
-        .setting-item.input {
-          width: 5rem;
-        }
+.setting-item.input {
+  width: 5rem;
+}
 
-        .setting-item.select {
-          width: 10rem;
-        }
+.setting-item.select {
+  width: 10rem;
+}
 
-    .reverse-button {
-      display: none;
-    }
+.reverse-button {
+  display: none;
+}
 
-      .share-button, .github-button {
-        margin: 0 0.5rem 0 0.5rem;
-      }
+.share-button,
+.github-button {
+  margin: 0 0.5rem 0 0.5rem;
+}
 
-      .css-v4spno {
-        width: 12rem !important;
-        transform: translateX(12rem);
-      }
+.css-v4spno {
+  width: 12rem !important;
+  transform: translateX(12rem);
+}
 
-      .share-popver-body {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
-        width: 12rem;
-      }
+.share-popver-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 12rem;
+}
 
-      .icon-arrows-cw::before,
-      .icon-twitter::before,
-      .icon-facebook-official::before,
-      .icon-get-pocket::before,
-      .icon-github-circled::before,
-      .icon-share::before {
-        font-size: 150%;
-      }
+.icon-arrows-cw::before,
+.icon-twitter::before,
+.icon-facebook-official::before,
+.icon-get-pocket::before,
+.icon-github-circled::before,
+.icon-share::before {
+  font-size: 150%;
+}
 
-      .icon-arrows-cw::before {
-        content: 'ENG \e800  JPN';
+.icon-arrows-cw::before {
+  content: "ENG \e800  JPN";
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-        font-weight: bold;
-        width: 100%;
-        height: 100%;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
 
-        cursor: pointer;
-      }
+  cursor: pointer;
+}
 
-        input.reverse-button:checked ~ .icon-arrows-cw::before {
-          content: 'JPN \e800  ENG';
-        }
+input.reverse-button:checked ~ .icon-arrows-cw::before {
+  content: "JPN \e800  ENG";
+}
 
-      .icon-twitter { color: #00acee; }
-      .icon-facebook-official { color: #3B5998; }
-      .icon-get-pocket { color: #ee4056; }
+.icon-twitter {
+  color: #00acee;
+}
+.icon-facebook-official {
+  color: #3b5998;
+}
+.icon-get-pocket {
+  color: #ee4056;
+}
 
 @media screen and (min-width: 550px) {
-  .settings, .social-buttons {
+  .settings,
+  .social-buttons {
     position: absolute;
     top: 0;
   }
 
-    .settings { left: 0; }
-    .social-buttons { right: 1rem; }
+  .settings {
+    left: 0;
+  }
+  .social-buttons {
+    right: 1rem;
+  }
 }
 
 @media screen and (max-width: 1050px) {

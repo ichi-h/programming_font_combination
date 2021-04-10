@@ -1,4 +1,4 @@
-div[class*=font-item] {
+div[class*="font-item"] {
   padding: 1rem 0 1rem 0;
   border-bottom: 1px solid rgb(185, 185, 185);
 }
@@ -22,19 +22,19 @@ div[class*=font-item] {
   font-size: 1rem;
 }
 
-  .font-link {
-    margin-right: 0.2rem;
-  }
+.font-link {
+  margin-right: 0.2rem;
+}
 
-  input.fav-button {
-    display: none;
-  }
+input.fav-button {
+  display: none;
+}
 
-  .icon-heart {
-    color: rgb(185, 185, 185);
-    cursor: pointer;
-  }
+.icon-heart {
+  color: rgb(185, 185, 185);
+  cursor: pointer;
+}
 
-    input.fav-button:checked ~ .icon-heart {
-      color: rgb(255, 64, 96);
-    }
+input.fav-button:checked ~ .icon-heart {
+  color: rgb(255, 64, 96);
+}

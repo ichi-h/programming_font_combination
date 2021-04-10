@@ -2,19 +2,17 @@
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 
-import { Theme } from './components/Editor/TypeAliases';
+import { Theme } from "./components/Editor/TypeAliases";
 
-jest.mock('./components/Editor/GridCodeMirror', () => {
-  return function DummyGridCodeMirror
-  (
-    props: {
-      fontSize: number,
-      codeMirrorRef: React.MutableRefObject<HTMLInputElement>,
-      textValue: string,
-      theme: Theme }
-  ) {
+jest.mock("./components/Editor/GridCodeMirror", () => {
+  return function DummyGridCodeMirror(props: {
+    fontSize: number;
+    codeMirrorRef: React.MutableRefObject<HTMLInputElement>;
+    textValue: string;
+    theme: Theme;
+  }) {
     return (
       <div
         style={{ fontSize: props.fontSize }}
@@ -28,6 +26,6 @@ jest.mock('./components/Editor/GridCodeMirror', () => {
           />
         </div>
       </div>
-    )
-  }
-})
+    );
+  };
+});

@@ -4,15 +4,15 @@
   grid-template-rows: 1fr;
 }
 
-  .chakra-tabs__tablist.css-dimqmj,
-  .editor .navbar {
-    height: 6vh;
-  }
+.chakra-tabs__tablist.css-dimqmj,
+.editor .navbar {
+  height: 6vh;
+}
 
-  .editor .CodeMirror {
-    font-family: "agave", "Cica";
-    height: 94vh;
-  }
+.editor .CodeMirror {
+  font-family: "agave", "Cica";
+  height: 94vh;
+}
 
 @media screen and (max-width: 1050px) {
   .editor {
@@ -24,7 +24,8 @@
     grid-template-rows: 1fr 1fr;
   }
 
-  .left, .right {
+  .left,
+  .right {
     width: 100vw;
   }
 

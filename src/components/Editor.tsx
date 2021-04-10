@@ -1,49 +1,55 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 
-import { Theme } from './Editor/TypeAliases';
-import FontSelector from './Editor/FontSelector';
-import Navbar from './Editor/Navbar';
-import GridCodeMirror from './Editor/GridCodeMirror';
+import { Theme } from "./Editor/TypeAliases";
+import FontSelector from "./Editor/FontSelector";
+import Navbar from "./Editor/Navbar";
+import GridCodeMirror from "./Editor/GridCodeMirror";
 
-import './Editor.css';
-import { getFontJson } from './Editor/FontSelector/font.json';
+import "./Editor.css";
+import { getFontJson } from "./Editor/FontSelector/font.json";
 
 interface ThemeState {
-  value: Theme,
-  setValue: React.Dispatch<React.SetStateAction<Theme>>
+  value: Theme;
+  setValue: React.Dispatch<React.SetStateAction<Theme>>;
 }
 
 interface FontSizeState {
-  value: number,
-  setValue: React.Dispatch<React.SetStateAction<number>>
+  value: number;
+  setValue: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface CurrentFontState {
-  value: { eng: string, jpn: string, reverse: boolean },
-  setValue: React.Dispatch<React.SetStateAction<{ eng: string, jpn: string, reverse: boolean }>>
+  value: { eng: string; jpn: string; reverse: boolean };
+  setValue: React.Dispatch<
+    React.SetStateAction<{ eng: string; jpn: string; reverse: boolean }>
+  >;
 }
 
-export const ThemeContext =
-  React.createContext<ThemeState | undefined>(undefined);
-export const FontSizeContext =
-  React.createContext<FontSizeState | undefined>(undefined);
-export const CurrentFontContext =
-  React.createContext<CurrentFontState | undefined>(undefined);
-export const CodeMirrorRefContext =
-  React.createContext<React.MutableRefObject<HTMLInputElement> | undefined>(undefined);
+export const ThemeContext = React.createContext<ThemeState | undefined>(
+  undefined
+);
+export const FontSizeContext = React.createContext<FontSizeState | undefined>(
+  undefined
+);
+export const CurrentFontContext = React.createContext<
+  CurrentFontState | undefined
+>(undefined);
+export const CodeMirrorRefContext = React.createContext<
+  React.MutableRefObject<HTMLInputElement> | undefined
+>(undefined);
 
 function Editor(): JSX.Element {
   const value = TextValue();
 
-  const initialEngFont = getFontJson('eng')[0].name;
-  const initialJpnFont = getFontJson('jpn')[0].name;
+  const initialEngFont = getFontJson("eng")[0].name;
+  const initialJpnFont = getFontJson("jpn")[0].name;
 
-  const [theme, setTheme] = useState('base16-dark' as Theme);
+  const [theme, setTheme] = useState("base16-dark" as Theme);
   const [fontSize, setFontSize] = useState(20);
   const [currentFont, setCurrentFont] = useState({
     eng: initialEngFont,
     jpn: initialJpnFont,
-    reverse: false
+    reverse: false,
   });
 
   const codeMirrorRef: React.MutableRefObject<HTMLInputElement> = useRef();
@@ -51,31 +57,31 @@ function Editor(): JSX.Element {
   return (
     <div className="editor">
       <div className="grid">
-
         <ThemeContext.Provider value={{ value: theme, setValue: setTheme }}>
-        <FontSizeContext.Provider value={{ value: fontSize, setValue: setFontSize }}>
-        <CurrentFontContext.Provider value={{ value: currentFont, setValue: setCurrentFont }}>
-        <CodeMirrorRefContext.Provider value={codeMirrorRef}>
+          <FontSizeContext.Provider
+            value={{ value: fontSize, setValue: setFontSize }}
+          >
+            <CurrentFontContext.Provider
+              value={{ value: currentFont, setValue: setCurrentFont }}
+            >
+              <CodeMirrorRefContext.Provider value={codeMirrorRef}>
+                <div className="left">
+                  <FontSelector />
+                </div>
 
-          <div className="left">
-            <FontSelector />
-          </div>
-
-          <div className="right">
-            <Navbar />
-            <GridCodeMirror
-              fontSize={fontSize}
-              codeMirrorRef={codeMirrorRef}
-              textValue={value}
-              theme={theme}
-            />
-          </div>
-
-        </CodeMirrorRefContext.Provider>
-        </CurrentFontContext.Provider>
-        </FontSizeContext.Provider>
+                <div className="right">
+                  <Navbar />
+                  <GridCodeMirror
+                    fontSize={fontSize}
+                    codeMirrorRef={codeMirrorRef}
+                    textValue={value}
+                    theme={theme}
+                  />
+                </div>
+              </CodeMirrorRefContext.Provider>
+            </CurrentFontContext.Provider>
+          </FontSizeContext.Provider>
         </ThemeContext.Provider>
-
       </div>
     </div>
   );
@@ -119,7 +125,7 @@ function TextValue(): string {
     };
   </script>
 </body>
-</html>`
+</html>`;
 }
 
 export default Editor;

@@ -1,16 +1,14 @@
-import React from 'react';
-import { Tooltip } from '@chakra-ui/react';
+import React from "react";
+import { Tooltip } from "@chakra-ui/react";
 
-import { Lang } from '../TypeAliases';
+import { Lang } from "../TypeAliases";
 
-function FavoriteBtn
-(
-  props: {
-    index: number,
-    lang: Lang
-    favValue: boolean,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }
-): JSX.Element {
+function FavoriteBtn(props: {
+  index: number;
+  lang: Lang;
+  favValue: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}): JSX.Element {
   return (
     <Tooltip label="Favorite!" placement="top">
       <label htmlFor={`${props.lang}-fav-${props.index}`}>
@@ -27,7 +25,7 @@ function FavoriteBtn
         <i id={`${props.lang}fav-icon-${props.index}`} className="icon-heart" />
       </label>
     </Tooltip>
-  )
+  );
 }
 
 export default FavoriteBtn;

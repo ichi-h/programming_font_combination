@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import './index.css';
-import './fonts.css';
-import './assets/css/fontello.css';
+import "./index.css";
+import "./fonts.css";
+import "./assets/css/fontello.css";
 import { ChakraProvider } from "@chakra-ui/react";
 
-import Editor from './components/Editor';
-import reportWebVitals from './reportWebVitals';
+import Editor from "./components/Editor";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +15,7 @@ ReactDOM.render(
       <Editor />
     </ChakraProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
