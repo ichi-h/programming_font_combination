@@ -1,4 +1,5 @@
 # Programming Font Combination
+[![Deploy to GitHub Pages](https://github.com/ippee/programming_font_combination/actions/workflows/pages-hosting.yml/badge.svg?branch=master)](https://github.com/ippee/programming_font_combination/actions/workflows/pages-hosting.yml)
 
 自分に合ったプログラミングフォントを見つける Web アプリ。  
 [https://ippee.github.io/programming_font_combination/](https://ippee.github.io/programming_font_combination/)
