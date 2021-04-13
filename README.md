@@ -1,4 +1,5 @@
 # Programming Font Combination
+
 [![Deploy to GitHub Pages](https://github.com/ippee/programming_font_combination/actions/workflows/pages-hosting.yml/badge.svg?branch=master)](https://github.com/ippee/programming_font_combination/actions/workflows/pages-hosting.yml)
 
 自分に合ったプログラミングフォントを見つける Web アプリ。  
@@ -23,10 +24,11 @@
   - Jest
   - React Testing Library
 - その他
-- ホスティングサービス
-  - GitHub Pages
-- CI/CD
-  - GitHub Actions
+  - Hosting service
+    - GitHub Pages
+  - CI/CD
+    - GitHub Actions
+      - master ブランチへ変更が加わった際、GitHub Pages へ自動デプロイ
 
 ## アプリ詳細
 
