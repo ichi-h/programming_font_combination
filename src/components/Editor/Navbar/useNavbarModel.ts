@@ -1,4 +1,4 @@
-import { useContext, useCallback } from "react";
+import { useContext } from "react";
 
 import { Lang, Theme } from "../TypeAliases";
 import {
@@ -31,41 +31,38 @@ function useNavbarModel(): [boolean, number, Theme, (msg: Msg) => void] {
   const fontSize = useContext(FontSizeContext);
   const theme = useContext(ThemeContext);
 
-  const updateNavbar = useCallback(
-    (msg: Msg) => {
-      switch (msg.message) {
-        case "ClickedReverseButton":
-          const checked = msg.checked;
+  const updateNavbar = (msg: Msg) => {
+    switch (msg.message) {
+      case "ClickedReverseButton":
+        const checked = msg.checked;
 
-          const currentFontCopy = currentFont.value;
-          currentFontCopy.reverse = checked;
-          currentFont.setValue(currentFontCopy);
+        const currentFontCopy = currentFont.value;
+        currentFontCopy.reverse = checked;
+        currentFont.setValue(currentFontCopy);
 
-          const k = ["eng", "jpn"] as Lang[];
-          if (currentFontCopy.reverse) k.reverse();
+        const k = ["eng", "jpn"] as Lang[];
+        if (currentFontCopy.reverse) k.reverse();
 
-          const elem = codeMirrorRef.current.children[0]
-            .children as HTMLCollectionOf<HTMLElement>;
-          // Will reference the CodeMirror Element from the Virtual DOM.
-          elem[0].style.fontFamily = `"${currentFontCopy[k[0]]}", "${
-            currentFontCopy[k[1]]
-          }"`;
+        const elem = codeMirrorRef.current.children[0]
+          .children as HTMLCollectionOf<HTMLElement>;
+        // Will reference the CodeMirror Element from the Virtual DOM.
+        elem[0].style.fontFamily = `"${currentFontCopy[k[0]]}", "${
+          currentFontCopy[k[1]]
+        }"`;
 
-          break;
+        break;
 
-        case "ChangeFontSize":
-          const newFontSize = msg.newFontSize;
-          fontSize.setValue(newFontSize);
-          break;
+      case "ChangeFontSize":
+        const newFontSize = msg.newFontSize;
+        fontSize.setValue(newFontSize);
+        break;
 
-        case "ChangeTheme":
-          const newTheme = msg.newTheme;
-          theme.setValue(newTheme);
-          break;
-      }
-    },
-    [currentFont, codeMirrorRef, fontSize, theme]
-  );
+      case "ChangeTheme":
+        const newTheme = msg.newTheme;
+        theme.setValue(newTheme);
+        break;
+    }
+  };
 
   return [currentFont.value.reverse, fontSize.value, theme.value, updateNavbar];
 }
