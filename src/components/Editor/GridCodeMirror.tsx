@@ -11,7 +11,7 @@ require("codemirror/mode/htmlmixed/htmlmixed.js");
 
 function GridCodeMirror(props: {
   fontSize: number;
-  codeMirrorRef: React.MutableRefObject<HTMLInputElement>;
+  codeMirrorRef: React.MutableRefObject<HTMLDivElement>;
   textValue: string;
   theme: Theme;
 }): JSX.Element {

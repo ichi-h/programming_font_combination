@@ -10,7 +10,7 @@ import { Theme } from "./components/Editor/TypeAliases";
 jest.mock("./components/Editor/GridCodeMirror", () => {
   return function DummyGridCodeMirror(props: {
     fontSize: number;
-    codeMirrorRef: React.MutableRefObject<HTMLInputElement>;
+    codeMirrorRef: React.MutableRefObject<HTMLDivElement>;
     textValue: string;
     theme: Theme;
   }) {

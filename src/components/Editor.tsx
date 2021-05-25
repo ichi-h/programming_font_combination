@@ -35,7 +35,7 @@ export const CurrentFontContext = React.createContext<
   CurrentFontState | undefined
 >(undefined);
 export const CodeMirrorRefContext = React.createContext<
-  React.MutableRefObject<HTMLInputElement> | undefined
+  React.MutableRefObject<HTMLDivElement> | undefined
 >(undefined);
 
 function Editor(): JSX.Element {
@@ -52,7 +52,7 @@ function Editor(): JSX.Element {
     reverse: false,
   });
 
-  const codeMirrorRef: React.MutableRefObject<HTMLInputElement> = useRef();
+  const codeMirrorRef: React.MutableRefObject<HTMLDivElement> = useRef();
 
   return (
     <div className="editor">
