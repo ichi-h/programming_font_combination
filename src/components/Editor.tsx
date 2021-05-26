@@ -41,25 +41,25 @@ function Editor(): JSX.Element {
             <CurrentFontContext.Provider
               value={{ value: currentFont, setValue: setCurrentFont }}
             >
-            <IsReverseContext.Provider
-              value={{ value: isReverse, setValue: toggleReverse }}
-            >
-              <CodeMirrorRefContext.Provider value={codeMirrorRef}>
-                <div className="left">
-                  <FontSelector />
-                </div>
+              <IsReverseContext.Provider
+                value={{ value: isReverse, setValue: toggleReverse }}
+              >
+                <CodeMirrorRefContext.Provider value={codeMirrorRef}>
+                  <div className="left">
+                    <FontSelector />
+                  </div>
 
-                <div className="right">
-                  <Navbar />
-                  <GridCodeMirror
-                    fontSize={fontSize}
-                    codeMirrorRef={codeMirrorRef}
-                    textValue={value}
-                    theme={theme}
-                  />
-                </div>
-              </CodeMirrorRefContext.Provider>
-            </IsReverseContext.Provider>
+                  <div className="right">
+                    <Navbar />
+                    <GridCodeMirror
+                      fontSize={fontSize}
+                      codeMirrorRef={codeMirrorRef}
+                      textValue={value}
+                      theme={theme}
+                    />
+                  </div>
+                </CodeMirrorRefContext.Provider>
+              </IsReverseContext.Provider>
             </CurrentFontContext.Provider>
           </FontSizeContext.Provider>
         </ThemeContext.Provider>
