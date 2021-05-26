@@ -3,7 +3,7 @@ import { Button } from "@chakra-ui/react";
 
 type Media = "Twitter" | "Facebook" | "Pocket";
 
-function ShareBtn(props: { media: Media }) {
+function ShareBtn(props: { media: Media }): JSX.Element {
   let Icon: JSX.Element;
   let shareURL: string;
   const title = document.title;

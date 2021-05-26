@@ -11,7 +11,7 @@ import {
 
 import ShareBtn from "./ShareBtn";
 
-function SocialBtns() {
+function SocialBtns(): JSX.Element {
   const handleGitHubBtn = () => {
     window.open("https://github.com/ippee/programming_fonts_combination");
   };

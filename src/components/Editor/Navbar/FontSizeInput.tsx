@@ -10,7 +10,7 @@ import {
 function FontSizeInput(props: {
   fontSize: number;
   onChange: (e: string) => void;
-}) {
+}): JSX.Element {
   return (
     <div className="setting-item">
       <NumberInput

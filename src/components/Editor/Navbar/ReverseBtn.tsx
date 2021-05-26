@@ -3,7 +3,7 @@ import React from "react";
 const ReverseBtn = (props: {
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}) => {
+}): JSX.Element => {
   return (
     <div className="settings-item reverse">
       <label htmlFor="reverse-button">

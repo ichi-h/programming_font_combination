@@ -6,7 +6,7 @@ import { Theme } from "../util/typeAliases";
 function ThemeSelector(props: {
   theme: Theme;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-}) {
+}): JSX.Element {
   return (
     <div className="setting-item select">
       <Select
