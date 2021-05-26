@@ -1,5 +1,12 @@
 import React, { useState, useRef } from "react";
 
+import {
+  ThemeContext,
+  FontSizeContext,
+  CodeMirrorRefContext,
+  CurrentFontContext,
+  IsReverseContext,
+} from "./Editor/util/context";
 import { Theme, CurrentFont, CodeMirrorElement } from "./Editor/util/TypeAliases";
 import FontSelector from "./Editor/FontSelector";
 import Navbar from "./Editor/Navbar";
