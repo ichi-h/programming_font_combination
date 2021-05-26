@@ -1,12 +1,14 @@
 import { useContext } from "react";
 
-import { Lang, Theme } from "../util/typeAliases";
+import { Theme } from "../util/typeAliases";
 import {
   CurrentFontContext,
+  IsReverseContext,
   CodeMirrorRefContext,
   FontSizeContext,
   ThemeContext,
-} from "../../Editor";
+} from "../../Editor/util/context";
+import "../util/HTMLDivElem.extensions";
 
 interface ClickedReverseButton {
   message: "ClickedReverseButton";
@@ -27,6 +29,7 @@ type Msg = ClickedReverseButton | ChangeFontSize | ChangeTheme;
 
 function useNavbarModel(): [boolean, number, Theme, (msg: Msg) => void] {
   const currentFont = useContext(CurrentFontContext);
+  const isReverse = useContext(IsReverseContext);
   const codeMirrorRef = useContext(CodeMirrorRefContext);
   const fontSize = useContext(FontSizeContext);
   const theme = useContext(ThemeContext);
@@ -36,19 +39,11 @@ function useNavbarModel(): [boolean, number, Theme, (msg: Msg) => void] {
       case "ClickedReverseButton":
         const checked = msg.checked;
 
-        const currentFontCopy = currentFont.value;
-        currentFontCopy.reverse = checked;
-        currentFont.setValue(currentFontCopy);
+        let isReverseCopy = isReverse.value;
+        isReverseCopy = checked;
+        isReverse.setValue(isReverseCopy);
 
-        const k = ["eng", "jpn"] as Lang[];
-        if (currentFontCopy.reverse) k.reverse();
-
-        const elem = codeMirrorRef.current.children[0]
-          .children as HTMLCollectionOf<HTMLElement>;
-        // Will reference the CodeMirror Element from the Virtual DOM.
-        elem[0].style.fontFamily = `"${currentFontCopy[k[0]]}", "${
-          currentFontCopy[k[1]]
-        }"`;
+        codeMirrorRef.current.updateFont(currentFont.value, isReverseCopy);
 
         break;
 
@@ -64,7 +59,7 @@ function useNavbarModel(): [boolean, number, Theme, (msg: Msg) => void] {
     }
   };
 
-  return [currentFont.value.reverse, fontSize.value, theme.value, updateNavbar];
+  return [isReverse.value, fontSize.value, theme.value, updateNavbar];
 }
 
 export default useNavbarModel;
