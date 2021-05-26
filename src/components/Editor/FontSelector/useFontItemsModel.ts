@@ -24,7 +24,7 @@ function useFontItemsModel(
   lang: Lang
 ): [
   string,
-  React.MutableRefObject<HTMLInputElement>,
+  React.MutableRefObject<HTMLDivElement>,
   FontInfo[],
   boolean[],
   (msg: Msg) => void
@@ -38,7 +38,7 @@ function useFontItemsModel(
   const isReverse = useContext(IsReverseContext);
   const codeMirrorRef = useContext(CodeMirrorRefContext);
 
-  const fontItemsRef: React.MutableRefObject<HTMLInputElement> = useRef();
+  const fontItemsRef: React.MutableRefObject<HTMLDivElement> = useRef();
 
   const updateFontItems = (msg: Msg) => {
     // Will update the FontItems component depending on the client's action.
