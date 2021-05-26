@@ -23,13 +23,13 @@ function Editor(): JSX.Element {
 
   const [theme, setTheme] = useState("base16-dark" as Theme);
   const [fontSize, setFontSize] = useState(20);
-  const [currentFont, setCurrentFont] = useState({
+  const [isReverse, toggleReverse] = useState(false);
+  const [currentFont, setCurrentFont] = useState<CurrentFont>({
     eng: initialEngFont,
     jpn: initialJpnFont,
-    reverse: false,
   });
 
-  const codeMirrorRef: React.MutableRefObject<HTMLDivElement> = useRef();
+  const codeMirrorRef: React.MutableRefObject<CodeMirrorElement> = useRef();
 
   return (
     <div className="editor">
@@ -40,6 +40,9 @@ function Editor(): JSX.Element {
           >
             <CurrentFontContext.Provider
               value={{ value: currentFont, setValue: setCurrentFont }}
+            >
+            <IsReverseContext.Provider
+              value={{ value: isReverse, setValue: toggleReverse }}
             >
               <CodeMirrorRefContext.Provider value={codeMirrorRef}>
                 <div className="left">
@@ -56,6 +59,7 @@ function Editor(): JSX.Element {
                   />
                 </div>
               </CodeMirrorRefContext.Provider>
+            </IsReverseContext.Provider>
             </CurrentFontContext.Provider>
           </FontSizeContext.Provider>
         </ThemeContext.Provider>
