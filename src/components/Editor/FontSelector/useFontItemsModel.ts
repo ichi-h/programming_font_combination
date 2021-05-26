@@ -2,7 +2,7 @@ import React, { useState, useContext, useRef } from "react";
 
 import { FontInfo, getFontJson } from "./font.json";
 import { Lang } from "../util/typeAliases";
-import { CurrentFontContext, CodeMirrorRefContext } from "../../Editor";
+import { CurrentFontContext, CodeMirrorRefContext, IsReverseContext } from "../../Editor/util/context";
 
 interface UpdateCurrentFont {
   message: "UpdateCurrentFont";
@@ -35,6 +35,7 @@ function useFontItemsModel(
   const [favValue, setfavValue] = useState(favArray);
 
   const currentFont = useContext(CurrentFontContext);
+  const isReverse = useContext(IsReverseContext);
   const codeMirrorRef = useContext(CodeMirrorRefContext);
 
   const fontItemsRef: React.MutableRefObject<HTMLInputElement> = useRef();
@@ -50,15 +51,7 @@ function useFontItemsModel(
         currentFontCopy[lang] = fontName;
         currentFont.setValue(currentFontCopy);
 
-        const k = ["eng", "jpn"] as Lang[];
-        if (currentFontCopy.reverse) k.reverse();
-
-        const elem = codeMirrorRef.current.children[0]
-          .children as HTMLCollectionOf<HTMLElement>;
-        // Will reference the CodeMirror Element from the Virtual DOM.
-        elem[0].style.fontFamily = `"${currentFontCopy[k[0]]}", "${
-          currentFontCopy[k[1]]
-        }"`;
+        codeMirrorRef.current.updateFont(currentFontCopy, isReverse.value);
 
         break;
 
