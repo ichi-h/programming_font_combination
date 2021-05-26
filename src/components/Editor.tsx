@@ -7,7 +7,7 @@ import {
   CurrentFontContext,
   IsReverseContext,
 } from "./Editor/util/context";
-import { Theme, CurrentFont, CodeMirrorElement } from "./Editor/util/typeAliases";
+import { Theme, CurrentFont } from "./Editor/util/typeAliases";
 import FontSelector from "./Editor/FontSelector";
 import Navbar from "./Editor/Navbar";
 import GridCodeMirror from "./Editor/GridCodeMirror";
@@ -29,7 +29,7 @@ function Editor(): JSX.Element {
     jpn: initialJpnFont,
   });
 
-  const codeMirrorRef: React.MutableRefObject<CodeMirrorElement> = useRef();
+  const codeMirrorRef: React.MutableRefObject<HTMLDivElement> = useRef();
 
   return (
     <div className="editor">

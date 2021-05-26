@@ -1,5 +1,5 @@
 import React from "react";
-import { Theme, CurrentFont, CodeMirrorElement} from "./typeAliases";
+import { Theme, CurrentFont } from "./typeAliases";
 
 interface ThemeState {
   value: Theme;
@@ -38,5 +38,5 @@ export const IsReverseContext = React.createContext<IsReverseState | undefined>(
 );
 
 export const CodeMirrorRefContext = React.createContext<
-  React.MutableRefObject<CodeMirrorElement> | undefined
+  React.MutableRefObject<HTMLDivElement> | undefined
 >(undefined);
