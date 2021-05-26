@@ -1,7 +1,7 @@
 import React from "react";
 import { Tooltip } from "@chakra-ui/react";
 
-import { Lang } from "../TypeAliases";
+import { Lang } from "../util/typeAliases";
 
 function FavoriteBtn(props: {
   index: number;

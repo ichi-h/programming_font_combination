@@ -5,7 +5,7 @@
 import React from "react";
 import "@testing-library/jest-dom";
 
-import { Theme } from "./components/Editor/TypeAliases";
+import { Theme } from "./components/Editor/util/typeAliases";
 
 jest.mock("./components/Editor/GridCodeMirror", () => {
   return function DummyGridCodeMirror(props: {

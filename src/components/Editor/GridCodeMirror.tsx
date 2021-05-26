@@ -1,7 +1,7 @@
 import React from "react";
 import { UnControlled as CodeMirror } from "react-codemirror2";
 
-import { Theme } from "./TypeAliases";
+import { Theme } from "./util/typeAliases";
 
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/base16-dark.css";

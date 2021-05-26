@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { Lang, Theme } from "../TypeAliases";
+import { Lang, Theme } from "../util/typeAliases";
 import {
   CurrentFontContext,
   CodeMirrorRefContext,

@@ -2,7 +2,7 @@ import React from "react";
 import SimpleBar from "simplebar-react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
-import { Lang } from "./TypeAliases";
+import { Lang } from "./util/typeAliases";
 
 import FontItems from "./FontSelector/FontItems";
 

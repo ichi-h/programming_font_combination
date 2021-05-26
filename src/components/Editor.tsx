@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import { Theme } from "./Editor/TypeAliases";
+import { Theme, CurrentFont, CodeMirrorElement } from "./Editor/util/TypeAliases";
 import FontSelector from "./Editor/FontSelector";
 import Navbar from "./Editor/Navbar";
 import GridCodeMirror from "./Editor/GridCodeMirror";

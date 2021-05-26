@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 import useNavbarModel from "./Navbar/useNavbarModel";
-import { Theme } from "./TypeAliases";
+import { Theme } from "./util/typeAliases";
 
 import "./Navbar.css";
 

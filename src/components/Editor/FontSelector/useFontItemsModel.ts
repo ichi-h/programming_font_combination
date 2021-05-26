@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef } from "react";
 
 import { FontInfo, getFontJson } from "./font.json";
-import { Lang } from "../TypeAliases";
+import { Lang } from "../util/typeAliases";
 import { CurrentFontContext, CodeMirrorRefContext } from "../../Editor";
 
 interface UpdateCurrentFont {

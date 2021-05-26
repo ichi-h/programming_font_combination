@@ -2,7 +2,7 @@ import React from "react";
 import { Radio, RadioGroup, Button, Tooltip } from "@chakra-ui/react";
 
 import useFontItemsModel from "./useFontItemsModel";
-import { Lang } from "../TypeAliases";
+import { Lang } from "../util/typeAliases";
 import FavoriteBtn from "./FavoriteBtn";
 
 import "./FontItems.css";
