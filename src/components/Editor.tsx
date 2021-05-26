@@ -8,36 +8,6 @@ import GridCodeMirror from "./Editor/GridCodeMirror";
 import "./Editor.css";
 import { getFontJson } from "./Editor/FontSelector/font.json";
 
-interface ThemeState {
-  value: Theme;
-  setValue: React.Dispatch<React.SetStateAction<Theme>>;
-}
-
-interface FontSizeState {
-  value: number;
-  setValue: React.Dispatch<React.SetStateAction<number>>;
-}
-
-interface CurrentFontState {
-  value: { eng: string; jpn: string; reverse: boolean };
-  setValue: React.Dispatch<
-    React.SetStateAction<{ eng: string; jpn: string; reverse: boolean }>
-  >;
-}
-
-export const ThemeContext = React.createContext<ThemeState | undefined>(
-  undefined
-);
-export const FontSizeContext = React.createContext<FontSizeState | undefined>(
-  undefined
-);
-export const CurrentFontContext = React.createContext<
-  CurrentFontState | undefined
->(undefined);
-export const CodeMirrorRefContext = React.createContext<
-  React.MutableRefObject<HTMLDivElement> | undefined
->(undefined);
-
 function Editor(): JSX.Element {
   const value = TextValue();
 
