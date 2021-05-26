@@ -7,7 +7,7 @@ import {
   CurrentFontContext,
   IsReverseContext,
 } from "./Editor/util/context";
-import { Theme, CurrentFont, CodeMirrorElement } from "./Editor/util/TypeAliases";
+import { Theme, CurrentFont, CodeMirrorElement } from "./Editor/util/typeAliases";
 import FontSelector from "./Editor/FontSelector";
 import Navbar from "./Editor/Navbar";
 import GridCodeMirror from "./Editor/GridCodeMirror";
