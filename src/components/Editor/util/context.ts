@@ -16,6 +16,11 @@ interface CurrentFontState {
   setValue: React.Dispatch<React.SetStateAction<CurrentFont>>;
 }
 
+interface IsReverseState {
+  value: boolean;
+  setValue: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export const ThemeContext = React.createContext<ThemeState | undefined>(
   undefined
 );
@@ -27,6 +32,10 @@ export const FontSizeContext = React.createContext<FontSizeState | undefined>(
 export const CurrentFontContext = React.createContext<
   CurrentFontState | undefined
 >(undefined);
+
+export const IsReverseContext = React.createContext<IsReverseState | undefined>(
+  undefined
+);
 
 export const CodeMirrorRefContext = React.createContext<
   React.MutableRefObject<CodeMirrorElement> | undefined
