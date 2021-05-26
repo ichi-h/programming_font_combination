@@ -1,5 +1,5 @@
 import React from "react";
-import { Theme, CurrentFont, CodeMirrorElement} from "./TypeAliases";
+import { Theme, CurrentFont, CodeMirrorElement} from "./typeAliases";
 
 interface ThemeState {
   value: Theme;
