@@ -5,6 +5,9 @@
 自分に合ったプログラミングフォントを見つける Web アプリ。  
 [https://ippee.github.io/programming_font_combination/](https://ippee.github.io/programming_font_combination/)
 
+アプリ紹介記事: [https://ippee-music.com/tech/programming_font_combination_app/](https://ippee-music.com/tech/programming_font_combination_app/)  
+技術解説記事: [https://ippee-music.com/tech/programming_font_combination_tech/](https://ippee-music.com/tech/programming_font_combination_tech/)
+
 ![App](./images/app.jpg)
 
 ## 使用技術
