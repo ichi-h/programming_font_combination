@@ -1,12 +1,9 @@
 # Programming Font Combination
 
-[![Deploy to GitHub Pages](https://github.com/ippee/programming_font_combination/actions/workflows/pages-hosting.yml/badge.svg?branch=master)](https://github.com/ippee/programming_font_combination/actions/workflows/pages-hosting.yml)
+[![Deploy to GitHub Pages](https://github.com/ichi-h/programming_font_combination/actions/workflows/pages-hosting.yml/badge.svg?branch=main)](https://github.com/ichi-h/programming_font_combination/actions/workflows/pages-hosting.yml)
 
 自分に合ったプログラミングフォントを見つける Web アプリ。  
-[https://ippee.github.io/programming_font_combination/](https://ippee.github.io/programming_font_combination/)
-
-アプリ紹介記事: [https://ippee-music.com/tech/programming_font_combination_app/](https://ippee-music.com/tech/programming_font_combination_app/)  
-技術解説記事: [https://ippee-music.com/tech/programming_font_combination_tech/](https://ippee-music.com/tech/programming_font_combination_tech/)
+[https://ichi-h.github.io/programming_font_combination/](https://ichi-h.github.io/programming_font_combination/)
 
 ![App](./images/app.jpg)
 
@@ -31,7 +28,7 @@
     - GitHub Pages
   - CI/CD
     - GitHub Actions
-      - master ブランチへ変更が加わった際、GitHub Pages へ自動デプロイ
+      - main ブランチへ変更が加わった際、GitHub Pages へ自動デプロイ
 
 ## アプリ詳細
 
@@ -65,27 +62,33 @@
 
 #### Ricty Diminished
 
-私が前に使っていたフォントです。  
+私がフォントを組み合わせる前に使っていたフォントです。  
 自分に合ったフォントが既に存在するのであれば、わざわざフォントを組み合わせる必要はありません。  
 重要なことは、**自分が快適にコーディングできる環境を整えること** です。
 
-#### Courier Prime Code + Ricty Diminished
+#### Office Code Pro + NasuM
 
 私の現在の組み合わせです。  
-そのまま組み合わせると「全角：半角＝３：５」という白源 Like な比率になります。  
-やや特殊な比率ではありますが、半角文字がぎゅうぎゅう詰めにならず余裕があるためとても読みやすいです。
+そのまま組み合わせると「全角：半角＝３：５」という白源 Like な比率になります。１：２だと英字が細々として読みにくいので、私はこの比率の組み合わせをよく使います。  
+視認性・可読性・判読性は申し分なし。ほどよく丸く、且つ太過ぎず細すぎないので大変読みやすいです。難点はリガチャがないくらい。 ~~**全人類このフォントにすれば良いと思います。**~~
 
-#### JetBrains Mono + Nasu
+#### Courier Prime Code + Ricty Diminished
 
-こちらも「全角：半角＝３：５」の比率になります。  
+今使用しているフォントの１つ前の組み合わせです。  
+こちらも３：５という比率になります。  
+私が丸っこいフォントが好きなのでしばらく使っていたのですが、文字の背が少し低く、若干読みにくかったので上の組み合わせに乗り換えました。
+
+#### JetBrains Mono + NasuM
+
+これも３：５。  
 JetBrains Mono は書体がハッキリとしておりとても読みやすいのですが、そんなことよりリガチャを使えるのがとても楽しいです。
 
 #### Victor Mono + MyricaM
 
 Victor Mono もリガチャ対応のフォントです。  
 こちらはスッキリとした書体が特徴で、エディターの見栄えがゴツくなりにくいです。  
-和文フォントと合わせるときはウェイトが軽めなものを選択してあげるとハマりそうです。  
-ただし、「全角：半角＝６：１１」という奇妙な比率になります。
+和文フォントと合わせるときはウェイトが軽めなものを選択してあげるとハマりそう。  
+ただし、「全角：半角＝６：１１」というあまり見ない比率になります。
 
 ### ここにはないオススメのフォント
 
