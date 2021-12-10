@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/programming_font_combination/static/css/main.da1d1385.chunk.css",
+    "main.css": "/programming_font_combination/static/css/main.a554dd5e.chunk.css",
     "main.js": "/programming_font_combination/static/js/main.d54f5aca.chunk.js",
     "main.js.map": "/programming_font_combination/static/js/main.d54f5aca.chunk.js.map",
     "runtime-main.js": "/programming_font_combination/static/js/runtime-main.a60f5001.js",
@@ -12,16 +12,16 @@
     "static/js/3.b5bb9939.chunk.js.map": "/programming_font_combination/static/js/3.b5bb9939.chunk.js.map",
     "index.html": "/programming_font_combination/index.html",
     "static/css/2.e6faa165.chunk.css.map": "/programming_font_combination/static/css/2.e6faa165.chunk.css.map",
-    "static/css/main.da1d1385.chunk.css.map": "/programming_font_combination/static/css/main.da1d1385.chunk.css.map",
+    "static/css/main.a554dd5e.chunk.css.map": "/programming_font_combination/static/css/main.a554dd5e.chunk.css.map",
     "static/js/2.1b7a4d95.chunk.js.LICENSE.txt": "/programming_font_combination/static/js/2.1b7a4d95.chunk.js.LICENSE.txt",
-    "static/media/fonts.css": "/programming_font_combination/static/media/rounded-mplus-1m-regular.8962ea94.ttf",
+    "static/media/fonts.css": "/programming_font_combination/static/media/rounded-mplus-1m-regular.bed23c7e.ttf",
     "static/media/fontello.css": "/programming_font_combination/static/media/fontello.d3921089.eot"
   },
   "entrypoints": [
     "static/js/runtime-main.a60f5001.js",
     "static/css/2.e6faa165.chunk.css",
     "static/js/2.1b7a4d95.chunk.js",
-    "static/css/main.da1d1385.chunk.css",
+    "static/css/main.a554dd5e.chunk.css",
     "static/js/main.d54f5aca.chunk.js"
   ]
 }
